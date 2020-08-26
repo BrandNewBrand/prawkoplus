@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2112.209" height="5667.064" viewBox="0 0 2112.209 5667.064">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-0.434" y1="-0.11" x2="3.06" y2="3.108" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#cd002f"/>
+      <stop offset="1" stop-color="#482080"/>
+    </linearGradient>
+    <filter id="Path_420" x="0" y="0" width="1378.757" height="2805.805" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-color="#1a1818" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_421" x="221.544" y="2906.495" width="1890.665" height="2760.569" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-2"/>
+      <feFlood flood-color="#1a1818" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_208" data-name="Group 208" transform="translate(112.104 -1189.695)">
+    <g transform="matrix(1, 0, 0, 1, -112.1, 1189.7)" filter="url(#Path_420)">
+      <path id="Path_420-2" data-name="Path 420" d="M-601.646,0H56.869S80.558.254,95.9,14.8s12.95,44.006,12.95,44.006l.135,1081.355s59.637,2.029,526.348,2.029c4.393,0,23.842-2.694,41.456,14.871s16,55.39,16,55.39l.564,1435.479s2.63,50.375-20,74.414-70.519,21.742-70.519,21.742h-423.4l-803.575.716,22.495-113.434H182.676l322.146.333h91.586v-88.077l.578-1305.212h-488s-56.785,3.657-76.865-14.77-18.167-64.982-18.167-64.982S11.567,742.1,11.567,98.993H-601.646Z" transform="translate(654.75 25.5)" stroke="rgba(0,0,0,0)" stroke-width="1" fill="url(#linear-gradient)"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -112.1, 1189.7)" filter="url(#Path_421)">
+      <path id="Path_421-2" data-name="Path 421" d="M-1109.552,6.477H203.719s23.689.251,39.032,14.593S255.7,64.454,255.7,64.454l.135,1066.086s-87.213-4.477,379.5-4.477c4.393,0,23.842-2.656,41.456,14.661s16,54.608,16,54.608l.564,1415.209s2.63,49.664-20,73.363-70.519,21.435-70.519,21.435h-423.4l-1315.481.706,22.495-111.832H182.676l322.146.328h91.586v-86.833l.578-1286.781-341.15,6.477s-56.785,3.606-76.865-14.562-18.167-64.064-18.167-64.064S158.417,738.1,158.417,104.072H-1109.552Z" transform="translate(945.55 5638.04) rotate(180)" stroke="rgba(0,0,0,0)" stroke-width="1" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>

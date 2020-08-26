@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="77" height="77" viewBox="0 0 77 77">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3e0a3e"/>
+      <stop offset="1" stop-color="#ff2156" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g id="Group_208" data-name="Group 208" transform="translate(-1674 -32)">
+    <circle id="Ellipse_5" data-name="Ellipse 5" cx="38.5" cy="38.5" r="38.5" transform="translate(1674 32)" fill="url(#radial-gradient)"/>
+    <g id="Component_13_1" data-name="Component 13 – 1" transform="translate(1692 50)">
+      <g id="Component_10_1" data-name="Component 10 – 1">
+        <g id="Group_67" data-name="Group 67">
+          <path id="Rectangle_62" data-name="Rectangle 62" d="M16.851,0h6.415A16.851,16.851,0,0,1,40.117,16.851v0a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0v0A16.851,16.851,0,0,1,16.851,0Z" transform="translate(0 23.234)" fill="none" stroke="#f2f2f2" stroke-linejoin="round" stroke-width="3"/>
+          <ellipse id="Ellipse_3" data-name="Ellipse 3" cx="9.562" cy="9.575" rx="9.562" ry="9.575" transform="translate(10.497)" fill="none" stroke="#f2f2f2" stroke-linejoin="round" stroke-width="3"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

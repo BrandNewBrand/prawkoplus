@@ -1,0 +1,81 @@
+.content-table{
+  font-weight: bold;
+}
+
+.sticki-center{
+  margin-top: auto;
+  margin-bottom: auto
+}
+
+li{
+  list-style-type: none;
+}
+
+.regulamin li {
+    margin-bottom: 20px;
+    padding-inline-start:30px ;
+}
+
+.regulamin li a {
+    color: black;
+    font-weight: bold;
+}
+
+.regulamin li a:hover {
+    color: #B40524;
+}
+
+.regulamin li:hover {
+    color: #B40524;
+}
+
+.text-primary {
+    color: #B40524 !important;
+}
+
+.regulamin_body {
+    font-size: 18px;
+}
+
+.regulamin_body li {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+ol {
+  padding-inline-start: 0px !important;
+}
+
+.position-absolute {
+    position: fixed;
+    z-index: 9999;
+}
+
+
+#wrapper {
+    background-image: none !important;
+}
+
+.content-background{
+  background-image: url('img/img2/arrowsDown/regTlo.svg');
+  background-position-x: 20%;
+  background-size: cover;
+
+
+}
+
+.reg {
+    background-image: url('img/reg.svg');
+
+
+
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: -9999;
+
+}
