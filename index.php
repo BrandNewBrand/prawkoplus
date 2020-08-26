@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['active']=1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,14 +86,14 @@ $_SESSION['active']=1;
 
 
 <!-- ###############################################3 -->
-<form class="" action="index.html" method="post">
+<form class="" action="backend/wyszukiwanie_strona_gl.php" method="POST">
 	<div class=" col-lg-11  offset-xl-1 offset-md-0 p-0 ofe-row-margin mt-1">
 						<div class="search-box bg-white">
 							<div class="content row mx-0">
 								<div class="search-tab d-flex align-items-center tab-left col-lg-10 bg-custom-purple ">
 									<div class="col-md-3 d-none d-lg-block">
-										<select  class="browser-default custom-select  search-bar-text-1">
-											<option class="" value="miasto" selected>miasto</option>
+										<select name="city"  class="browser-default custom-select  search-bar-text-1">
+											<option class="" value="0" selected>miasto</option>
 											<option class="" value="Koszalin">Koszalin</option>
 											<option class="" value="Kraków">Kraków</option>
 											<option class="" value="Warszawa">Warszawa</option>
@@ -103,8 +102,8 @@ $_SESSION['active']=1;
 										</select>
 									</div>
 									<div class="col-md-3 d-none d-lg-block">
-									<select  class="browser-default custom-select search-bar-text-1">
-											<option  value="kategoria" selected>kategoria</option>
+									<select name="cat" class="browser-default custom-select search-bar-text-1" placeholder="Kategoria">
+											<option  value="0" selected>kategoria</option>
 											<option  value="B1">B1</option>
 											<option  value="B2">B2</option>
 											<option  value="C1">C1</option>
@@ -114,13 +113,11 @@ $_SESSION['active']=1;
 									</div>
 
 
-									<div class="col-md-3 d-none d-lg-block">
-										<select  class="browser-default custom-select ">
-											<option value="sortuj" selected>sortuj</option>
+									<div  class="col-md-3 d-none d-lg-block">
+										<select name="sort" class="browser-default custom-select ">
+											<option value="0" selected>sortuj</option>
 											<option value="ocena malejąco">ocena malejąco</option>
 											<option value="ocena rosnąco">ocena rosnąco</option>
-											<option value="cena rosnąco">cena rosnąco</option>
-											<option value="cena malejąco">cena malejąco</option>
 										</select>
 
 									</div>
@@ -131,7 +128,7 @@ $_SESSION['active']=1;
 
 
 							  	<div class="round ">
-											<input type="checkbox" id="checkbox" name="" value="">
+											<input type="checkbox" id="checkbox" name="pp" value="1">
 									   	<label class="vertical-center-checkbox" for="checkbox"></label>
 											<span class="search-bar-text-1" style="margin-left: 12%;">prawko plus</span>
 											<div class="clearing-both">	</div>
@@ -142,10 +139,10 @@ $_SESSION['active']=1;
 
 
 								</div>
-								<div style="cursor:pointer" class="search-tab col-lg-2 d-flex justify-content-center col-12 tab-right">
+								<label style="cursor:pointer" class=" mb-0 search-tab col-lg-2 d-flex justify-content-center col-12 tab-right">
 									<input class="search-bar-text-2" type="submit" name="" value="szukaj">
 									<img style="margin-left: 5%;" src="img/img2/arrowsDown/lupa.svg" alt="">
-								</div>
+								</label>
 
 
 

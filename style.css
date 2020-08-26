@@ -331,7 +331,7 @@ button, a {
     margin-top: 5vh;
 }
 
-.header .heading, .heading hr { padding-right: 4rem; }
+.header, hr { padding-right: 4rem; }
 
 .search-left .heading-p p{
     margin-top: 50px;
