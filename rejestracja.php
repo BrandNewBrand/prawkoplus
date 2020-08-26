@@ -144,6 +144,16 @@ session_start();
                   </div>
 
                 </form>
+                <form class="testowy-formularz">
+                  <label><p>imie:</p><input type="text" name=""></label>
+                  <label><p>Nazwisko:</p><input type="text" name=""></label>
+                  <label><p>Adres E-mail:</p><input type="text" name=""></label>
+                  <label><p>Numer telefonu:</p><input type="text" name=""></label>
+                  <label><p>Adres:</p><input type="text" name=""></label>
+                  <label><p>hasło:</p><input type="text" name=""></label>
+                  <label><input type="checkbox" name="">Regulamin</label>
+                  <label><input type="submit" value="Zarejestruj się" name=""><img style="margin-left: 5%;" src="img/img2/arrowsDown/lupa.svg" alt=""></label>
+                </form>
 
                 </div>
 

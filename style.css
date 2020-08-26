@@ -45,7 +45,39 @@
 
 
 
+.testowy-formularz {
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
 
+.testowy-formularz > label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.testowy-formularz > label  > p {
+    font-size: 18px !important;
+}
+
+
+.testowy-formularz > label > input {
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid #B30623;
+    outline: none !important;
+    padding: 10px;
+}
+
+.testowy-formularz > label > input:nth-child(8) {
+    border: none !important;
+}
 
 
 
