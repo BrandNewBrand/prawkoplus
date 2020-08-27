@@ -131,7 +131,7 @@ include $pageprefix.'include/all/navbar.php';
                   </div>
 
                 </form>
-                <div class="error-box text-center text-error mt-4"><?php echo $_SESSION['error']; ?></div>
+                <div class="error-box text-center text-error mt-4"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>
                 </div>
 
             </div>

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$rejestr = 0;
+
 
 if (isset($_POST['imie'])) {
 
@@ -63,13 +63,9 @@ if ($email_test_numb > 0) {
 if ($polaczenie->query("INSERT INTO users VALUES (NULL, '$imie', '$nazwisko', '$email', '$tel', '$login', '$haslo', '0')")) {
 	$rez=$polaczenie->query("SELECT id FROM users ORDER BY id DESC LIMIT 1");
 	$row = $rez->fetch_assoc();
+	$user_id = $row['id'];
 
-	$_SESSION['user_id']=$row['id'];
-	$_SESSION['imie'] = $imie;
-	$_SESSION['email'] = $email;
-	$_SESSION['login'] = $login;
-
-	header("Location: potwierdzenie_email.php");
+	header("Location: potwierdzenie_email.php?id=$user_id");
 
 } else {
 	$_SESSION['error'] = 'Błąd serwera. Prosimy o próbę rejestracji w późniejszym terminie.';

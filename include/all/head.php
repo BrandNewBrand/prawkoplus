@@ -1,3 +1,11 @@
+
+<?php 
+if (!isset($_SESSION['zalogowany'])) {
+	$_SESSION['zalogowany'] = 0;
+}
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

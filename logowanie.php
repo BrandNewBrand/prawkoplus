@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['error'])) {
+  $_SESSION['error'] = '';
+}
+
 $pagetitle = '';
 $pageprefix = '';
 
@@ -32,8 +37,8 @@ include $pageprefix.'include/all/navbar.php';
                </div>
 
 
-
-                 <form class="" action="backend/logowanie.html" method="post">
+                  <div class="error-box text-center text-error mt-4"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>
+                 <form class="" action="backend/logowanie.php" method="post">
 
 
 
@@ -63,11 +68,8 @@ include $pageprefix.'include/all/navbar.php';
                      <div class="col-lg-4 offset-lg-4 offset-1 col-10">
 
 
-                       <div class="form-group form-check" style="margin-left:3%;">
-                           <label class="form-check-label f20">
-                               <input class="form-check-input" style="margin-top:0" type="checkbox" required>
-                               <span style="padding: 0 10px; display: block;">nie pamiętam hasła</span>
-                           </label>
+                       <div class="form-group form-check">
+                           <a href="przypomnienie_hasla.php" class="text-black">Nie pamiętam hasła</a>
 
 
                        </div>
@@ -77,11 +79,13 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
+
                      </div>
 
                    </div>
 
                  </form>
+                 <p class="text-center">Nie masz konta? <a href="rejestracja.php" class="text-black">Zarejestruj się</a></p>
 
                  </div>
 

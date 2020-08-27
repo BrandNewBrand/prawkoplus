@@ -3,6 +3,15 @@
     $pagetitle = 'Potwierdzenie adresu email';
     $pageprefix = '../';
 
+    $id = $_GET['id'];
+
+    require_once "connect.php";
+    $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+    $rezultat=$polaczenie->query("SELECT * FROM users WHERE id='$id'");
+    $row = $rezultat->fetch_assoc();
+
+    $polaczenie->close();
+
 
     include $pageprefix.'include/all/head.php';
     include $pageprefix.'include/all/navbar.php';
@@ -11,9 +20,9 @@
     $to = $_SESSION['email'];
     $name = 'Serwis Prawko Plus';
     $email = 'biuro@brandnewbrand.pl';
-    $lokalizacja = $_SESSION['domena'].'/backend/potwierdzenie_adresu_email.php?id='.$_SESSION['user_id'];
-    $user_name = $_SESSION['imie'];
-    $subject = 'Weryfikacja adresu e-mail użytkownika '.$_SESSION['login'];
+    $lokalizacja = $_SESSION['domena'].'/backend/potwierdzenie_adresu_email.php?id='.$id;
+    $user_name = $row['imie'];
+    $subject = 'Weryfikacja adresu e-mail użytkownika '.$row['login'];
 
 
 
@@ -86,7 +95,7 @@ if (mail($to, $subject, $message, $header)) {
                      <div class="col-lg-4 offset-lg-4 offset-1 col-10">
 
                        <div class="text-center">
-                         <a href="potwierdzenie_email.php">
+                         <a href="potwierdzenie_email.php?id=<?php echo $id; ?>">
                            <button type="submit"  class="btn btn-primary btn-submicik">Wyślij wiadomość ponownie</button>
                          </a>
 

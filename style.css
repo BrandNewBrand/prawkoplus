@@ -11,6 +11,15 @@
     clip:rect(0,0,0,0);
 }
 
+
+.text-black {
+    color: #000;
+}
+
+a.text-black:hover {
+    color: red;
+}
+
 .rating:not(:checked) > label {
     float:right;
     width:1em;
