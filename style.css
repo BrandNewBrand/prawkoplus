@@ -3,7 +3,7 @@
     float:left;
 }
 
-/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
    follow these rules. Every browser that supports :checked also supports :not(), so
    it doesn’t make the test unnecessarily selective */
 .rating:not(:checked) > input {
@@ -225,7 +225,7 @@ p { font-size: 24px; line-height: 40px; }
   height: 16px;
   left: 0;
   position: absolute;
-  top: 14px;
+  top: 4px;
   width: 16px;
 }
 
@@ -310,7 +310,7 @@ html {
 body {
     min-height: 100%;
     font-family: 'Nunito', sans-serif;
-    /* background-image: url('img/main.svg'); */
+
     background-repeat: no-repeat;
     background-size: cover;
     font-size: 18px;
@@ -319,6 +319,19 @@ body {
     /* background-color: radial-gradient(circle, rgba(32,1,49,1) 0%, rgba(15,14,25,1) 100%); */
 
     background-color: #190727;
+}
+
+body.index-bg{
+  background-image: url('img/tlo.png');
+}
+
+
+.search-inside-box{
+  background-color: #FFF;
+  border-radius: 25px;
+  margin: 2%;
+  box-shadow: 3px 3px 10px -3px rgba(37,20,46,1);
+
 }
 
 .profile-icon{
@@ -375,7 +388,7 @@ input.search-bar-text-2 {
 h1 { font-size: 70px; }
 h3 { font-size: 48px; }
 h4 { font-size: 32px; }
-p { font-size: 18px; line-height: 48px; }
+p { font-size: 18px; line-height: 48px; text-align: justify;}
 .f24 { font-size: 24px; }
 .f20 { font-size: 20px; }
 .f26 { font-size: 26px; }
@@ -409,6 +422,7 @@ button, a {
 
 .c-red {
     color: #B50625;
+    font-size: 48px;
 }
 
 .c-back {
@@ -489,6 +503,11 @@ button, a {
   .ofe-first-margin{
       margin-top: 10%;
 }
+
+.search-inside-box{
+  flex-direction: column;
+}
+
 }
 
 .smartphone-icon-position{
@@ -713,6 +732,10 @@ option {
     border-radius: 15px;
 }
 
+.about{
+  /* background-image: url('img/lewe.svg'); */
+}
+
 .about-content {
     margin-top: 165px;
     width: 75%;
@@ -855,6 +878,10 @@ option {
 
 }
 
+.icons{
+  max-width: 80% !important;
+}
+
 textarea.form-control {
     height: 304px;
     resize: none;
@@ -991,7 +1018,7 @@ footer.container-fluid > .row {
 }
 
 @media (max-width: 1440px) {
-    body { background-image: url('img/main1280.svg'); background-size: cover; }
+    /* body { background-image: url('img/main1280.svg'); background-size: cover; } */
     .leftImg { height: 520px; margin-top: 80px; }
     .join { margin-top: 170px; }
 }
@@ -1073,7 +1100,7 @@ footer.container-fluid > .row {
     }
 
     .ofe-row-margin{
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
 
     .wrapper { padding-left: 12%; padding-right: 12%; margin-top: 346px; }
@@ -1118,7 +1145,7 @@ footer.container-fluid > .row {
     .search-item-mobile-wrapper .image  img { margin-left: 0 !important; border-radius: 15px 0 0 0;}
     .item-mobile .button { margin-right: 5px; margin-top: 7px; }
     .image img { width: 80%; }
-    .descripton-short p { line-height: 16px !important; }
+
 
     ::-webkit-input-placeholder { font-size: 16px; }
     ::-moz-placeholder { font-size: 16px; }

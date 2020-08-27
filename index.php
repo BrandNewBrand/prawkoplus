@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pagetitle = '';
+$pagetitle = 'index';
 $pageprefix = '';
 
 
@@ -127,20 +127,6 @@ include $pageprefix.'include/all/navbar.php';
 								</label>
 
 
-
-								<!-- <div id="search-list" class="search-list m-0 position-relative">
-
-
-								</div>
-								<div id="search-list-mobile" class="search-list m-0 position-relative">
-
-
-								</div>
-								<div class="cyferki d-flex c-back justify-content-center pb-5">
-									<button onclick="activeC(-1)" class="search-arrows arrowLeft"></button>
-									<div id="numerki" class="numerki d-flex align-items-center"></div>
-									<button onclick="activeC(1)" class="search-arrows arrowRight"></button>
-								</div> -->
 							</div>
 						</div>
 					</div>
@@ -298,10 +284,10 @@ include $pageprefix.'include/all/navbar.php';
 				</div>
 
 
-				<div class="col-md-6 order-md-1 col-5 mx-auto">
+				<div class="col-md-6 order-md-1 col-5 mx-auto d-none d-md-block">
 
 					<div class="float-center  ">
-						<img class="img-fluid float-center  mx-auto d-block " src="img/img2/Group 208.svg">
+						<img class="img-fluid float-center  mx-auto d-block icons " src="img/icon2.svg">
 					</div>
 
 
@@ -337,10 +323,10 @@ include $pageprefix.'include/all/navbar.php';
 
 				</div>
 
-				<div class="col-md-6 col-5  mx-auto">
+				<div class="col-md-6 col-5  mx-auto d-none d-md-block">
 
 						<div class="float-center ">
-							<img class="img-fluid float-center   mx-auto d-block" style="margin-left:4% !important" src="img/img2/Group 209.svg">
+							<img class="img-fluid float-center   mx-auto d-block icons "  src="img/icon3.svg">
 						</div>
 
 
@@ -371,10 +357,10 @@ include $pageprefix.'include/all/navbar.php';
 				</div>
 
 
-				<div class="col-md-6 order-md-1 col-5 mx-auto">
+				<div class="col-md-6 order-md-1 col-5 mx-auto d-none d-md-block">
 
 					<div class="float-center  ">
-						<img class="img-fluid float-center  mx-auto d-block" src="img/img2/Group 210.svg">
+						<img class="img-fluid float-center  mx-auto d-block icons" src="img/img2/arrowsDown/icon4.svg">
 					</div>
 
 
@@ -409,10 +395,10 @@ include $pageprefix.'include/all/navbar.php';
 
 				</div>
 
-				<div class="col-md-6 order-md-2  col-5 mx-auto">
+				<div class="col-md-6 order-md-2  col-5 mx-auto d-none d-md-block">
 
 						<div class="float-center  align-self-center ">
-							<img class="img-fluid float-center align-self-center  mx-auto d-block" src="img/img2/Group 211.svg">
+							<img class="img-fluid float-center align-self-center  mx-auto d-block icons" src="img/icon5.svg">
 						</div>
 
 
@@ -443,8 +429,9 @@ include $pageprefix.'include/all/navbar.php';
 
 				</div>
 			<div class="col-md-4 col-6 purple-text mt-5">
-				<p class="f36">regulamin idealnego <br>
-				Ośrodka Szkolenia Kierowców</p>
+				<a href="regulamin.php"><p class="f36">regulamin idealnego <br>
+				Ośrodka Szkolenia Kierowców</p></a>
+
 
 				<hr class="hr-small-left">
 			</div>
@@ -510,7 +497,7 @@ include $pageprefix.'include/all/navbar.php';
 
 		<div class="col-12 smartphone-icon-position">
 
-				<img style="width:100%;" src="img/img2/arrowsDown/Group 209.svg" alt="">
+				<img style="width:100%;" src="img/img2/arrowsDown/tel.svg" alt="">
 
 				</div>
 
@@ -592,12 +579,19 @@ include $pageprefix.'include/all/navbar.php';
 		</section>
 
 
-		<div class="leftImg  d-none d-md-block icon-left-position" >
+		<!-- <div class="leftImg  d-none d-md-block icon-left-position" >
 				<img class="img-fluid" src="img/left1280.svg">
 			</div>
-
+ -->
 
 		<section id="about" class="about container-fluid position-relative p-0 p-md-1">
+
+			<!-- <div class="leftImg  d-none d-md-block icon-left-position" >
+					<img class="img-fluid" src="img/left1280.svg">
+				</div> -->
+
+
+
 			<!-- <div class="leftImg position-absolute d-none d-xl-block">
 				<img class="img-fluid" src="img/left1280.svg">
 			</div> -->
