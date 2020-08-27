@@ -160,7 +160,7 @@ input.search-bar-text-2 {
 h1 { font-size: 70px; }
 h3 { font-size: 48px; }
 h4 { font-size: 32px; }
-p { font-size: 28px; line-height: 48px; }
+p { font-size: 18px; line-height: 48px; }
 .f24 { font-size: 24px; }
 .f20 { font-size: 20px; }
 .f26 { font-size: 26px; }
@@ -677,7 +677,7 @@ footer.container-fluid > .row {
     .about { margin-top: 40px !important; }
     .join { margin-top: 450px !important; }
     .contact { margin-top: 550px !important; }
-    p { font-size: 22px !important; }
+    p { font-size: 18px !important; }
 }
 
 @media (max-width: 3500px) {
@@ -685,7 +685,7 @@ footer.container-fluid > .row {
     h1 { font-size: 58px; }
     /* h3 { font-size: 44px; } */
     h4 { font-size: 26px; }
-    p { font-size: 22px; line-height: 41px; }
+    p { font-size: 18px; line-height: 41px; }
     .f24 { font-size: 20px; }
     .f20 { font-size: 18px; }
     .wrapper {
@@ -761,7 +761,7 @@ footer.container-fluid > .row {
     h1 { font-size: 46px; }
     h3 { font-size: 36px; }
     h4 { font-size: 22px; }
-    p { font-size: 20px; line-height: 35px; }
+    p { font-size: 18px; line-height: 35px; }
     .f24 { font-size: 18px; }
     .f20 { font-size: 16px; }
     .search { margin-top: 50px; }
@@ -837,7 +837,7 @@ footer.container-fluid > .row {
     h1 { font-size: 24px; line-height: 35px;}
     h3 { font-size: 24px; }
     h4 { font-size: 18px; }
-    p { font-size: 14px; line-height: 28px !important; }
+    p { font-size: 18px; line-height: 28px !important; }
     .f24 { font-size: 14px; }
     .f20 { font-size: 16px; }
     .f36 { font-size: 24px; }

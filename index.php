@@ -20,7 +20,7 @@ session_start();
 
 <body>
 	<div id="first-icon" class="profile-icon container-fluid d-flex justify-content-end">
-		
+
 		<a href="#"><img src="img/img2/arrowsDown/profileIcon.svg" alt=""></a>
 
 	</div>
@@ -252,7 +252,7 @@ session_start();
 					</div>
 					<hr >
 					<div class="heading-p mt-4 mt-xl-5 ">
-					<p class="p28" style="font-weight:normal">
+					<p class="#" style="font-weight:normal">
 						Tymi kategoriami będziemy starać się ocenić i uwierzytelnić informacje na temat ośrodka szkoleniowego,
 						 który na celu ma przygotować nas do egzaminu na prawo jazdy.
 
@@ -283,7 +283,7 @@ session_start();
 					</div>
 					<hr class="hr-small-left">
 					<div class="heading-p mt-4 mt-xl-5 ">
-					<p class="p28">
+					<p class="#">
 						W tym miejscu oceniamy, w jakim stopniu instruktor angażuje się w nasze szkolenie. Interesuje nas,
 						 z jakim nastawieniem podchodził do kursanta instruktor i czy współpraca przebiegała komfortowo.
 
@@ -307,7 +307,7 @@ session_start();
 					<hr class="hr-small-left">
 
 					<div class="heading-p mt-4 mt-xl-5 ">
-					<p class="p28">
+					<p class="#">
 						Chcemy wiedzieć, czy ośrodek ułatwiał współpracę, czy dysponował odpowiednimi narzędziami naukowymi w celu edukacji.
 						Do tej kategorii zalicza się również zaangażowanie pracowników w prowadzoną działalność oraz dbałość o jakość oferowanych kursów.
 						</p>
@@ -347,7 +347,7 @@ session_start();
 					<hr class="hr-small-left">
 
 					<div class="heading-p mt-4 mt-xl-5 ">
-					<p class="p28">
+					<p class="#">
 						Ta kategoria informuje nas o tym, czy samochody wykorzystywane do
 						nauki jazdy są w dobrym stanie i czy zachowano wszystkie aspekty bezpieczeństwa. Istotny jest również aspekt komfortu podczas jazdy.
 						</p>
@@ -379,7 +379,7 @@ session_start();
 					<hr class="hr-small-left">
 
 					<div class="heading-p mt-4 mt-xl-5 ">
-					<p class="p28">
+					<p class="#">
 							Oceniamy całość efektywności szkolenia pod względem merytorycznym i praktycznym.
 							Czy szkolenia przyniosły dobre efekty i czy część teoretyczna, jak i praktyczna była na wystarczająco wysokim poziomie, aby przygotować do egzaminu na prawo jazdy.
 							Ważna jest również innowacyjność w prowadzeniu szkoleń oraz zgodność materiałów z obowiązującymi wymogami.
@@ -418,7 +418,7 @@ session_start();
 					<hr class="hr-small-left">
 
 					<div class="heading-p mt-4 mt-xl-5 ">
-						<p class="p28">
+						<p class="#">
 							Sprawdzamy, czy instruktor zna i rozumie czynniki, które mają wpływ na proces kształcenia się. Oceniamy,
 							czy przekazywane treści są zrozumiałe i jasne.
 							Interesuje nas wiedza na temat podejścia oraz kultury osobistej w stosunku do kursanta.
@@ -485,7 +485,7 @@ session_start();
 						<hr class="hr-small-left">
 
 						<div class="heading-p mt-4 mt-xl-5 ">
-							<p class="p28">
+							<p class="#">
 							To przede wszystkim komunikator, ułatwiający szybką wymianę informacji między kursantem, instruktorem oraz ośrodkiem szkolenia kierowców.
 							Każdy z uczestników rozmowy będzie miał możliwość w szybszy i łatwiejszy sposób, otrzymać odpowiedź na pytania związane z prawem jazdy.
 							</p>

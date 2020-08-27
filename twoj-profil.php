@@ -41,7 +41,7 @@ session_start();
 
               <div class="row text-left">
                 <div class=" col-md-7 offset-md-1">
-                  <h1 class="grey-header " >rejestracja</h1>
+                  <h1 class="grey-header " >twój profil</h1>
                   <hr style="border-color:#AEAEAE;margin-top:0;">
                 </div>
 
@@ -49,80 +49,80 @@ session_start();
 
 
 
-                <form class="" action="index.html" method="post">
+
 
                   <div class="row pt-3 ">
-                    <div class="col-lg-2 offset-lg-2 offset-1 pt-3 " >
+                    <div class="col-lg-3 offset-lg-2 offset-1 pt-3 " >
                       <p class=" form-label">imie:</p>
                     </div>
-                    <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
-                      <input type="text"  name="name" class="form-control w-100  text-center" id="name" placeholder="" required>
+                    <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10 text-center">
+                      <p style="border-bottom:2px solid grey;">Izabela</p>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="col-lg-2 offset-lg-2 offset-1 pt-lg-3" >
+                    <div class="col-lg-3 offset-lg-2 offset-1 pt-lg-3" >
                       <p class="form-label">nazwisko:</p>
                     </div>
-                    <div class="col-lg-5   form-group offset-1 offset-lg-0 col-10">
+                    <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
                       <input type="text"  name="surname" class="form-control w-100  text-center" id="forname" placeholder="" required>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="col-lg-2 offset-lg-2 offset-1 pt-lg-3 pr-0" >
+                    <div class="col-lg-3 offset-lg-2 offset-1 pt-lg-3 pr-0" >
                       <p class="form-label">kontakt:</p>
                     </div>
-                    <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
+                    <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
                       <input type="email"  name="email" class="form-control w-100  text-center" id="poczta" placeholder="twój email" required>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="offset-4" >
+                    <div class="offset-5" >
 
                     </div>
-                    <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
+                    <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
                       <input type="tel"  name="tel" class="form-control w-100  text-center  " id="tel" placeholder="numer telefonu">
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="col-lg-2 offset-lg-2 offset-1 pt-lg-3" >
+                    <div class="col-lg-3 offset-lg-2 offset-1 pt-lg-3" >
                       <p class="form-label">login:</p>
                     </div>
-                    <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
+                    <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
                       <input type="login"  name="login" class="form-control w-100  text-center" id="login" required>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="col-lg-2 offset-lg-2 offset-1 pt-lg-3" >
+                    <div class="col-lg-3 offset-lg-2 offset-1 pt-lg-3" >
                       <p class="form-label">hasło:</p>
                     </div>
-                    <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
+                    <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
                       <input type="password" name="haslo" class="form-control w-100  text-center" id="haslo" value="" placeholder="" required>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="offset-4" >
+                    <div class="offset-5" >
 
                     </div>
-                    <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
+                    <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
                         <input type="password" name="haslo2" class="form-control w-100  text-center" id="haslo2" value="" placeholder="potwierdz hasło" required>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="col-lg-4 offset-lg-4 offset-1 col-10">
+                    <div class="col-lg-6 offset-lg-4 offset-1 col-10">
 
 
                       <div class="form-group form-check" style="margin-left:3%;">
@@ -143,7 +143,6 @@ session_start();
 
                   </div>
 
-                </form>
 
                 </div>
 

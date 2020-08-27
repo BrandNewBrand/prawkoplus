@@ -1,8 +1,6 @@
-dla małych wielkości zwiększyć marginy do lewej krawędzi tła
 
 
-
-strona główna
-strzałki w prawo + regulamien obniżyć
 
 wyrównać inputy w rejestracji 
+
+
