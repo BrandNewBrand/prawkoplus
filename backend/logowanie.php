@@ -2,14 +2,12 @@
 session_start();
 
 
+
 if (isset($_POST['login'])) {
 	if (isset($_POST['haslo'])) {
 		
 		$login = $_POST['login'];
 		$haslo = $_POST['haslo'];
-
-		echo $login;
-		echo $haslo;
 
 		require_once "connect.php";
 		$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
@@ -25,23 +23,27 @@ if (isset($_POST['login'])) {
 			$weryfikacja_tbl = $weryfikacja_test->fetch_assoc();
 			$weryfikacja = $weryfikacja_tbl['weryfikacja'];
 			if ($weryfikacja>0) {
-				$_SESSION['zalogowany'] = 1;
-				header('Location: ../moje-konto.php?id=$user_id');
+				$_SESSION['zalogowany'] = $user_id;
+				header('Location: ../twoj-profil.php?id='.$user_id);
 				$polaczenie -> close();
 				exit();
 			} else {
-				header("Location: potwierdzenie_email.php?id=$user_id");
+				header('Location: potwierdzenie_email.php?id='.$user_id);
 			}
 
 		} else {
 			$_SESSION['error'] = 'Nie ma konta o podanym loginie lub haśle';
-			// header('Location: ../logowanie.php');
+			header('Location: ../logowanie.php');
 			$polaczenie -> close();
 			exit();
 		}
 
+	} else {
+		header('Location: ../logowanie.php');
 	}
-} 
+} else {
+	header('Location: ../logowanie.php');
+}
 
 
 

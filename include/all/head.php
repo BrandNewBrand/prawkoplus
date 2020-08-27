@@ -4,7 +4,11 @@ if (!isset($_SESSION['zalogowany'])) {
 	$_SESSION['zalogowany'] = 0;
 }
 
- ?>
+$log = $_SESSION['zalogowany'];
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -65,7 +65,7 @@ if ($polaczenie->query("INSERT INTO users VALUES (NULL, '$imie', '$nazwisko', '$
 	$row = $rez->fetch_assoc();
 	$user_id = $row['id'];
 
-	header("Location: potwierdzenie_email.php?id=$user_id");
+	header('Location: potwierdzenie_email.php?id='.$user_id);
 
 } else {
 	$_SESSION['error'] = 'Błąd serwera. Prosimy o próbę rejestracji w późniejszym terminie.';

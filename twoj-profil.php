@@ -1,7 +1,27 @@
 <?php
 session_start();
-$pagetitle = '';
+$pagetitle = 'Moje konto';
 $pageprefix = '';
+
+$user_id = $_SESSION['zalogowany'];
+
+if ($_SESSION['zalogowany'] == 0) {
+  header('Location: '.$pageprefix.'logowanie.php');
+} else {
+  
+  require_once "backend/connect.php";
+  $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+
+  $user_data_rez=$polaczenie->query("SELECT * FROM users WHERE id='$user_id'");
+  $user_data_tbl=$user_data_rez->fetch_assoc();
+  $imie=$user_data_tbl['imie'];
+  $nazwisko=$user_data_tbl['nazwisko'];
+  $email=$user_data_tbl['email'];
+  $tel=$user_data_tbl['tel'];
+  $login=$user_data_tbl['login'];
+  $haslo=$user_data_tbl['haslo'];
+}
+
 
 
 include $pageprefix.'include/all/head.php';
@@ -40,57 +60,57 @@ include $pageprefix.'include/all/navbar.php';
 
 
                   <div class="row pt-3 ">
-                    <div class="col-lg-3 offset-lg-2 offset-1 pt-3 " >
+                    <div class="col-lg-4 offset-lg-1 offset-1 pt-3 " >
                       <p class=" form-label">imie:</p>
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10  ">
-                      <p class="dane">Izabela</p>
+                      <p class="dane"><?php echo $imie; ?></p>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="col-lg-3 offset-lg-2 offset-1 pt-lg-3" >
+                    <div class="col-lg-4 offset-lg-1 offset-1 pt-lg-3" >
                       <p class="form-label">nazwisko:</p>
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                      <p class="dane">Izabela</p>
+                      <p class="dane"><?php echo $nazwisko; ?></p>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="col-lg-3 offset-lg-2 offset-1 pt-lg-3 pr-0" >
-                      <p class="form-label">kontakt:</p>
+                    <div class="col-lg-4 offset-lg-1 offset-1 pt-lg-3 pr-0" >
+                      <p class="form-label">Adres e-mail:</p>
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                    <p class="dane">Izabela</p>
+                    <p class="dane"><?php echo $email; ?></p>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="offset-5" >
-
+                    <div class="col-lg-4 offset-lg-1 offset-1 pt-lg-3 pr-0" >
+                      <p class="form-label">Numer telefonu:</p>
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                      <p class="dane">Izabela</p>
+                      <p class="dane"><?php echo $tel; ?></p>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="col-lg-3 offset-lg-2 offset-1 pt-lg-3" >
+                    <div class="col-lg-4 offset-lg-1 offset-1 pt-lg-3" >
                       <p class="form-label">login:</p>
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                      <p class="dane">Izabela</p>
+                      <p class="dane"><?php echo $login; ?></p>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="col-lg-3 offset-lg-2 offset-1 pt-lg-3" >
+                    <div class="col-lg-4 offset-lg-1 offset-1 pt-lg-3" >
                       <p class="form-label">hasło:</p>
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
@@ -108,7 +128,7 @@ include $pageprefix.'include/all/navbar.php';
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
                       <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-submicik">edytuj</button>
+                       <a href="edycja-danych.php?id=<?php echo $user_id; ?>"> <button type="submit" class="btn btn-primary btn-submicik">edytuj</button></a>
                       </div>
                     </div>
 

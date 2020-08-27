@@ -649,9 +649,49 @@ option {
 }
 
 .item-content p{
-    font-size: 24px;
+    font-size: 18px;
     padding: 4px 0;
     margin-bottom: 0px;
+}
+
+.szczegoly {
+    border-left: 2px solid #000;
+}
+
+.osk-card-media {
+    display: none;
+    border: 2px solid #000;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    min-height: 450px;
+}
+
+.osk-card-media > .img {
+    max-height: 200px
+}
+
+.osk-card-media > .img > .img-bg-card {
+    border-radius: 16px 0 0 0;
+}
+
+@media(max-width: 990px) {
+    .osk-card-media {
+        display: flex;
+    }
+    .osk-card {
+        display: none;
+    }
+}
+
+hr.bg-black {
+    background: black;
+    border-color: black;
+    width: 80%;
+    margin-left: 0;
+}
+
+.img-bg-card {
+    border-radius: 16px 0 0 16px;
 }
 
 .image { height: 100%; }
@@ -660,6 +700,21 @@ option {
     border-radius: 15px 0 0 15px;
     height: 100%;
     max-width: 100%;
+}
+
+.osk-card {
+    border: 2px solid #000;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.osk-card > div {
+    display: flex;;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-height: 250px;
 }
 
 .btn-primary {
