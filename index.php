@@ -1,30 +1,12 @@
 <?php
 session_start();
+$pagetitle = '';
+$pageprefix = '';
+
+
+include $pageprefix.'include/all/head.php';
+include $pageprefix.'include/all/navbar.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="utf-8">
-	<link rel="shortcut icon" href="img/favicon.ico" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Prawko Plus</title>
-	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="style.css">
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="style.css" rel="stylesheet">
-</head>
-
-<body>
-	<div id="first-icon" class="profile-icon container-fluid d-flex justify-content-end">
-
-		<a href="#"><img src="img/img2/arrowsDown/profileIcon.svg" alt=""></a>
-
-	</div>
-
 
 	<div class="wrapper text-white">
 		<header class="container-fluid header p-0">
@@ -769,31 +751,6 @@ session_start();
 		</section>
 	</div>
 
-	<footer class="container-fluid position-relative text-white pt-0">
-		<div class="row">
-			<div
-				class="col-md-2  d-flex flex-column justify-content-center align-items-center py-3 py-xl-1 ml-0 ml-xl-5">
-				<div class="ml-0 pl-0 ml-xl-5 pl-xl-5">
-					<img class="d-none d-xl-block " src="img/logo.svg">
-					<img class="d-block d-xl-none" src="img/logo-mobile.svg">
-					<h4 class="text-center">Prawko Plus</h4>
-				</div>
-
-			</div>
-			<div class="col-md-6 offset-md-2 d-flex justify-content-center flex-column">
-				<div class="heading">
-					<p>Partnerzy</p>
-				</div>
-				<hr class="w-100">
-				<div class="row px-3">
-					<h5>Chcesz dołączyć do programu bezpieczna droga? Śmiało napisz do nas! Niebawem może tu zabraknąć miejsca.</h5>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-	<script src="js/index.js"></script>
-
-</body>
-
-</html>
+<?php
+include $pageprefix.'include/all/footer.php';
+?>
