@@ -40,7 +40,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
                    <div class="row pt-3">
-                     <div class="col-lg-2 offset-lg-2 offset-1 pt-lg-3" >
+                     <div class="col-lg-2 offset-lg-2 offset-1 pt-lg-2" >
                        <p class="form-label">hasło:</p>
                      </div>
                      <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">

@@ -39,8 +39,8 @@ include $pageprefix.'include/all/navbar.php';
 
                    <div class="row pt-3">
 
-                     <div class="  form-group offset-1 col-10 text-center">
-                       <p class="mb-0 small-grey-text ">Wpisz swój numer, który otrzymałeś przy rejestracji.</p>
+                     <div class="  form-group offset-1 col-10">
+                       <p class="mb-0 small-grey-text  text-center">Wpisz swój numer, który otrzymałeś przy rejestracji.</p>
                      </div>
 
                    </div>

@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="img/favicon.ico" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Prawko Plus - <?php echo $pagetitle; ?></title>
+	<title>Prawko Plus <?php if ($pagetitle != 'index') { echo ' - '.$pagetitle; }  ?></title>
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
@@ -15,4 +15,4 @@
 	<link href="style.css" rel="stylesheet">
 </head>
 
-<body>
+<body <?php if ($pagetitle == 'index') {echo 'class="index-bg"';} ?>>
