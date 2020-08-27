@@ -3,8 +3,8 @@
 			<div
 				class="col-md-2  d-flex flex-column justify-content-center align-items-center py-3 py-xl-1 ml-0 ml-xl-5">
 				<div class="ml-0 pl-0 ml-xl-5 pl-xl-5">
-					<img class="d-none d-xl-block " src="img/logo.svg">
-					<img class="d-block d-xl-none" src="img/logo-mobile.svg">
+					<img class="d-none d-xl-block " src="<?php echo $pageprefix; ?>img/logo.svg">
+					<img class="d-block d-xl-none" src="<?php echo $pageprefix; ?>img/logo-mobile.svg">
 					<h4 class="text-center">Prawko Plus</h4>
 				</div>
 
@@ -21,8 +21,8 @@
 		</div>
 	</footer>
 
-	<script src="js/index.js"></script>
-	<script src="js/kurs.js"></script>
+	<script src="<?php echo $pageprefix; ?>js/index.js"></script>
+	<script src="<?php echo $pageprefix; ?>js/kurs.js"></script>
 
 </body>
 

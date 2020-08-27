@@ -33,7 +33,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-                 <form class="" action="index.html" method="post">
+                 <form class="" action="backend/logowanie.html" method="post">
 
 
 

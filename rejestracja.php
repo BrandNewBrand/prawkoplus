@@ -3,6 +3,9 @@ session_start();
 $pagetitle = '';
 $pageprefix = '';
 
+if (!isset($_SESSION['error'])) {
+  $_SESSION['error'] = '';
+}
 
 include $pageprefix.'include/all/head.php';
 include $pageprefix.'include/all/navbar.php';
@@ -33,14 +36,14 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-                <form class="" action="index.html" method="post">
+                <form class="" action="backend/rejestracja.php" method="POST">
 
                   <div class="row pt-3 ">
                     <div class="col-lg-2 offset-lg-2 offset-1 pt-3 " >
                       <p class=" form-label">imie:</p>
                     </div>
                     <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
-                      <input type="text"  name="name" class="form-control w-100  text-center" id="name" placeholder="" required>
+                      <input type="text"  name="imie" class="form-control w-100  text-center" id="name" placeholder="" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['imie'].'"';} ?>>
                     </div>
 
                   </div>
@@ -50,27 +53,27 @@ include $pageprefix.'include/all/navbar.php';
                       <p class="form-label">nazwisko:</p>
                     </div>
                     <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
-                      <input type="text"  name="surname" class="form-control w-100  text-center" id="forname" placeholder="" required>
+                      <input type="text"  name="nazwisko" class="form-control w-100  text-center" id="forname" placeholder="" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['nazwisko'].'"';} ?>>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
                     <div class="col-lg-2 offset-lg-2 offset-1 pt-lg-3 pr-0" >
-                      <p class="form-label">kontakt:</p>
+                      <p class="form-label">E-mail:</p>
                     </div>
                     <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
-                      <input type="email"  name="email" class="form-control w-100  text-center" id="poczta" placeholder="twój email" required>
+                      <input type="email"  name="email" class="form-control w-100  text-center" id="poczta" placeholder="" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['email'].'"';} ?>>
                     </div>
 
                   </div>
 
                   <div class="row pt-3">
-                    <div class="offset-4" >
-
+                    <div class="col-lg-2 offset-lg-2 offset-1 pt-lg-3 pr-0" >
+                      <p class="form-label">Numer telefonu:</p>
                     </div>
                     <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
-                      <input type="tel"  name="tel" class="form-control w-100  text-center  " id="tel" placeholder="numer telefonu">
+                      <input type="tel"  name="tel" class="form-control w-100  text-center  " id="tel" placeholder="" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['tel'].'"';} ?>>
                     </div>
 
                   </div>
@@ -80,7 +83,7 @@ include $pageprefix.'include/all/navbar.php';
                       <p class="form-label">login:</p>
                     </div>
                     <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
-                      <input type="login"  name="login" class="form-control w-100  text-center" id="login" required>
+                      <input type="login"  name="login" class="form-control w-100  text-center" id="login" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['login'].'"';} ?>>
                     </div>
 
                   </div>
@@ -96,11 +99,11 @@ include $pageprefix.'include/all/navbar.php';
                   </div>
 
                   <div class="row pt-3">
-                    <div class="offset-4" >
-
+                    <div class="col-lg-2 offset-lg-2 offset-1 pt-lg-3" >
+                      <p class="form-label">Powtórz hasło:</p>
                     </div>
                     <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
-                        <input type="password" name="haslo2" class="form-control w-100  text-center" id="haslo2" value="" placeholder="potwierdz hasło" required>
+                        <input type="password" name="haslo2" class="form-control w-100  text-center" id="haslo2" value="" placeholder="" required>
                     </div>
 
                   </div>
@@ -128,17 +131,7 @@ include $pageprefix.'include/all/navbar.php';
                   </div>
 
                 </form>
-                <form class="testowy-formularz">
-                  <label><p>imie:</p><input type="text" name=""></label>
-                  <label><p>Nazwisko:</p><input type="text" name=""></label>
-                  <label><p>Adres E-mail:</p><input type="text" name=""></label>
-                  <label><p>Numer telefonu:</p><input type="text" name=""></label>
-                  <label><p>Adres:</p><input type="text" name=""></label>
-                  <label><p>hasło:</p><input type="text" name=""></label>
-                  <label><input type="checkbox" name="">Regulamin</label>
-                  <label><input type="submit" value="Zarejestruj się" name=""><img style="margin-left: 5%;" src="img/img2/arrowsDown/lupa.svg" alt=""></label>
-                </form>
-
+                <div class="error-box text-center text-error mt-4"><?php echo $_SESSION['error']; ?></div>
                 </div>
 
             </div>
