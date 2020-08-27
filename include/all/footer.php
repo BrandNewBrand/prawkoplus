@@ -22,6 +22,7 @@
 	</footer>
 
 	<script src="js/index.js"></script>
+	<script src="js/kurs.js"></script>
 
 </body>
 

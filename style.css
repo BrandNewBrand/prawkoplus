@@ -1,4 +1,218 @@
 
+.rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color: #ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #ff7a06;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: #ff7a06;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+
+.content-table{
+  font-weight: bold;
+}
+
+.sticki-center{
+  margin-top: auto;
+  margin-bottom: auto
+}
+
+li{
+  list-style-type: none;
+}
+
+.regulamin li {
+    margin-bottom: 20px;
+    padding-inline-start:30px ;
+}
+
+.regulamin li a {
+    color: black;
+    font-weight: bold;
+}
+
+.regulamin li a:hover {
+    color: #B40524;
+}
+
+.regulamin li:hover {
+    color: #B40524;
+}
+
+.text-primary {
+    color: #B40524 !important;
+}
+
+.regulamin_body {
+    font-size: 18px;
+}
+
+.regulamin_body li {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+ol {
+  padding-inline-start: 0px !important;
+}
+
+.position-absolute {
+    position: fixed;
+    z-index: 9999;
+}
+
+
+#wrapper {
+    background-image: none !important;
+}
+
+.content-background{
+  background-image: url('img/img2/arrowsDown/regTlo.svg');
+  background-position-x: 20%;
+  background-size: cover;
+
+
+}
+
+.reg {
+    background-image: url('img/reg.svg');
+
+
+
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: -9999;
+
+}
+
+
+body {
+    background: rgb(32,1,49);
+    background: radial-gradient(circle, rgba(32,1,49,1) 0%, rgba(15,14,25,1) 100%);
+    font-family: 'Nunito', sans-serif;
+}
+
+a { text-decoration: none; color: white; }
+a:hover { text-decoration: none; color: white; }
+#wrapper {
+    background-image: url(img/kurs-bg.png);
+    background-size: cover;
+    padding-left: 7.4%;
+    padding-right: 7.4%;
+}
+
+.invisible_bnb {
+    height: 0px !important;
+    width: 0px !important;
+    position: absolute;
+    opacity: 0;
+}
+
+img { vertical-align: unset; }
+h1 { font-size: 48px; }
+h2 { font-size: 28px; }
+.c-red { color: #B50625; }
+hr { border: 2px solid white }
+p { font-size: 24px; line-height: 40px; }
+
+.grey-header{
+  font-size:48px;
+  color: #707070;
+}
+
+.animate-hr hr { max-width: 18%; transition: max-width 1s; border: 2px solid #FFF }
+.animate-hr:hover hr { max-width: 100%; }
+.os-card { border-radius: 27px; padding: 35px; background-color: #F3F3F3}
+.os-form { border-radius: 27px; padding: 0 25px; background-color: #F3F3F3 }
+.f20 { font-size: 15px; }
+.os-img img { width: 80%; height: 80%; }
+@media(max-width: 1700px) {
+    h1 { font-size: 36px; }
+    h2 { font-size: 22px; }
+    p { font-size: 18px; line-height: 28px; }
+    .star { width: 22px; height: 22px; }
+    .btn-primary { font-size: 17px; }
+}
+
+@media(max-width: 1500px) {
+    #wrapper { padding-left: 5%; padding-right: 5%; }
+}
+
+@media(max-width: 768px) {
+    #wrapper { padding: 5px !important; height: unset; }
+    .os-card, .os-form { height: unset; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 18px; }
+    p { font-size: 15px; line-height: 22px; }
+    .side-form { height: unset; margin-top: 0; padding: 20px 20px;}
+    .os-form { padding: 0; }
+    .grey-header{font-size: 32px !important;}
+
+}
+
+@media(max-width: 991px) {
+      .grey-header{font-size: 36px ;}
+}
+
+
+@media(min-width: 1000px) {
+
+}
+
+
+
 .round {
   position: relative;
 }
