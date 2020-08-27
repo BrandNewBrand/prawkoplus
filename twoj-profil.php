@@ -37,6 +37,10 @@ session_start();
             </div>
         </div>
         <div class="row m-0 os-card">
+
+
+
+
             <div class="col-6   mt-4 ">
 
               <div class="row text-left">
@@ -55,8 +59,8 @@ session_start();
                     <div class="col-lg-3 offset-lg-2 offset-1 pt-3 " >
                       <p class=" form-label">imie:</p>
                     </div>
-                    <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10 text-center">
-                      <p style="border-bottom:2px solid grey;">Izabela</p>
+                    <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10  ">
+                      <p class="dane">Izabela</p>
                     </div>
 
                   </div>
@@ -66,7 +70,7 @@ session_start();
                       <p class="form-label">nazwisko:</p>
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                      <input type="text"  name="surname" class="form-control w-100  text-center" id="forname" placeholder="" required>
+                      <p class="dane">Izabela</p>
                     </div>
 
                   </div>
@@ -76,7 +80,7 @@ session_start();
                       <p class="form-label">kontakt:</p>
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                      <input type="email"  name="email" class="form-control w-100  text-center" id="poczta" placeholder="twój email" required>
+                    <p class="dane">Izabela</p>
                     </div>
 
                   </div>
@@ -86,7 +90,7 @@ session_start();
 
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                      <input type="tel"  name="tel" class="form-control w-100  text-center  " id="tel" placeholder="numer telefonu">
+                      <p class="dane">Izabela</p>
                     </div>
 
                   </div>
@@ -96,7 +100,7 @@ session_start();
                       <p class="form-label">login:</p>
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                      <input type="login"  name="login" class="form-control w-100  text-center" id="login" required>
+                      <p class="dane">Izabela</p>
                     </div>
 
                   </div>
@@ -106,7 +110,10 @@ session_start();
                       <p class="form-label">hasło:</p>
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                      <input type="password" name="haslo" class="form-control w-100  text-center" id="haslo" value="" placeholder="" required>
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-submicik">zmień hasło</button>
+                      </div>
+
                     </div>
 
                   </div>
@@ -116,37 +123,25 @@ session_start();
 
                     </div>
                     <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                        <input type="password" name="haslo2" class="form-control w-100  text-center" id="haslo2" value="" placeholder="potwierdz hasło" required>
-                    </div>
-
-                  </div>
-
-                  <div class="row pt-3">
-                    <div class="col-lg-6 offset-lg-4 offset-1 col-10">
-
-
-                      <div class="form-group form-check" style="margin-left:3%;">
-                          <label class="form-check-label f20 ">
-                              <input class="form-check-input" style="margin-top:0" type="checkbox" required>
-                              <span style="padding: 0 10px; display: block;">Akceptuje <a href="regulamin.pdf" target="_blank" style="color: blue;">regulamin</a></span>
-                          </label>
-
-                      </div>
-
                       <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-submicik">zapisz się</button>
+                        <button type="submit" class="btn btn-primary btn-submicik">edytuj</button>
                       </div>
-
-
-
                     </div>
 
                   </div>
+
+
+
 
 
                 </div>
 
             </div>
+
+            <div class="col-6">
+
+            </div>
+
         </div>
 
     </div>

@@ -633,6 +633,14 @@ option {
     font-size: 24px;
 }
 
+.dane{
+  border-bottom: 1px solid grey;
+  color:grey;
+  padding-top: .6rem;
+  text-align: center;
+
+}
+
 textarea.form-control {
     height: 304px;
     resize: none;
