@@ -224,6 +224,10 @@ p { font-size: 24px; line-height: 40px; }
 
 .round {
   position: relative;
+  max-width: 200px;
+  min-width: 150px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .round label {
@@ -374,6 +378,7 @@ body.index-bg{
 .search-bar-text-1{
   font-size: 14px;
   font-weight: bold;
+  color: #FFF;
 }
 .search-bar-text-2{
   font-size: 24px;
@@ -440,6 +445,10 @@ button, a {
 
 .bg-custom-purple {
     background-color: #6D0B44;
+}
+.bg-search-purple {
+    background-color: #6D0B44;
+    border-radius: 27px;
 }
 
 .wrapper {
@@ -581,7 +590,7 @@ button, a {
     margin-bottom: 50px;
 }
 
-.search-box {
+. {
     border-radius: 27px;
 }
 
@@ -592,6 +601,10 @@ button, a {
     color: white;
     font-size: 24px;
     font-weight: bold;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 option {
@@ -605,10 +618,10 @@ option {
 
 .search-tab {
     height: 80px;
-    -webkit-box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.28);
+    /* -webkit-box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.28);
     -moz-box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.28);
     box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.28);
-    margin-top: -1px;
+    margin-top: -1px; */
 }
 
 .search-left {
@@ -624,6 +637,9 @@ option {
 
 .tab-right {
     padding-right: 1%;
+    border-top-right-radius: 27px ;
+    border-bottom-right-radius: 27px;
+
 }
 
 .tab-right select {
@@ -1141,6 +1157,7 @@ footer.container-fluid > .row {
       h1 { font-size: 30px;}
 
       .back-header{font-size: 36px;}
+      .tab-right { padding: 0; border-top-right-radius: 0px ; border-bottom-left-radius:  27px ; }
 }
 
 
@@ -1169,8 +1186,8 @@ footer.container-fluid > .row {
 
     .wrapper { padding-left: 12%; padding-right: 12%; margin-top: 346px; }
     .header { height: auto; }
-    .tab-left, .tab-right { padding: 0; border-radius: 25px; }
-  .search-box { margin-left: -7%; margin-right: -7% ; border-radius: 25px; /*height: 600px;*/ }
+    .tab-left, .tab-right { padding: 0; border-top-right-radius: 0px ; border-bottom-left-radius:  27px ; }
+  .search-box { border-radius: 27px; /*height: 600px;*/ }
     .search-item { width: 303px; }
     .search-item a { width: 73px; height: 19px; line-height: 9px; padding-top: 5px; }
     .search-item h4 { font-size: 16px; line-height: 20px; }
