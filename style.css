@@ -118,6 +118,10 @@ ol {
     z-index: 9999;
 }
 
+.content-row{
+  border-radius:27px;min-height: 50px;
+}
+
 
 #wrapper {
     background-image: none !important;
@@ -213,6 +217,10 @@ p { font-size: 24px; line-height: 40px; }
 
 @media(max-width: 991px) {
       .grey-header{font-size: 36px ;}
+
+      .search-tab{
+        height: 50px !important;
+      }
 }
 
 
@@ -510,6 +518,7 @@ button, a {
 
 .ofe-row-margin{
     margin-bottom: 80px;
+    margin-top: 80px;
 }
 .ofe-first-margin{
     margin-top: -10%;

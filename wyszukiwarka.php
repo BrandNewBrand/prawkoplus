@@ -18,15 +18,15 @@ include $pageprefix.'include/all/navbar.php';
       </div>
     </div>
 
-    <form class="mx-auto" action="index.html" method="post"  style="width:95%">
 
 
+    <form class="mx-auto"  style="width:95%" action="backend/wyszukiwanie_strona_gl.php" method="POST">
 
       <div class="row bg-search-purple ofe-row-margin  d-flex align-items-center text-center "  style="border-radius:27px; ">
 
         <div class="col-lg-10  search-box  my-auto  " >
 
-          <div class="row " style="border-radius:27px; min-height:80px; vertical-align:middle">
+          <div class="row content-row" >
 
             <div class="col-md-3  search-tab d-flex align-items-center tab-left mx-auto">
               <select name="city"  class="browser-default custom-select  search-bar-text-1">
@@ -96,7 +96,7 @@ include $pageprefix.'include/all/navbar.php';
     </form>
 
 
-    <form class="" action="backend/wyszukiwanie_strona_gl.php" method="POST">
+    <!-- <form class="" action="backend/wyszukiwanie_strona_gl.php" method="POST">
       <div class=" col-lg-12  offset-md-0 p-0 ofe-row-margin mt-1">
         <div class="search-box bg-white">
           <div class="content row mx-0">
@@ -142,7 +142,7 @@ include $pageprefix.'include/all/navbar.php';
           </div>
         </div>
       </div>
-    </form>
+    </form> -->
 
 
 
