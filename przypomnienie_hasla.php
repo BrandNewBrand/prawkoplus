@@ -5,10 +5,10 @@ if (!isset($_SESSION['error'])) {
   $_SESSION['error'] = '';
 }
 
-$pagetitle = 'Rejestracka OSK';
+$pagetitle = 'Resetowanie hasła';
 $pageprefix = '';
 $user_id = $_SESSION['zalogowany'];
-if ($_SESSION['zalogowany'] == 0) {
+if ($_SESSION['zalogowany'] > 0) {
 header('Location: '.$pageprefix.'logowanie.php');
 exit();
 }
@@ -34,7 +34,7 @@ include $pageprefix.'include/all/navbar.php';
 
                <div class="row text-left">
                  <div class=" col-md-7 offset-md-1">
-                   <h1 class="grey-header " >formularz weryfikacyjny OSK</h1>
+                   <h1 class="grey-header " >Resetowanie hasła</h1>
                    <hr style="border-color:#AEAEAE;margin-top:0;">
                  </div>
 
@@ -42,24 +42,24 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-                 <form class="" action="backend/wer_osk.php" method="post">
+                 <form class="" action="backend/reset-haslo.php" method="post">
 
 
 
                    <div class="row pt-3">
 
                      <div class="  form-group offset-1 col-10">
-                       <p class="mb-0 small-grey-text  text-center">Wpisz swój numer, który otrzymałeś przy rejestracji.</p>
+                       <p class="mb-0 small-grey-text  text-center">Wpisz swój adres e-mail do którego przypisane jest konto Prawko Plus</p>
                      </div>
 
                    </div>
 
                    <div class="row pt-3">
                      <div class="col-lg-2 offset-lg-2 offset-1 pt-lg-3" >
-                       <p class="form-label">numer ID:</p>
+                       <p class="form-label">Adres e-mail:</p>
                      </div>
                      <div class="col-lg-4   form-group offset-1 offset-lg-0 col-10">
-                       <input type="id" name="id_osk" class="form-control w-100" id="id" required>
+                       <input type="email" name="email" class="form-control w-100" id="id" required>
                      </div>
 
                    </div>
@@ -72,7 +72,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
                        <div class="text-center">
-                         <button type="submit" class="btn btn-primary btn-submicik">Zarejestruj</button>
+                         <button type="submit" class="btn btn-primary btn-submicik">Zresetuj hasło</button>
                        </div>
 
 

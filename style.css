@@ -12,12 +12,21 @@
 }
 
 
+.mw-50-input {
+  width: 100%;
+  max-width: 350px;
+}
+
 .text-black {
     color: #000;
 }
 
 a.text-black:hover {
     color: red;
+}
+
+.search-box.bg-white {
+  border-radius: 30px;
 }
 
 .rating:not(:checked) > label {
@@ -1326,4 +1335,40 @@ form.wyloguj > input {
     border: none;
     background: transparent;
     color: red;
+}
+
+
+.btn-secondary-bnb {
+  height: 45px;
+  width: 80%;
+  max-width: 300px;
+  border: none;
+  border-radius: 22.5px;
+  background-color: #6A6D88;
+  transition: 1s all;
+  min-width: 200px;
+}
+
+.btn-secondary-bnb:hover {
+  background-color: #474958;
+}
+
+.btn-thirdary-bnb {
+  height: 45px;
+  width: 80%;
+  max-width: 300px;
+  border: none;
+  border-radius: 22.5px;
+  background-color: #6D0B44;
+  transition: 1s all;
+  min-width: 200px;
+}
+
+.btn-thirdary-bnb:hover {
+  background-color: #470C2F;
+}
+
+.mw-50 {
+  width: 100%;
+  max-width: 700px;
 }

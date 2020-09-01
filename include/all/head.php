@@ -6,7 +6,8 @@ if (!isset($_SESSION['zalogowany'])) {
 
 $log = $_SESSION['zalogowany'];
 
-
+$_SESSION['domena'] = 'http://bnb-project.pl/pp_new';
+$_SESSION['admin_email'] = 'biuro@brandnewbrand.pl';
 
 ?>
 
