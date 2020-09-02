@@ -692,6 +692,68 @@ option {
     border-left: 2px solid #000;
 }
 
+.kurs-card-header{
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+}
+.kurs-card-header > hr{
+  border-color: black !important;
+}
+
+@media (max-width: 768px)  {
+  .kurs-card-header{
+    flex-direction: column;
+}
+    .kurs-card-header  h4 {
+
+      font-size: 32px !important;
+
+
+  }
+}
+
+.kurs-card-header > div{
+
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.kurs-card-header > .img{
+  width: 250px;
+  justify-content: center;
+
+
+}
+.kurs-card-header > .img > img{
+
+  justify-content: center;
+
+
+}
+
+.kurs-card-header > .descript{
+  padding-left: 10px;
+}
+.kurs-card-header  h4 {
+  color: #B40524 ;
+  font-size: 48px;
+  font-weight: bold;
+}
+.kurs-card-header  p {
+  color: #0F0E19 ;
+  /* font-size: 28px; */
+
+}
+
+.kurs-card-header > .img > img{
+  max-height:250px; max-width: 250px; border-radius:27px;
+}
+
+
 .osk-card-media {
     display: none;
     border: 2px solid #000;
@@ -699,6 +761,8 @@ option {
     margin-bottom: 20px;
     min-height: 450px;
 }
+
+
 
 .osk-card-media > .img {
     max-height: 200px

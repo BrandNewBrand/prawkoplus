@@ -28,19 +28,52 @@ include $pageprefix.'include/all/navbar.php';
                 </div>
             </div>
             <div class="row m-0 justify-content-between">
-                <div class="col-xl-7 text-center text-xl-left bg-white os-card mt-4">
-                    <div id="os-card-header" class="os-card-header">
+
+                <div class="col-xl-7 text-center  os-card mt-4">
+                    <div id="os-card-header" class="os-card-header kurs-card-header">
+
+                      <div class="img ">
+
+                        <img src="img/kolo.png" style="" alt="">
+
+                        <!-- <div class="img-bg-card h-100" style="background-image: url('img/kolo.png'); background-size: cover; background-repeat: no-repeat;"></div> -->
+                      </div>
+
+                      <div class="descript mt-2">
+                        <h4>Ośrodek Laydes</h4>
+                        <p>kategoria kursu B2</p>
+
+                        <label style="font-size: 18px; width: 100%;">
+                            <p  class="mb-1 mt-2">Ocena: 5</p>
+                            <fieldset class="rating">
+                                <input type="radio" id="star10" name="efekt_szkolenia" value="5" /><label for="star10" title="Extra!">5 stars</label>
+                                <input type="radio" id="star9" name="efekt_szkolenia" value="4" /><label for="star9" title="Dobrze">4 stars</label>
+                                <input type="radio" id="star8" name="efekt_szkolenia" value="3" /><label for="star8" title="Poprawnie">3 stars</label>
+                                <input type="radio" id="star7" name="efekt_szkolenia" value="2" /><label for="star7" title="Słabo">2 stars</label>
+                                <input type="radio" id="star6" name="efekt_szkolenia" value="1" /><label for="star6" title="Fatalnie">1 star</label>
+                            </fieldset>
+                        </label>
+                      </div>
+
 
                     </div>
-                    <hr>
+
                     <div id="os-description" class="row m-0">
 
+                      <hr class="bg-black ">
                     </div>
                     <div id="os-ratings" class="mt-4">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, q
+                        uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                     </div>
                 </div>
-                <div class="col-xl-4 bg-white os-form d-flex align-items-center justify-content-center py-4 mt-4">
+
+                <div class="col-xl-4  os-form d-flex align-items-center justify-content-center py-4 mt-4">
                     <div class="contact-form c-back side-form">
                         <h4 class="font-weight-bold text-center">Zapisz się na kurs już teraz!</h4>
                         <p id="form-text" class="text-center pt-4"></p>
