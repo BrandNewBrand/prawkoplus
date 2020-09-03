@@ -34,7 +34,7 @@ include $pageprefix.'include/all/navbar.php';
       </div>
     </div>
     <div class="row m-0 os-card">
-      <div class="col-6   mt-4 ">
+      <div class="col-lg-6   mt-4 ">
         <div class="row text-left">
           <div class=" col-md-7 offset-md-1">
             <h1 class="grey-header " >twój profil</h1>
@@ -101,14 +101,14 @@ include $pageprefix.'include/all/navbar.php';
           </div>
         </div>
       </div>
-      <div class="col-6   mt-4 ">
+      <div class="col-lg-6   mt-4 ">
         <div class="row text-left mt-5">
-          <div class=" col-md-7 offset-md-1 d-flex flex-column align-items-center">
-            <p class="grey-header " >Korzyścią korzystania z aplikacji jest szybki i sprawny sposób na wymianę informacji, zadawanie pytań oraz uzyskanie odpowiedzi na pytania związane z kursem na prawo jazdy. Wszystko w zasięgu jednego programu. </p>
+          <div class=" col-lg-8 offset-lg-2 d-flex flex-column align-items-center">
+            <p class=" " >Korzyścią korzystania z aplikacji jest szybki i sprawny sposób na wymianę informacji, zadawanie pytań oraz uzyskanie odpowiedzi na pytania związane z kursem na prawo jazdy. Wszystko w zasięgu jednego programu. </p>
             <a href="#"><button class="btn-secondary-bnb text-center text-white">Pobierz Aplikację</button></a>
           </div>
-          <div class=" col-md-7 offset-md-1 d-flex flex-column align-items-center mt-5">
-            <p class="grey-header " >Prowadzisz własny ośrodek szkolenia kierowców? Dołącz do bazy ośrodków PrawkoPlus, lub zaktualizuj swoją wizytówkę.</p>
+          <div class=" col-lg-8 offset-lg-2 d-flex flex-column align-items-center mt-5">
+            <p class=" " >Prowadzisz własny ośrodek szkolenia kierowców? Dołącz do bazy ośrodków PrawkoPlus, lub zaktualizuj swoją wizytówkę.</p>
             <a href="form-weryfikacyjny-OSK.php"><button class="btn-thirdary-bnb text-center text-white">Jestem OSK</button></a>
           </div>
         </div>

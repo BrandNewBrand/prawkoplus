@@ -148,7 +148,219 @@ include $pageprefix.'include/all/navbar.php';
 
     <div class="row m-0 os-card mt-4">
 
-      <div class="osk-card w-100 row align-items-center justify-content-between">
+      <div id="search-list" class="search-list m-0 position-relative"><div class="search-item d-flex position-relative p-0 justify-content-between aling-items-center">
+                        <div class="image d-flex align-items-center justify-content-center col-3 p-0 py-3 pl-3">
+                            <img style="height: 90%;" src="img/card-img.png">
+                        </div>
+                        <div class="item-content col-6 c-back py-4 d-flex flex-column justify-content-between">
+                            <h4 class="c-red">Ośrodek Auto-Moto-Szkoła "ARMA" (03391261)</h4>
+                            <div class="descripton-short my-2">
+                                <p>Ośrodek nie zgłosił się do programu Prawko Plus.
+                                </p>
+                            </div>
+                            <div class="d-block d-xl-flex">
+                                <p>ocena: <b>3</b></p>
+                                <p class="ml-0 ml-xl-5">cena: <b>brak </b></p>
+                            </div>
+                        </div>
+                        <div class="category d-flex flex-column justify-content-between my-4 px-3" style="border-left: 2px solid black; width: 25%">
+                            <div>
+                                <p><b>B A1 AM A2</b></p>
+                                <p class="mt-2 mb-0">J.Lea 60/1</p>
+                                <p><b>Kraków</b></p>
+                            </div>
+                            <div class="button mx-auto">
+                                <a id="0" class="btn btn-primary" href="kurs.php?id=1&amp;r=3" onclick="storeToLocal(0)">szczegóły</a>
+                            </div>
+                        </div>
+
+                    </div><div class="search-item d-flex position-relative p-0 justify-content-between aling-items-center">
+                        <div class="image d-flex align-items-center justify-content-center col-3 p-0 py-3 pl-3">
+                            <img style="height: 90%;" src="img/card-img.png">
+                        </div>
+                        <div class="item-content col-6 c-back py-4 d-flex flex-column justify-content-between">
+                            <h4 class="c-red">Ośrodek Ośrodek Szkolenia Kierowców Albra Aleksander Braś (03321261)</h4>
+                            <div class="descripton-short my-2">
+                                <p>Ośrodek nie zgłosił się do programu Prawko Plus.
+                                </p>
+                            </div>
+                            <div class="d-block d-xl-flex">
+                                <p>ocena: <b>0</b></p>
+                                <p class="ml-0 ml-xl-5">cena: <b>brak </b></p>
+                            </div>
+                        </div>
+                        <div class="category d-flex flex-column justify-content-between my-4 px-3" style="border-left: 2px solid black; width: 25%">
+                            <div>
+                                <p><b>B A1 AM A2</b></p>
+                                <p class="mt-2 mb-0">Szczygla 10/1</p>
+                                <p><b>Kraków</b></p>
+                            </div>
+                            <div class="button mx-auto">
+                                <a id="1" class="btn btn-primary" href="kurs.php?id=2&amp;r=0" onclick="storeToLocal(1)">szczegóły</a>
+                            </div>
+                        </div>
+
+                    </div><div class="search-item d-flex position-relative p-0 justify-content-between aling-items-center">
+                        <div class="image d-flex align-items-center justify-content-center col-3 p-0 py-3 pl-3">
+                            <img style="height: 90%;" src="img/card-img.png">
+                        </div>
+                        <div class="item-content col-6 c-back py-4 d-flex flex-column justify-content-between">
+                            <h4 class="c-red">Ośrodek Ośrodek Szkolenia Kierowców AUTO-TOP ld (02961261)</h4>
+                            <div class="descripton-short my-2">
+                                <p>Ośrodek nie zgłosił się do programu Prawko Plus.
+                                </p>
+                            </div>
+                            <div class="d-block d-xl-flex">
+                                <p>ocena: <b>0</b></p>
+                                <p class="ml-0 ml-xl-5">cena: <b>brak </b></p>
+                            </div>
+                        </div>
+                        <div class="category d-flex flex-column justify-content-between my-4 px-3" style="border-left: 2px solid black; width: 25%">
+                            <div>
+                                <p><b>B A1 AM A2</b></p>
+                                <p class="mt-2 mb-0">Dunin-Wąsowicza 22</p>
+                                <p><b>Kraków</b></p>
+                            </div>
+                            <div class="button mx-auto">
+                                <a id="2" class="btn btn-primary" href="kurs.php?id=3&amp;r=0" onclick="storeToLocal(2)">szczegóły</a>
+                            </div>
+                        </div>
+
+                    </div><div class="search-item d-flex position-relative p-0 justify-content-between aling-items-center">
+                        <div class="image d-flex align-items-center justify-content-center col-3 p-0 py-3 pl-3">
+                            <img style="height: 90%;" src="img/card-img.png">
+                        </div>
+                        <div class="item-content col-6 c-back py-4 d-flex flex-column justify-content-between">
+                            <h4 class="c-red">Ośrodek Ośrodek Szkolenia Kierowców Andrzej Czubaj AutoTop (02071261)</h4>
+                            <div class="descripton-short my-2">
+                                <p>Ośrodek nie zgłosił się do programu Prawko Plus.
+                                </p>
+                            </div>
+                            <div class="d-block d-xl-flex">
+                                <p>ocena: <b>0</b></p>
+                                <p class="ml-0 ml-xl-5">cena: <b>brak </b></p>
+                            </div>
+                        </div>
+                        <div class="category d-flex flex-column justify-content-between my-4 px-3" style="border-left: 2px solid black; width: 25%">
+                            <div>
+                                <p><b>B A1 AM A2</b></p>
+                                <p class="mt-2 mb-0">Aleja Pokoju 82</p>
+                                <p><b>Kraków</b></p>
+                            </div>
+                            <div class="button">
+                                <a id="3" class="btn btn-primary" href="kurs.php?id=4&amp;r=0" onclick="storeToLocal(3)">szczegóły</a>
+                            </div>
+                        </div>
+
+                    </div></div>
+
+                    <div id="search-list-mobile" class="search-list m-0 position-relative"><div class="search-item d-flex position-relative p-0">
+                    <div class="wrap p-3">
+                        <div class="d-flex flex-wrap">
+                            <div class="image w-50">
+                                <img src="img/card-img.png">
+                            </div>
+                            <div class="des c-back w-50 pt-2">
+                                <h4 class="c-red">Ośrodek Auto-Moto-Szkoła "ARMA" (03391261)</h4>
+                                <p><b>B A1 AM A2</b></p>
+                                <p>ocena: <b>3</b></p>
+                                <p class="ml-0 ml-xl-5">cena: <b>brak </b></p>
+                            </div>
+                            <div class="w-100 c-back py-3">
+                                <div class="descripton-short my-2">
+                                    <p> Ośrodek nie zgłosił się do programu Prawko Plus. </p>
+                                </div>
+                            </div>
+                            <div class="w-100 c-back d-flex justify-content-between">
+                                <div class="address">
+                                    <p class="mt-2 mb-0">J.Lea 60/1</p>
+                                    <p><b>Kraków</b></p>
+                                </div>
+                                <a id="0" class="btn btn-primary align-self-end" href="kurs.php?id=1&amp;r=3" onclick="storeToLocal(0)">szczegóły</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="search-item d-flex position-relative p-0">
+                    <div class="wrap p-3">
+                        <div class="d-flex flex-wrap">
+                            <div class="image w-50">
+                                <img src="img/card-img.png">
+                            </div>
+                            <div class="des c-back w-50 pt-2">
+                                <h4 class="c-red">Ośrodek Ośrodek Szkolenia Kierowców Albra Aleksander Braś (03321261)</h4>
+                                <p><b>B A1 AM A2</b></p>
+                                <p>ocena: <b>0</b></p>
+                                <p class="ml-0 ml-xl-5">cena: <b>brak </b></p>
+                            </div>
+                            <div class="w-100 c-back py-3">
+                                <div class="descripton-short my-2">
+                                    <p> Ośrodek nie zgłosił się do programu Prawko Plus. </p>
+                                </div>
+                            </div>
+                            <div class="w-100 c-back d-flex justify-content-between">
+                                <div class="address">
+                                    <p class="mt-2 mb-0">Szczygla 10/1</p>
+                                    <p><b>Kraków</b></p>
+                                </div>
+                                <a id="1" class="btn btn-primary align-self-end" href="kurs.php?id=2&amp;r=0" onclick="storeToLocal(1)">szczegóły</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="search-item d-flex position-relative p-0">
+                    <div class="wrap p-3">
+                        <div class="d-flex flex-wrap">
+                            <div class="image w-50">
+                                <img src="img/card-img.png">
+                            </div>
+                            <div class="des c-back w-50 pt-2">
+                                <h4 class="c-red">Ośrodek Ośrodek Szkolenia Kierowców AUTO-TOP ld (02961261)</h4>
+                                <p><b>B A1 AM A2</b></p>
+                                <p>ocena: <b>0</b></p>
+                                <p class="ml-0 ml-xl-5">cena: <b>brak </b></p>
+                            </div>
+                            <div class="w-100 c-back py-3">
+                                <div class="descripton-short my-2">
+                                    <p> Ośrodek nie zgłosił się do programu Prawko Plus. </p>
+                                </div>
+                            </div>
+                            <div class="w-100 c-back d-flex justify-content-between">
+                                <div class="address">
+                                    <p class="mt-2 mb-0">Dunin-Wąsowicza 22</p>
+                                    <p><b>Kraków</b></p>
+                                </div>
+                                <a id="2" class="btn btn-primary align-self-end" href="kurs.php?id=3&amp;r=0" onclick="storeToLocal(2)">szczegóły</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="search-item d-flex position-relative p-0">
+                    <div class="wrap p-3">
+                        <div class="d-flex flex-wrap">
+                            <div class="image w-50">
+                                <img src="img/card-img.png">
+                            </div>
+                            <div class="des c-back w-50 pt-2">
+                                <h4 class="c-red">Ośrodek Ośrodek Szkolenia Kierowców Andrzej Czubaj AutoTop (02071261)</h4>
+                                <p><b>B A1 AM A2</b></p>
+                                <p>ocena: <b>0</b></p>
+                                <p class="ml-0 ml-xl-5">cena: <b>brak </b></p>
+                            </div>
+                            <div class="w-100 c-back py-3">
+                                <div class="descripton-short my-2">
+                                    <p> Ośrodek nie zgłosił się do programu Prawko Plus. </p>
+                                </div>
+                            </div>
+                            <div class="w-100 c-back d-flex justify-content-between">
+                                <div class="address">
+                                    <p class="mt-2 mb-0">Aleja Pokoju 82</p>
+                                    <p><b>Kraków</b></p>
+                                </div>
+                                <a id="3" class="btn btn-primary align-self-end" href="kurs.php?id=4&amp;r=0" onclick="storeToLocal(3)">szczegóły</a>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+
+      <!-- <div class="osk-card w-100 row align-items-center justify-content-between">
         <div class="img col-sm-3 h-100 p-0">
           <div class="img-bg-card h-100" style="background-image: url('img/kolo.png'); background-size: cover; background-repeat: no-repeat;"></div>
         </div>
@@ -272,7 +484,7 @@ include $pageprefix.'include/all/navbar.php';
             <div class="ocena"><p>Ocena: 5.0</p></div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>

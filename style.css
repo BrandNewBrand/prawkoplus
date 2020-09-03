@@ -20,6 +20,48 @@
 .text-black {
     color: #000;
 }
+.osk-photo{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+}
+.osk-btn > button {
+  max-width: 200px !important;
+  margin-bottom: 30px;
+}
+.osk-btn-2 > button {
+  max-width: 300px !important;
+  background-color: #6A6D88;
+  margin-bottom: 30px;
+}
+
+.section-grey-pp{
+display: flex ;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.section-grey-pp > p{
+color: #8D8D8D;
+}
+
+.section-grey-pp > div {
+  width: 50%;
+}
+
+
+
+
+
+.osk-photo img {
+border-radius: 25px;
+height: auto;
+max-width: 100%;
+display:block;
+margin: 20px auto;
+
+}
 
 a.text-black:hover {
     color: red;
@@ -221,6 +263,11 @@ p { font-size: 24px; line-height: 40px; }
     .side-form { height: unset; margin-top: 0; padding: 20px 20px;}
     .os-form { padding: 0; }
     .grey-header{font-size: 32px !important;}
+
+    .section-grey-pp > div {
+      width: 100%;
+    }
+
 
 }
 
@@ -557,6 +604,7 @@ button, a {
 
 .icon-left-position{
     margin-top:-35% !important;
+
 }
 
 
@@ -666,7 +714,7 @@ option {
 }
 
 .search-list {
-    padding: 7% 6% 0 6%;
+    /* padding: 7% 1% 0 1%; */
     width: 100%;
 }
 #search-list { height: 900px; }
@@ -1040,6 +1088,8 @@ hr.bg-black {
 
 }
 
+.reg-link{text-align: inherit;}
+
 .icons{
   max-width: 80% !important;
 }
@@ -1109,7 +1159,7 @@ footer.container-fluid > .row {
     .tab-right select { background: url(img/selectRed.svg) no-repeat right .75rem center/20px 18px; }
     .search-item h4 { font-size: 22px; line-height: 27px; }
     .search-item p { font-size: 18px; line-height: 28px; }
-    .search-item a { font-size: 14px; line-height: 27px; padding-top: 3px; padding-bottom: 3px; width: 95px; }
+    .search-item a { font-size: 14px; line-height: 27px; padding-top: 3px; padding-bottom: 3px; width: 95px; height: 30px;}
     .numerki button { font-size: 18px; }
     .leftImg { height: 660px; margin-left: -25%; margin-top: 0; }
     .about-content { margin-top: 11vw; }
@@ -1230,7 +1280,7 @@ footer.container-fluid > .row {
 }
 
 @media (max-width: 991px) {
-    .search-item { height: 190px; }
+
     .image img { height: unset; }
     .bg-custom-purple {
       display: none !important;
@@ -1251,7 +1301,7 @@ footer.container-fluid > .row {
     p { font-size: 18px; line-height: 28px !important; }
     .f24 { font-size: 14px; }
     .f20 { font-size: 16px; }
-    .f36 { font-size: 24px; }
+    .f36 { font-size: 18px; }
     .p28 { font-size: 14px; }
 
     .back-header{font-size: 32px;}

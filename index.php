@@ -429,7 +429,7 @@ include $pageprefix.'include/all/navbar.php';
 
 				</div>
 			<div class="col-md-4 col-6 purple-text mt-5">
-				<a href="regulamin.php"><p class="f36">regulamin idealnego <br>
+				<a href="regulamin.php"><p class="f36 reg-link">regulamin idealnego <br>
 				Ośrodka Szkolenia Kierowców</p></a>
 
 
@@ -581,14 +581,14 @@ include $pageprefix.'include/all/navbar.php';
 
 		<!-- <div class="leftImg  d-none d-md-block icon-left-position" >
 				<img class="img-fluid" src="img/left1280.svg">
-			</div>
- -->
+			</div> -->
 
-		<section id="about" class="about container-fluid position-relative p-0 p-md-1">
 
-			<!-- <div class="leftImg  d-none d-md-block icon-left-position" >
+		<section id="about" class="about container-fluid position-relative p-0 p-md-1 " style="margin-bottom:50px;">
+
+			<div class="leftImg  d-none d-md-block icon-left-position" >
 					<img class="img-fluid" src="img/left1280.svg">
-				</div> -->
+				</div>
 
 
 
@@ -627,7 +627,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-		<section class="join container-fluid px-0 px-xl-1">
+		<section class=" container-fluid px-0 px-xl-1">
 			<div class="row">
 				<div class="col-12 col-md-6 pl-0 pl-xl-1">
 					<div class="col-9 col-xl-10 ml-auto ml-xl-0 px-0 px-xl-1 offset-md-2 offset-custom">
@@ -688,7 +688,7 @@ include $pageprefix.'include/all/navbar.php';
 		</section>
 		<section id="contact" class="contact container-fluid px-0">
 			<div class="row">
-				<div class="col-9 col-md-4 offset-3 offset-md-1 pl-0 px-xl-0">
+				<div class="col-9 col-md-4 offset-1 pl-0 px-xl-0">
 					<div class="heading pb-3">
 						<h3>Odezwij się</h3>
 					</div>
@@ -716,7 +716,7 @@ include $pageprefix.'include/all/navbar.php';
 						<a class="icon" href="#"><i class="fab fa-youtube text-white"></i></a>
 					</div>
 				</div>
-				<div class="contact-form px-0 px-xl-1 col-md-5 offset-xl-2 c-back bg-white d-flex flex-column align-items-center">
+				<div class="contact-form px-0 px-xl-1 col-md-5 offset-0 offset-md-2 c-back bg-white d-flex flex-column align-items-center">
 					<h4 class="font-weight-bold mb-5">Formularz kontaktowy</h4>
 					<form action="send_wiad.php" method="POST" class="d-flex flex-column align-items-end">
 						<div class="form-group w-100">
