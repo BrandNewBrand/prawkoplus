@@ -11,6 +11,25 @@
     clip:rect(0,0,0,0);
 }
 
+/*button.dropbtn > svg > path {
+  display: none !important;
+}*/
+
+.osk_search_panel > div.item_search {
+  width: 100%;
+}
+
+.osk_search_panel > div.item_search > div {
+  max-width: calc(100% - 40px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.szczegoly > p {
+  margin-bottom: 30px !important;
+  line-height: 25px;
+}
 
 .mw-50-input {
   width: 100%;
@@ -288,10 +307,13 @@ p { font-size: 24px; line-height: 40px; }
 
 .round {
   position: relative;
-  max-width: 200px;
+  max-width: 310px;
   min-width: 150px;
   margin-left: auto;
+  width: 100%;
   margin-right: auto;
+  display: flex;
+  align-items: center;
 }
 
 .round label {
@@ -302,7 +324,7 @@ p { font-size: 24px; line-height: 40px; }
   height: 16px;
   left: 0;
   position: absolute;
-  top: 4px;
+  top: -2px;
   width: 16px;
 }
 
@@ -660,6 +682,10 @@ button, a {
     border-radius: 27px;
 }
 
+.osk_search_panel {
+  border-radius: 35px;
+}
+
 .search-box select {
     background: url(img/select.svg) no-repeat right .75rem center/20px 18px;
     background-color: transparent;
@@ -667,7 +693,7 @@ button, a {
     color: white;
     font-size: 24px;
     font-weight: bold;
-    max-width: 200px;
+    max-width: 330px;
     margin-left: auto;
     margin-right: auto;
 
@@ -827,12 +853,15 @@ option {
     .osk-card {
         display: none;
     }
+    .szczegoly {
+      border-left: none !important;
+    }
 }
 
 hr.bg-black {
     background: black;
     border-color: black;
-    width: 80%;
+    width: 70%;
     margin-left: 0;
 }
 
@@ -851,7 +880,7 @@ hr.bg-black {
 .osk-card {
     border: 2px solid #000;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
 }
 
 .osk-card > div {
@@ -1373,7 +1402,7 @@ footer.container-fluid > .row {
  }
 
 @media( min-width: 1400px) {
-     .search-item { height: 234px; }
+     .search-item { height: 250px; }
 
 }
 

@@ -18,6 +18,16 @@ $email=$user_data_tbl['email'];
 $tel=$user_data_tbl['tel'];
 $login=$user_data_tbl['login'];
 $haslo=$user_data_tbl['haslo'];
+$osk_owner = $user_data_tbl['osk_owner'];
+
+$rez2=$polaczenie->query("SELECT * FROM osk_wspolpraca WHERE user_id='$user_id'");
+$rez2_numb = mysqli_num_rows($rez2);
+if ($rez2_numb == 1) {
+  $row2=$rez2->fetch_assoc();
+  $id_osk = $row2['osk_id'];
+}
+
+
 
 $polaczenie->close();
 }
@@ -87,7 +97,7 @@ include $pageprefix.'include/all/navbar.php';
           </div>
           <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
             <div class="text-center">
-              <button type="submit" class="btn btn-primary btn-submicik">zmień hasło</button>
+              <a href="backend/zmiana_hasla.php"><button type="submit" class="btn btn-primary btn-submicik">zmień hasło</button></a>
             </div>
           </div>
         </div>
@@ -108,8 +118,15 @@ include $pageprefix.'include/all/navbar.php';
             <a href="#"><button class="btn-secondary-bnb text-center text-white">Pobierz Aplikację</button></a>
           </div>
           <div class=" col-lg-8 offset-lg-2 d-flex flex-column align-items-center mt-5">
-            <p class=" " >Prowadzisz własny ośrodek szkolenia kierowców? Dołącz do bazy ośrodków PrawkoPlus, lub zaktualizuj swoją wizytówkę.</p>
-            <a href="form-weryfikacyjny-OSK.php"><button class="btn-thirdary-bnb text-center text-white">Jestem OSK</button></a>
+            
+            <?php 
+            if ($rez2_numb == 1) {
+              echo '<a href="form-weryfikacyjny-OSK.php"><button class="btn-thirdary-bnb text-center text-white">Przejdź do profilu OSK</button></a>';
+            } else {
+              echo '<p class=" " >Prowadzisz własny ośrodek szkolenia kierowców? Dołącz do bazy ośrodków PrawkoPlus, lub zaktualizuj swoją wizytówkę.</p>
+            <a href="form-weryfikacyjny-OSK.php"><button class="btn-thirdary-bnb text-center text-white">Jestem OSK</button></a>';
+            }
+            ?>
           </div>
         </div>
 

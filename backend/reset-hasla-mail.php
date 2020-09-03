@@ -36,7 +36,7 @@ if (isset($nowe_haslo)) {
   if ($rezultat=$polaczenie->query("UPDATE users SET haslo = '$nowe_haslo' WHERE id='$id'")) {
     $error = 0;
   }
-  header('Location: ../logowanie.php');
+  header('Location: log_out.php');
   exit();
   $polaczenie->close();
 }
@@ -74,7 +74,6 @@ if (isset($nowe_haslo)) {
                    <div class="row my-3">
 
                      <div class="  offset-1 col-10 col-lg-8 offset-lg-2 text-center">
-                      <?php echo $nowe_haslo; ?>
                        <form action="reset-hasla-mail.php?id=<?php echo $id; ?>" method="POST">
                          <input type="password" class="form-control mw-50-input" name="nowe_haslo" placeholder="nowe hasło"><br>
                          <input type="password" class="form-control mw-50-input"  name="nowe_haslo2" placeholder="powtórz nowe hasło"><br>

@@ -60,7 +60,7 @@ if ($email_test_numb > 0) {
 	exit();
 }
 
-if ($polaczenie->query("INSERT INTO users VALUES (NULL, '$imie', '$nazwisko', '$email', '$tel', '$login', '$haslo', '0')")) {
+if ($polaczenie->query("INSERT INTO users VALUES (NULL, '$imie', '$nazwisko', '$email', '$tel', '$login', '$haslo', '0', '0')")) {
 	$rez=$polaczenie->query("SELECT id FROM users ORDER BY id DESC LIMIT 1");
 	$row = $rez->fetch_assoc();
 	$user_id = $row['id'];

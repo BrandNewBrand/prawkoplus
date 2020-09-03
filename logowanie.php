@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+
+
 if (!isset($_SESSION['error'])) {
   $_SESSION['error'] = '';
 }
@@ -11,6 +13,10 @@ $pageprefix = '';
 
 include $pageprefix.'include/all/head.php';
 include $pageprefix.'include/all/navbar.php';
+if ($_SESSION['zalogowany'] > 0) {
+  header('Location: twoj-profil.php');
+  exit();
+}
 ?>
 
 
