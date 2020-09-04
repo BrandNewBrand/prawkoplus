@@ -23,12 +23,12 @@ include $pageprefix.'include/all/navbar.php';
             </div>
             <div class="row mt-4">
                 <div class="col-xl-7 my-3 my-xl-5">
-                    <div class=" os-card">
+                    <div class=" os-card" style="padding:20px;">
                         <div>
                             <h1 style="color: #B40524; font-weight: 700;">Prosimy podziel się</br>swoim doświadczeniem</h1>
                         </div>
                     </div>
-                    <div class="os-card mt-3 mt-xl-5">
+                    <div class="os-card mt-3 mt-xl-5" style="padding:20px;">
                         <div>
                             <h1>Witaj Tomek</h1>
                         </div>

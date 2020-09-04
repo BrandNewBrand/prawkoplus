@@ -33,7 +33,7 @@ include $pageprefix.'include/all/navbar.php';
              <div class="col-12  os-card mt-4 ">
 
                <div class="row text-left">
-                 <div class=" col-md-7 offset-md-1">
+                 <div class=" col-md-7 offset-md-1 mt-4">
                    <h1 class="grey-header " >formularz weryfikacyjny OSK</h1>
                    <hr style="border-color:#AEAEAE;margin-top:0;">
                  </div>

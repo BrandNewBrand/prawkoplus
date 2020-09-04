@@ -44,7 +44,7 @@ include $pageprefix.'include/all/navbar.php';
       </div>
     </div>
     <div class="row m-0 os-card">
-      <div class="col-lg-6   mt-4 ">
+      <div class="col-lg-6   ">
         <div class="row text-left">
           <div class=" col-md-7 offset-md-1">
             <h1 class="grey-header " >twój profil</h1>
@@ -118,8 +118,8 @@ include $pageprefix.'include/all/navbar.php';
             <a href="#"><button class="btn-secondary-bnb text-center text-white">Pobierz Aplikację</button></a>
           </div>
           <div class=" col-lg-8 offset-lg-2 d-flex flex-column align-items-center mt-5">
-            
-            <?php 
+
+            <?php
             if ($rez2_numb == 1) {
               echo '<a href="form-weryfikacyjny-OSK.php"><button class="btn-thirdary-bnb text-center text-white">Przejdź do profilu OSK</button></a>';
             } else {

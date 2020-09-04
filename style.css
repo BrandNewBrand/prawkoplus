@@ -44,8 +44,8 @@
   margin-right: auto;
   max-width: 300px;
 }
-.osk-btn > button {
-  max-width: 200px !important;
+.osk-btn > a button {
+  max-width: 230px !important;
   margin-bottom: 30px;
 }
 .osk-btn-2 > button {
@@ -53,6 +53,19 @@
   background-color: #6A6D88;
   margin-bottom: 30px;
 }
+
+.osk-btn > label {
+    max-width: 200px !important;
+    margin-bottom: 30px;
+}
+
+.osk-btn > label > div {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .section-grey-pp{
 display: flex ;
@@ -205,6 +218,10 @@ ol {
 
 }
 
+div#os-ratings {
+    padding: 0 20px;
+}
+
 .reg {
     background-image: url('img/reg.svg');
 
@@ -257,7 +274,7 @@ p { font-size: 24px; line-height: 40px; }
 
 .animate-hr hr { max-width: 18%; transition: max-width 1s; border: 2px solid #FFF }
 .animate-hr:hover hr { max-width: 100%; }
-.os-card { border-radius: 27px; padding: 35px; background-color: #F3F3F3}
+.os-card { border-radius: 27px;  padding:30px 5px; background-color: #F3F3F3}
 .os-form { border-radius: 27px; padding: 0 25px; background-color: #F3F3F3 }
 .f20 { font-size: 15px; }
 .os-img img { width: 80%; height: 80%; }
@@ -296,6 +313,7 @@ p { font-size: 24px; line-height: 40px; }
       .search-tab{
         height: 50px !important;
       }
+
 }
 
 
@@ -1011,7 +1029,7 @@ hr.bg-black {
 .icon {
     display: block;
     height: 40px;
-    width: 40px;
+    /* width: 40px; */
 }
 
 .form-label{
@@ -1323,7 +1341,7 @@ footer.container-fluid > .row {
 
 
 @media (max-width: 768px) {
-    body { background-image: url('img/mainMobile.svg'); background-size: cover; }
+    body.index-bg { background-image: url('img/mainMobile.svg'); background-size: cover; }
     h1 { font-size: 24px; line-height: 35px;}
     h3 { font-size: 24px; }
     h4 { font-size: 18px; }
@@ -1332,6 +1350,7 @@ footer.container-fluid > .row {
     .f20 { font-size: 16px; }
     .f36 { font-size: 18px; }
     .p28 { font-size: 14px; }
+    .h3-do-reg > h3{font-size: 20px;}
 
     .back-header{font-size: 32px;}
 
@@ -1343,6 +1362,9 @@ footer.container-fluid > .row {
 
     .ofe-row-margin{
         margin-bottom: 50px;
+    }
+    .dot{
+      display: none;
     }
 
     .wrapper { padding-left: 12%; padding-right: 12%; margin-top: 346px; }
@@ -1365,7 +1387,7 @@ footer.container-fluid > .row {
     .step-content p { font-size: 14px; }
     .dot { background-size: 52%; width: 90px;}
     .steps { margin-top: 75px; }
-    .step { margin-left: .5rem;}
+
     .contact-form { margin-top: 50px; }
     .contact p { font-size: 14px; }
     footer { background: linear-gradient(90deg, #6D0B44 100%, #FFF) top/100% 200px no-repeat; margin-top: 9rem; }
@@ -1378,7 +1400,7 @@ footer.container-fluid > .row {
     .checkmark {  width: 13px; height: 13px; top: -2px; left: -38px; }
     .form-check-label .checkmark:after { left: 3px; top: 0px; width: 5px; height: 9px;border-width: 0px 2px 2px 0; }
 
-    header hr { margin-left: 0 !important; margin-right: -50%; }
+
     .hr-100 { margin-left: -50%; margin-right: -50%; }
     .cyferki { width: 100vw; }
     .header .heading, .heading hr { padding-right: unset; }

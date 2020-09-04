@@ -37,16 +37,17 @@ include $pageprefix.'include/all/navbar.php';
 
           <form class="" action="index.html" method="post">
             <div class="text-center osk-btn">
-
-              <button style="background-color:#6D0B44" type="submit" class="btn btn-primary btn-submicik">edytuj zdjęcie</button>
+              <label for="bb">  <div style="background-color:#6D0B44"  type="submit" class="btn btn-primary btn-submicik">edytuj zdjęcie</div>
+                <input type="file" id="bb" name="" value="" style="visibility:hidden">
+              </label>
             </div>
+
           </form>
 
         </div>
 
         <div class="col-lg-8 order-lg-1" >
 
-          <form class="" action="backend/rejestracja.php" method="POST">
 
             <div class="row pt-3 ">
               <div class="col-lg-4  offset-1 offset-lg-2 pt-lg-3" >
@@ -141,13 +142,11 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-          </form>
 
         </div>
 
 
         <div class="col  order-3" >
-          <form class="" action="index.html" method="post">
 
             <div class="row pt-3 ">
               <div class="col-lg-2  offset-1 pt-3 " >
@@ -188,7 +187,6 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-          </form>
         </div>
 
         <div class="col-12 order-4 section-grey-pp  " >
@@ -198,11 +196,10 @@ include $pageprefix.'include/all/navbar.php';
           <div class="pt-3">
             <p class="text-center">Nowe możliwości komunikowania się z kursantami pozwolą na dokładniejsze dotarcie do kursanta.
               W jednej aplikacji możesz porozmawiać i jednocześnie dodać wszystkich swoich instruktorów. </p>
-            <form class="" action="index.html" method="post">
               <div class="text-center osk-btn-2 ">
                 <button type="submit" class="btn btn-primary btn-submicik">dołacz do prawka plus</button>
               </div>
-            </form>
+
           </div>
 
 

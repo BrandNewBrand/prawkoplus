@@ -35,7 +35,7 @@ if ($_SESSION['zalogowany'] > 0) {
              <div class="col-12  os-card mt-4 ">
 
                <div class="row text-left">
-                 <div class="col-6 offset-1">
+                 <div class="col-6 offset-1 ">
                    <h1 class="grey-header " >logowanie</h1>
                    <hr style="border-color:#AEAEAE;margin-top:0;">
                  </div>

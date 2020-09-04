@@ -8,7 +8,7 @@ include $pageprefix.'include/all/head.php';
 include $pageprefix.'include/all/navbar.php';
 ?>
 
-	<div class="wrapper text-white">
+	<div class="wrapper text-white ">
 		<header class="container-fluid header p-0">
 
 
@@ -52,7 +52,7 @@ include $pageprefix.'include/all/navbar.php';
 
 					<div class="heading ">
 
-								<p class="f36">Jesteśmy portalem, który umożliwi Ci znalezienie idealnego ośrodka.
+								<p class="f36" style="text-align: left;">Jesteśmy portalem, który umożliwi Ci znalezienie idealnego ośrodka.
 								<p>
 									<hr style="margin-bottom: 0px;" class="hr-margin-right d-flex align-items-end ">
 					</div>
@@ -409,7 +409,7 @@ include $pageprefix.'include/all/navbar.php';
 
 				<div class="row ">
 					<div class=col-md-10>
-						<div class="heading mb-4">
+						<div class="heading mb-4 h3-do-reg">
 								<h3>Odwiedź regulamin idealnego Ośrodka Szkolenia Kierowców - dowiedz się,
 									czy wybrany ośrodek spełnia ważne dla Ciebie kryteria.</h3>
 						</div>
@@ -445,7 +445,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-			<div class="col-md-8 offset-1">
+			<div class="col-md-8 offset-md-1">
 
 				<div class="heading mb-4">
 								<h3>Aplikacja Prawko Plus </h3>
@@ -466,7 +466,7 @@ include $pageprefix.'include/all/navbar.php';
 
 		</div>
 
-			<div class="row offset-1" style="margin-top:30px;">
+			<div class="row offset-md-1" style="margin-top:30px;">
 
 								<!-- <div style="margin-top:35px;"> -->
 
@@ -474,7 +474,7 @@ include $pageprefix.'include/all/navbar.php';
 									<div class="col-sm-2 arrowsInRight ">
 											<img class="d-none d-sm-block mx-auto" src="img/img2/arrowsDown/threeDownArrows.svg" alt="">
 									</div>
-									<div class="col-sm-5 col-3">
+									<div class="col-sm-5 offset-2 offset-sm-0 col-3">
 
 
 										<p class="purple-text f36">pobierz aplikację</p>
@@ -619,7 +619,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-			<img src="img/about-content-mobile-img.svg" class="img-fluid d-block d-md-none">
+			<img src="img/about-content-mobile-img.svg" class="img-fluid d-block d-md-none mx-auto">
 		</section>
 
 
@@ -629,12 +629,13 @@ include $pageprefix.'include/all/navbar.php';
 
 		<section class=" container-fluid px-0 px-xl-1">
 			<div class="row">
-				<div class="col-12 col-md-6 pl-0 pl-xl-1">
-					<div class="col-9 col-xl-10 ml-auto ml-xl-0 px-0 px-xl-1 offset-md-2 offset-custom">
+				<div class=" col-12 col-sm-10 offset-sm-2 offset-md-0 col-md-6 pl-0 pl-xl-1">
+					<div class="col-sm-10 col-12 col-xl-10  ml-xl-0 px-0 px-xl-1 offset-md-2 offset-custom">
 						<div class="heading pb-3">
 							<h3>Chcesz dołączyć?</h3>
 						</div>
-						<hr class="hr-margin-left hr-join hr-100">
+						<!-- <hr class="hr-margin-left hr-join hr-100"> -->
+						<hr class="hr-small-left">
 						<div class="join-left">
 							<p>
 								Organizacja Prawko Plus dąży do standaryzacji procesów szkolenia kierowców. Dołącz do
@@ -648,16 +649,16 @@ include $pageprefix.'include/all/navbar.php';
 					<div class="d-none d-xl-block col-md-8 offset-md-2 pl-cus">
 						<img class="img-fluid" src="img/streetDown.svg">
 					</div>
-					<div class="d-block d-xl-none col-12 col-md-8 offset-md-2 pl-cus">
+					<div class="d-block d-xl-none col-sm-8 col-8 col-md-8 offset-md-2  offset-2 offset-sm-1">
 						<img class="img-fluid" src="img/street-mobile.png">
 					</div>
 				</div>
-				<div class="steps col-md-4 offset-md-2 px-xl-0">
+				<div class="steps col-sm-8 offset-sm-2 col-md-4 offset-md-2 px-xl-0 p-0">
 					<div class="step d-flex">
 						<div class="dot"></div>
 						<div class="step-content">
 							<h4>Krok 1</h4>
-							<hr class="w-75 ml-0">
+							<hr class=" ml-0">
 							<p>ROZPOZNANIE</p>
 							<p class="f24">1. Odwiedź stronę <a href="#">Prawko Plus EXPERT</a>.
 							</p>
@@ -667,7 +668,7 @@ include $pageprefix.'include/all/navbar.php';
 						<div class="dot"></div>
 						<div class="step-content">
 							<h4>Krok 2</h4>
-							<hr class="w-75 ml-0">
+							<hr class=" ml-0">
 							<p>WYBÓR</p>
 							<p class="f24">2. Wybierz spośród naszych ofert najlepszą dla siebie.
 							</p>
@@ -677,7 +678,7 @@ include $pageprefix.'include/all/navbar.php';
 						<div class="dot"></div>
 						<div class="step-content">
 							<h4>Krok 3</h4>
-							<hr class="w-75 ml-0">
+							<hr class=" ml-0">
 							<p>WSPÓŁPRACA</p>
 							<p class="f24">3. Ciesz się nowymi klientami dla Tojego interesu.</p>
 						</div>
@@ -688,11 +689,12 @@ include $pageprefix.'include/all/navbar.php';
 		</section>
 		<section id="contact" class="contact container-fluid px-0">
 			<div class="row">
-				<div class="col-9 col-md-4 offset-1 pl-0 px-xl-0">
+				<div class="col-10 col-sm-8 offset-sm-2 offset-md-1 col-md-4 offset-1 pl-0 px-xl-0">
 					<div class="heading pb-3">
 						<h3>Odezwij się</h3>
 					</div>
-					<hr class="hr-margin-left hr-join hr-100">
+					<!-- <hr class="hr-margin-left hr-join hr-100"> -->
+					<hr class="hr-small-left">
 					<div class="pt-5 mb-4 pt1700">
 						<p class="f24">
 							Skontaktuj się z nami i dowiedz się więcej.
@@ -710,13 +712,13 @@ include $pageprefix.'include/all/navbar.php';
 						<p class="f24 mb-1">Email</p>
 						<p class="f24">janusz.kowalski@onet.pl </p>
 					</div>
-					<div class="sm col-8 col-xl-5 d-flex px-0 justify-content-between mt-4 pt-4">
+					<div class=" col-xl-5 d-flex px-0 justify-content-between mt-4 pt-4">
 						<a class="icon" href="#"><i class="fab fa-facebook-square text-white"></i></a>
 						<a class="icon" href="#"><i class="fab fa-instagram text-white"></i></a>
 						<a class="icon" href="#"><i class="fab fa-youtube text-white"></i></a>
 					</div>
 				</div>
-				<div class="contact-form px-0 px-xl-1 col-md-5 offset-0 offset-md-2 c-back bg-white d-flex flex-column align-items-center">
+				<div class="contact-form px-0 px-xl-1 offset-md-1 col-md-6 col-lg-5 offset-0 offset-lg-2 c-back bg-white d-flex flex-column align-items-center">
 					<h4 class="font-weight-bold mb-5">Formularz kontaktowy</h4>
 					<form action="send_wiad.php" method="POST" class="d-flex flex-column align-items-end">
 						<div class="form-group w-100">
