@@ -1,4 +1,4 @@
-<?php 
+<?php
     session_start();
     $pagetitle = 'Zmiana hasła';
     $pageprefix = '../';
@@ -45,7 +45,7 @@ if (isset($_POST['stare_haslo'])) {
     }
 
     if (isset($nowe_haslo)) {
-      
+
 
       $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
       if ($rezultat=$polaczenie->query("UPDATE users SET haslo = '$nowe_haslo' WHERE id='$id'")) {
@@ -69,7 +69,7 @@ if (isset($_POST['stare_haslo'])) {
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
              <div class="animate-hr">
-                 <a href="../index.php" class="mb-2 back-header">Wróć na Prawko Plus</a>
+                 <a href="../index.php" class="mb-2 back-header">wróć na Prawko Plus</a>
                  <hr class="small-hr ml-0 mt-0">
              </div>
          </div>

@@ -11,7 +11,6 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-   <?php include $pageprefix.'include/all/navbar.php'; ?>
 
 
     <section class="content-background">

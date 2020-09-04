@@ -6,10 +6,9 @@ include $pageprefix.'include/all/head.php';
 include $pageprefix.'include/all/navbar.php';
 ?>
 <div id="wrapper">
-  <?php include $pageprefix.'include/all/navbar.php'; ?>
   <div class="container-fluid">
     <div class="row pt-5 mx-0 pl-2">
-      <div class="col-7">
+      <div class="col">
         <div class="animate-hr">
           <a href="index.php#search" class="mb-2 back-header">wróć do strony głównej</a>
           <hr class="small-hr ml-0 mt-0">
@@ -35,18 +34,11 @@ include $pageprefix.'include/all/navbar.php';
           </div>
 
 
-          <form class="" action="index.html" method="post">
-            <div class="text-center osk-btn">
-              <label for="bb">  <div style="background-color:#6D0B44"  type="submit" class="btn btn-primary btn-submicik">edytuj zdjęcie</div>
-                <input type="file" id="bb" name="" value="" style="visibility:hidden">
-              </label>
-            </div>
 
-          </form>
 
         </div>
 
-        <div class="col-lg-8 order-lg-1" >
+        <div class="col-lg-8 order-lg-1 osk-form-lebel" >
 
 
             <div class="row pt-3 ">
@@ -146,7 +138,7 @@ include $pageprefix.'include/all/navbar.php';
         </div>
 
 
-        <div class="col  order-3" >
+        <div class="col  order-3 osk-form-lebel" >
 
             <div class="row pt-3 ">
               <div class="col-lg-2  offset-1 pt-3 " >
@@ -178,7 +170,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-            <div class="text-center osk-btn ">
+            <div class="text-center osk-btn mt-2">
 
               <a href="profil-osk-edycja.php"><button type="submit" class="btn btn-primary btn-submicik">edycja</button></a>
 

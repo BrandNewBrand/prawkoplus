@@ -69,7 +69,7 @@ include $pageprefix.'include/all/navbar.php';
 
 <!-- ###############################################3 -->
 <form class="" action="backend/wyszukiwanie_strona_gl.php" method="POST">
-	<div class=" col-lg-11  offset-xl-1 offset-md-0 p-0 ofe-row-margin mt-1">
+	<div class=" col-lg-11  offset-xl-1 offset-md-0 p-0 ofe-row-margin mt-5">
 						<div class="search-box bg-white">
 							<div class="content row mx-0">
 								<div class="search-tab d-flex align-items-center tab-left col-lg-10 bg-custom-purple ">
@@ -687,7 +687,7 @@ include $pageprefix.'include/all/navbar.php';
 
 			</div>
 		</section>
-		<section id="contact" class="contact container-fluid px-0">
+		<section id="contact" class="contact container-fluid px-0" style="margin-top:100px;">
 			<div class="row">
 				<div class="col-10 col-sm-8 offset-sm-2 offset-md-1 col-md-4 offset-1 pl-0 px-xl-0">
 					<div class="heading pb-3">

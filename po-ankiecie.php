@@ -12,7 +12,6 @@ include $pageprefix.'include/all/navbar.php';
 
  <div id="wrapper">
 
-   <?php include $pageprefix.'include/all/navbar.php'; ?>
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
              <div class="animate-hr">
@@ -59,7 +58,7 @@ include $pageprefix.'include/all/navbar.php';
 
                        </div>
 
-                    
+
 
                        <!-- <div class="text-center">
                          <a href="index.php" class="btn btn-primary btn-submicik  py-auto">Przejdź do prawko plus</a>

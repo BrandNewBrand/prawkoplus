@@ -33,6 +33,13 @@
   margin-right: auto;
 }
 
+.osk-form-lebel p.form-label {
+    text-align: right;
+}
+.osk-form-lebel > .row > .col-lg-4.offset-1.pt-lg-3 {
+    margin-left: 33px;
+}
+
 
 .szczegoly > p {
   margin-bottom: 30px !important;
@@ -322,11 +329,16 @@ p { font-size: 24px; line-height: 40px; }
         height: 50px !important;
       }
 
+
+
 }
 
 
-@media(min-width: 1000px) {
-
+@media(max-width: 998px) {
+  .osk-form-lebel p.form-label {
+text-align: left;
+padding-left: 20px;
+}
 }
 
 
@@ -575,9 +587,7 @@ button, a {
     margin-bottom: 80px;
 }
 
-.header {
-    min-height: 655px;
-}
+
 
 .hr-margin-left {
     margin-left: -100%;
@@ -651,7 +661,7 @@ button, a {
 }
 
 .icon-left-position{
-    margin-top:-35% !important;
+    margin-top:-50% !important;
 
 }
 

@@ -6,10 +6,9 @@ include $pageprefix.'include/all/head.php';
 include $pageprefix.'include/all/navbar.php';
 ?>
 <div id="wrapper">
-  <?php include $pageprefix.'include/all/navbar.php'; ?>
   <div class="container-fluid">
     <div class="row pt-5 mx-0 pl-2">
-      <div class="col-7">
+      <div class="col">
         <div class="animate-hr">
           <a href="index.php#search" class="mb-2 back-header">wróć do strony głównej</a>
           <hr class="small-hr ml-0 mt-0">
@@ -45,7 +44,7 @@ include $pageprefix.'include/all/navbar.php';
 
         </div>
 
-        <div class="col-lg-8 order-lg-1" >
+        <div class="col-lg-8 order-lg-1 osk-form-lebel" >
 
 
             <div class="row pt-3 ">
@@ -69,7 +68,7 @@ include $pageprefix.'include/all/navbar.php';
             </div>
 
             <div class="row pt-3">
-              <div class="col-lg-4  offset-1 pt-lg-3 pr-0" >
+              <div class="col-lg-4  offset-1 pt-lg-3 " >
                 <p class="form-label">nazwa ośrodka:</p>
               </div>
               <div class="col-lg-7    form-group offset-1 offset-lg-0 col-10">
@@ -79,7 +78,7 @@ include $pageprefix.'include/all/navbar.php';
             </div>
 
             <div class="row pt-3">
-              <div class="col-lg-4  offset-1 pt-lg-3 pr-0" >
+              <div class="col-lg-4  offset-1 pt-lg-3 " >
                 <p class="form-label">miasto:</p>
               </div>
               <div class="col-lg-7    form-group offset-1 offset-lg-0 col-10">
@@ -151,7 +150,7 @@ include $pageprefix.'include/all/navbar.php';
         </div>
 
 
-        <div class="col  order-3" >
+        <div class="col  order-3 osk-form-lebel" >
 
             <div class="row pt-3 ">
               <div class="col-lg-2  offset-1 pt-3 " >
@@ -181,7 +180,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-            <div class="text-center  ">
+            <div class="text-center  osk-btn mt-2">
               <a href="profil-osk.php" class="osk-btn">
                 <button type="submit" class="btn btn-primary btn-submicik">zapisz</button>
                 </a>

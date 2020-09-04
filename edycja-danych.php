@@ -12,7 +12,7 @@ $user_id = $_GET['id'];
 if ($_SESSION['zalogowany'] == 0) {
   header('Location: '.$pageprefix.'logowanie.php');
 } else {
-  
+
   require_once "backend/connect.php";
   $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
 
@@ -34,7 +34,6 @@ include $pageprefix.'include/all/navbar.php';
 
  <div id="wrapper">
 
-   <?php include $pageprefix.'include/all/navbar.php'; ?>
 
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
