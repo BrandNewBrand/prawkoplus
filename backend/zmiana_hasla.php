@@ -66,7 +66,6 @@ if (isset($_POST['stare_haslo'])) {
 
 <div id="wrapper">
 
-   <?php include $pageprefix.'include/all/navbar.php'; ?>
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
              <div class="animate-hr">
