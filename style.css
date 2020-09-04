@@ -735,6 +735,14 @@ button, a {
 
 }
 
+.home_page_form_search > .row > .search-box > .row > .col-md-3 > select {
+  max-width: 320px !important;
+}
+
+.home_page_form_search > .row > .search-box > .row > .col-md-3 > .round {
+  max-width: 291px !important;
+}
+
 option {
     color: black;
     font-size: 1rem;

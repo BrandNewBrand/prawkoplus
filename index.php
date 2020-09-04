@@ -3,6 +3,33 @@ session_start();
 $pagetitle = 'index';
 $pageprefix = '';
 
+if (isset($_POST['city'])) {
+  $city = $_POST['city'];
+  $kat = $_POST['cat'];
+  $_POST['sort'] = '0';
+  if (!isset($_POST['pp'])) {
+    $pp = '0';
+  } else {
+    $pp = '1';
+  }
+} else {
+  $city = '%';
+  $kat = '%';
+  $pp = '0';
+  $_POST['sort'] = '0';
+}
+
+
+
+require_once "backend/connect.php";
+$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+$rez_city=$polaczenie->query("SELECT DISTINCT city FROM osk GROUP BY city");
+$ile_city = mysqli_num_rows($rez_city);
+$polaczenie->close();
+for ($i=0; $i < $ile_city; $i++) { 
+  $tbl_city=$rez_city->fetch_assoc();
+  $miasta[$i] = $tbl_city['city'];
+}
 
 include $pageprefix.'include/all/head.php';
 include $pageprefix.'include/all/navbar.php';
@@ -68,69 +95,71 @@ include $pageprefix.'include/all/navbar.php';
 
 
 <!-- ###############################################3 -->
-<form class="" action="backend/wyszukiwanie_strona_gl.php" method="POST">
-	<div class=" col-lg-11  offset-xl-1 offset-md-0 p-0 ofe-row-margin mt-5">
-						<div class="search-box bg-white">
-							<div class="content row mx-0">
-								<div class="search-tab d-flex align-items-center tab-left col-lg-10 bg-custom-purple ">
-									<div class="col-md-3 d-none d-lg-block">
-										<select name="city"  class="browser-default custom-select  search-bar-text-1">
-											<option class="" value="0" selected>miasto</option>
-											<option class="" value="Koszalin">Koszalin</option>
-											<option class="" value="Kraków">Kraków</option>
-											<option class="" value="Warszawa">Warszawa</option>
-											<option class="" value="Poznań">Poznań</option>
-
-										</select>
-									</div>
-									<div class="col-md-3 d-none d-lg-block">
-									<select name="cat" class="browser-default custom-select search-bar-text-1" placeholder="Kategoria">
-											<option  value="0" selected>kategoria</option>
-											<option  value="B1">B1</option>
-											<option  value="B2">B2</option>
-											<option  value="C1">C1</option>
-											<option  value="A1">A1</option>
-
-										</select>
-									</div>
-
-
-									<div  class="col-md-3 d-none d-lg-block">
-										<select name="sort" class="browser-default custom-select ">
-											<option value="0" selected>sortuj</option>
-											<option value="ocena malejąco">ocena malejąco</option>
-											<option value="ocena rosnąco">ocena rosnąco</option>
-										</select>
-
-									</div>
-
-
-
-									<div style="margin-bottom: 5px;" class="col-md-3 d-none d-lg-block">
-
-
-							  	<div class="round ">
-											<input type="checkbox" id="checkbox" name="pp" value="1">
-									   	<label class="vertical-center-checkbox" for="checkbox"></label>
-											<span class="search-bar-text-1" style="margin-left: 12%;">prawko plus</span>
-											<div class="clearing-both">	</div>
-										</div>
-
-
-									</div>
-
-
-								</div>
-								<label style="cursor:pointer" class=" mb-0 search-tab col-lg-2 d-flex justify-content-center col-12 tab-right">
-									<input class="search-bar-text-2" type="submit" name="" value="szukaj">
-									<img style="margin-left: 5%;" src="img/img2/arrowsDown/lupa.svg" alt="">
-								</label>
-
-
-							</div>
-						</div>
-					</div>
-</form>
+    <form class="mx-auto home_page_form_search"  style="width:100%" action="wyszukiwarka.php" method="POST">
+      <div class="row bg-search-purple ofe-row-margin  d-flex align-items-center text-center "  style="border-radius:27px; ">
+        <div class="col-lg-10  search-box  my-auto  " >
+          <div class="row content-row" >
+            <div class="col-md-3  search-tab d-flex align-items-center tab-left mx-auto">
+              <select name="city"  class="browser-default custom-select  search-bar-text-1">
+                <option class="" value="%" <?php if ($city == '%') {echo 'selected';} ?>>miasto</option>
+                <?php 
+                for ($i=0; $i < $ile_city; $i++) { 
+                  if ($city == $miasta[$i]) {$selected = 'selected';} else {$selected = '';}
+                  echo '<option class="" value="'.$miasta[$i].'" '.$selected.'>'.$miasta[$i].'</option>';
+                }
+                 ?>
+              </select>
+            </div>
+            <div class="col-md-3 search-tab d-flex align-items-center tab-left mx-auto" >
+              <select name="cat" class="browser-default custom-select search-bar-text-1" placeholder="Kategoria">
+                <option  value="%" <?php if ($kat == '%') {echo 'selected';} ?>>kategoria</option>
+                <option  value="AM" <?php if ($kat == 'AM') {echo 'selected';} ?>>AM</option>
+                <option  value="A1" <?php if ($kat == 'A1') {echo 'selected';} ?>>A1</option>
+                <option  value="A2" <?php if ($kat == 'A1') {echo 'selected';} ?>>A2</option>
+                <option  value="A" <?php if ($kat == 'A') {echo 'selected';} ?>>A</option>
+                <option  value="B1" <?php if ($kat == 'B1') {echo 'selected';} ?>>B1</option>
+                <option  value="B" <?php if ($kat == 'B') {echo 'selected';} ?>>B</option>
+                <option  value="C1" <?php if ($kat == 'C1') {echo 'selected';} ?>>C1</option>
+                <option  value="C" <?php if ($kat == 'C') {echo 'selected';} ?>>C</option>
+                <option  value="D1" <?php if ($kat == 'D1') {echo 'selected';} ?>>D1</option>
+                <option  value="D" <?php if ($kat == 'D') {echo 'selected';} ?>>D</option>
+                <option  value="BE" <?php if ($kat == 'BE') {echo 'selected';} ?>>BE</option>
+                <option  value="C1E" <?php if ($kat == 'C1E') {echo 'selected';} ?>>C1E</option>
+                <option  value="CE" <?php if ($kat == 'CE') {echo 'selected';} ?>>CE</option>
+                <option  value="D1E" <?php if ($kat == 'D1E') {echo 'selected';} ?>>D1E</option>
+                <option  value="DE" <?php if ($kat == 'DE') {echo 'selected';} ?>>DE</option>
+                <option  value="T" <?php if ($kat == 'T') {echo 'selected';} ?>>T</option>
+              </select>
+            </div>
+            <div class="col-md-3 search-tab d-flex align-items-center tab-left mx-auto " >
+              <select name="sort" class="browser-default custom-select  ">
+                <option value="0" <?php if ($_POST['sort'] == '0') {echo 'selected';} ?>>sortuj</option>
+                <option value="desc" <?php if ($_POST['sort'] == 'desc') {echo 'selected';} ?>>ocena malejąco</option>
+                <option value="asc" <?php if ($_POST['sort'] == 'asc') {echo 'selected';} ?>>ocena rosnąco</option>
+              </select>
+            </div>
+            <div class="col-md-3 search-tab d-flex align-items-center tab-left mx-auto" >
+              <div class="round ">
+                <input type="checkbox" id="checkbox" name="pp" value="tak" <?php if (isset($_POST['pp'])) {echo "checked";} ?>>
+                <label class="vertical-center-checkbox" for="checkbox"></label>
+                <span class="search-bar-text-1" style="margin-left: 12%;">prawko plus</span>
+                <div class="clearing-both"> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2" >
+          <div class="row  tab-right" style=" background-color:#fff">
+            <div class="col px-0" >
+              <label style="cursor:pointer" class=" mb-0  search-tab d-flex justify-content-center ">
+                <input class="search-bar-text-2" type="submit" name="" value="szukaj">
+                <img style="margin-left: 5%;" src="img/img2/arrowsDown/lupa.svg" alt="">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
 
 
 
