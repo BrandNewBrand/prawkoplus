@@ -9,7 +9,7 @@
 
 
 $id_osk=$_GET['id_osk'];
-// echo $id;
+
 
 require_once "connect.php";
 

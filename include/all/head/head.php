@@ -14,7 +14,7 @@ $_SESSION['domena'] = 'http://bnb-project.pl/pp_new';
 $_SESSION['admin_email'] = 'biuro@brandnewbrand.pl';
 
 
-$_SESSION['category_tbl'] = ['AM', 'A1', 'A2', 'A', 'B1', 'B2', 'B', 'C1', 'C', 'D1', 'D', 'BE', 'C1E', 'CE', 'D1E', 'DE', 'T'];
+$_SESSION['category_tbl'] = ['AM', 'A1', 'A2', 'A', 'B1', 'B', 'C1', 'C', 'D1', 'D', 'BE', 'C1E', 'CE', 'D1E', 'DE', 'T'];
 
 ?>
 

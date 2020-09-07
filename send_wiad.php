@@ -1,5 +1,8 @@
 <?php
-    $to = 'biuro@brandnewbrand.pl';
+session_start();
+$pageprefix = '';
+include $pageprefix.'include/all/head.php';
+    $to = $_SESSION['admin_email'];
     $name = $_POST['name'];
     $nazwisko = $_POST['nazwisko'];
     $email = $_POST['email'];

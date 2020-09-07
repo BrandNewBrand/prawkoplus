@@ -33,10 +33,22 @@ if (isset($_POST['name'])) {
 	exit();
 }
 
-$plik = '../img/img_osk/logo_osk_'.$id_osk.'/logo.jpg';
 
-$test_logo=file_exists($plik);
+if ($_FILES['img']['size'] > 512000) {
+	$_SESSION['error'] = 'Rozmiar pliku jest zbyt duży. Nie może przekraczać 5,12 MB.';
+	header('Location: ../'.$back);
+	exit();
+}
 
+if ($_FILES['img']['size'] > 1) {
+
+
+
+if ($_FILES['img']['type'] != 'image/jpeg') {
+	$_SESSION['error'] = 'Błędny format pliku. Wgraj logo w formacie JPEG.';
+	header('Location: ../'.$back);
+	exit();
+}
 
   if ($_FILES['img']['error'] > 0)
   {
@@ -45,24 +57,21 @@ $test_logo=file_exists($plik);
     {
       // jest większy niż domyślny maksymalny rozmiar,
       // podany w pliku konfiguracyjnym
-      case 1: {echo 'Rozmiar pliku jest zbyt duży.'; break;} 
+      case 1: {$_SESSION['error'] = 'Rozmiar pliku jest zbyt duży.';} 
 
       // jest większy niż wartość pola formularza 
       // MAX_FILE_SIZE
-      case 2: {echo 'Rozmiar pliku jest zbyt duży.'; break;}
+      case 2: {$_SESSION['error'] = 'Rozmiar pliku jest zbyt duży.';}
 
       // plik nie został wysłany w całości
-      case 3: {echo 'Plik wysłany tylko częściowo.'; break;}
+      case 3: {$_SESSION['error'] = 'Plik wysłany tylko częściowo.';}
 
       // plik nie został wysłany
-      case 4: {echo 'Nie wysłano żadnego pliku.'; break;}
+      case 4: {$_SESSION['error'] = '';}
 
       // pozostałe błędy
-      default: {echo 'Wystąpił błąd podczas wysyłania.';
-        break;}
+      default: {$_SESSION['error'] = '';}
     }
-    return false;
-    exit();
   }
 
 
@@ -95,7 +104,7 @@ echo $file;
 
 $img = $domena.$katalog.'/logo.jpg';
 echo '<br>'.$img;
-
+}
 
 require_once "connect.php";
 $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
@@ -103,10 +112,9 @@ $polaczenie->query('SET NAMES utf8');
 $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
 
-
-
+if ($_FILES['img']['size'] > 1) {
 $rezultat2=$polaczenie->query("UPDATE osk SET img = '$img' WHERE osk_id='$id_osk'");
-
+}
 
 $rezultat2=$polaczenie->query("UPDATE osk SET name = '$name' WHERE osk_id='$id_osk'");
 $rezultat2=$polaczenie->query("UPDATE osk SET street = '$street' WHERE osk_id='$id_osk'");

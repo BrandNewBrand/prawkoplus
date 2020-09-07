@@ -26,6 +26,11 @@ if (isset($_POST['login'])) {
 			$weryfikacja = $weryfikacja_tbl['weryfikacja'];
 			if ($weryfikacja>0) {
 				$_SESSION['zalogowany'] = $user_id;
+				if (isset($_SESSION['expres_location'])) {
+					header('Location: ../'.$_SESSION['expres_location']);
+					$polaczenie -> close();
+					exit();
+				}
 				header('Location: ../twoj-profil.php?id='.$user_id);
 				$polaczenie -> close();
 				exit();

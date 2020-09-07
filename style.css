@@ -77,6 +77,8 @@ p.link_text > a:hover {
   margin-left: auto;
   margin-right: auto;
   max-width: 300px;
+  min-height: 300px;
+  display: flex;
 }
 .osk-btn > a button {
   max-width: 230px !important;
@@ -121,12 +123,10 @@ color: #8D8D8D;
 
 
 .osk-photo img {
-border-radius: 25px;
-height: auto;
-max-width: 100%;
-display:block;
-margin: 20px auto;
-
+  max-width: 90%;
+  margin: 20px auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 a.text-black:hover {
@@ -139,7 +139,7 @@ a.text-black:hover {
 
 .rating:not(:checked) > label {
     float:right;
-    width:1em;
+    width: 40px;
     padding:0 .1em;
     overflow:hidden;
     white-space:nowrap;
@@ -152,6 +152,7 @@ a.text-black:hover {
 
 .rating:not(:checked) > label:before {
     content: '★ ';
+    font-size: 35px;
 }
 
 .rating > input:checked ~ label {
@@ -858,8 +859,15 @@ option {
 
 }
 
+.descript > p {
+  line-height: 24px !important;
+}
+
+.descript > h4 {
+  margin-bottom: 30px;
+}
+
 .kurs-card-header > .img{
-  width: 250px;
   justify-content: center;
 
 
@@ -876,8 +884,9 @@ option {
 }
 .kurs-card-header  h4 {
   color: #B40524 ;
-  font-size: 48px;
   font-weight: bold;
+  text-align: left;
+  font-size: 36px;
 }
 .kurs-card-header  p {
   color: #0F0E19 ;
@@ -921,10 +930,15 @@ option {
 }
 
 hr.bg-black {
-    background: black;
-    border-color: black;
-    width: 70%;
+    width: 82%;
     margin-left: 0;
+    border: 1px solid #b3b3b3;
+}
+
+@media(max-width: 450px) {
+  hr.bg-black {
+    width: 77%;
+  }
 }
 
 .img-bg-card {
@@ -1238,7 +1252,7 @@ footer.container-fluid > .row {
     h1 { font-size: 58px; }
     /* h3 { font-size: 44px; } */
     h4 { font-size: 26px; }
-    p { font-size: 18px; line-height: 41px; }
+    p { font-size: 18px; line-height: 32px; }
     .f24 { font-size: 20px; }
     .f20 { font-size: 18px; }
     .wrapper {
@@ -1489,8 +1503,15 @@ footer.container-fluid > .row {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
+}
+
+.dropdown > button {
+  height: 50px;
+  width: 50px;
+  background-color: #b4b4b478;
+  border-radius: 25px;
 }
 
 .dropdown_padding {
@@ -1521,11 +1542,17 @@ footer.container-fluid > .row {
   display: block;
 }
 
-.dropdown-content a:nth-child(1) {
-    border-radius: 10px 10px 0 0;
-}
+
 
 .dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown-content a:nth-child(1) {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.dropdown-content a:nth-last-child(1) {
+    border-radius: 0 0 10px 10px !important;
+}
 
 .dropdown:hover .dropdown-content {display: block;}
 
@@ -1540,10 +1567,10 @@ footer.container-fluid > .row {
 }
 
 
-form.wyloguj > input {
+a.wyloguj {
     border: none;
     background: transparent;
-    color: red;
+    color: red !important;
 }
 
 
@@ -1564,13 +1591,14 @@ form.wyloguj > input {
 
 .btn-thirdary-bnb {
   height: 45px;
-  width: 80%;
   max-width: 300px;
   border: none;
   border-radius: 22.5px;
   background-color: #6D0B44;
   transition: 1s all;
   min-width: 200px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .btn-thirdary-bnb:hover {
@@ -1580,4 +1608,11 @@ form.wyloguj > input {
 .mw-50 {
   width: 100%;
   max-width: 700px;
+}
+
+
+@media(max-width: 1500px) {
+  .kurs-card-header > .img > img {
+    max-width: 200px;
+  }
 }

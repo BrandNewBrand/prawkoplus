@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pagetitle = '';
+$pagetitle = 'Zrobione';
 $pageprefix = '';
 
 
@@ -15,7 +15,7 @@ include $pageprefix.'include/all/navbar.php';
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
              <div class="animate-hr">
-                 <a href="index.php" class="mb-2 back-header">ankieta</a>
+                 <a href="index.php" class="mb-2 back-header">Wróć na stronę Prawko Plus</a>
                  <hr class="small-hr ml-0 mt-0">
              </div>
          </div>
@@ -38,13 +38,7 @@ include $pageprefix.'include/all/navbar.php';
                    <div class="row my-3">
 
                      <div class="  offset-1 col-10 col-lg-8 offset-lg-2 text-center">
-                       <p class="mb-0 small-black-text ">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                         diam nonumy eirmod tempor invidunt ut
-                          labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                          justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
-                          sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor i
-                          nvidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                          justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea</p>
+                       <p class="mb-0 small-black-text "><?php echo $_SESSION['ocena_done']; ?></p>
                      </div>
                    </div>
 

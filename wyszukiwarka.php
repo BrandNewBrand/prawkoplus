@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pagetitle = '';
+$pagetitle = 'wyszukiwarka';
 $pageprefix = '';
 
 
@@ -10,34 +10,70 @@ $polaczenie->query('SET NAMES utf8');
 $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
 
+if (!isset($_POST['sort'])) {
+  if (isset($_SESSION['sort_search'])) {
+    $_POST['sort'] = $_SESSION['sort_search'];
+  } else {
+    $_POST['sort'] = '0';
+  }
+}
+
+
 
 if (isset($_POST['city'])) {
   $city = $_POST['city'];
   $kat = $_POST['cat'].' ';
   if (!isset($_POST['pp'])) {
-    $pp = '0';
+    $pp = '%';
   } else {
     $pp = '1';
   }
 } else {
   $city = '%';
   $kat = '%';
-  $pp = '0';
+  $pp = '%';
+
 }
+
+if (isset($_POST['city'])) {
+  $_SESSION['city_search'] = $city;
+} else {
+  $city = $_SESSION['city_search'];
+}
+
+if (isset($_POST['cat'])) {
+  $_SESSION['kat_search'] = $kat;
+} else {
+  $kat = $_SESSION['kat_search'];
+}
+
+
+  $_SESSION['pp_search'] = $pp;
+
+
+
+if (isset($_POST['sort'])) {
+  $_SESSION['sort_search'] = $_POST['sort'];
+} else {
+  $_POST['sort'] = $_SESSION['sort_search'];
+}
+
+
+
 
 if (isset($_POST['sort'])) {
   if ($_POST['sort'] == '0') {
-    $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus = '$pp' ORDER BY RAND()");
+    $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus LIKE '$pp' ORDER BY RAND()");
   } else {
     if ($_POST['sort'] == 'desc') {
-      $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus = '$pp' ORDER BY rating DESC");
+      $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus LIKE '$pp' ORDER BY rating DESC");
     } else if ($_POST['sort'] == 'asc') {
-      $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus = '$pp' ORDER BY rating ASC");
+      $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus LIKE '$pp' ORDER BY rating ASC");
     }
   }
 } else {
   $_POST['sort'] = '0';
-  $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus = '$pp' ORDER BY RAND()");
+  $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus LIKE '$pp' ORDER BY RAND()");
 }
 
 
@@ -80,7 +116,7 @@ include $pageprefix.'include/all/navbar.php';
                 <option class="" value="%" <?php if ($city == '%') {echo 'selected';} ?>>miasto</option>
                 <?php 
                 for ($i=0; $i < $ile_city; $i++) { 
-                  if ($city == $miasta[$i]) {$selected = 'selected';} else {$selected = '';}
+                  if ($_SESSION['city_search'] == $miasta[$i]) {$selected = 'selected';} else {$selected = '';}
                   echo '<option class="" value="'.$miasta[$i].'" '.$selected.'>'.$miasta[$i].'</option>';
                 }
                  ?>
@@ -88,35 +124,35 @@ include $pageprefix.'include/all/navbar.php';
             </div>
             <div class="col-md-3 search-tab d-flex align-items-center tab-left mx-auto" >
               <select name="cat" class="browser-default custom-select search-bar-text-1" placeholder="Kategoria">
-                <option  value="%" <?php if ($kat == '%') {echo 'selected';} ?>>kategoria</option>
-                <option  value="AM" <?php if ($kat == 'AM ') {echo 'selected';} ?>>AM</option>
-                <option  value="A1" <?php if ($kat == 'A1 ') {echo 'selected';} ?>>A1</option>
-                <option  value="A2" <?php if ($kat == 'A1 ') {echo 'selected';} ?>>A2</option>
-                <option  value="A" <?php if ($kat == 'A ') {echo 'selected';} ?>>A</option>
-                <option  value="B1" <?php if ($kat == 'B1 ') {echo 'selected';} ?>>B1</option>
-                <option  value="B" <?php if ($kat == 'B ') {echo 'selected';} ?>>B</option>
-                <option  value="C1" <?php if ($kat == 'C1 ') {echo 'selected';} ?>>C1</option>
-                <option  value="C" <?php if ($kat == 'C ') {echo 'selected';} ?>>C</option>
-                <option  value="D1" <?php if ($kat == 'D1 ') {echo 'selected';} ?>>D1</option>
-                <option  value="D" <?php if ($kat == 'D ') {echo 'selected';} ?>>D</option>
-                <option  value="BE" <?php if ($kat == 'BE ') {echo 'selected';} ?>>BE</option>
-                <option  value="C1E" <?php if ($kat == 'C1E ') {echo 'selected';} ?>>C1E</option>
-                <option  value="CE" <?php if ($kat == 'CE ') {echo 'selected';} ?>>CE</option>
-                <option  value="D1E" <?php if ($kat == 'D1E ') {echo 'selected';} ?>>D1E</option>
-                <option  value="DE" <?php if ($kat == 'DE ') {echo 'selected';} ?>>DE</option>
-                <option  value="T" <?php if ($kat == 'T ') {echo 'selected';} ?>>T</option>
+                <option  value="%" <?php if ($_SESSION['kat_search'] == '%') {echo 'selected';} ?>>kategoria</option>
+                <option  value="AM" <?php if ($_SESSION['kat_search'] == 'AM ') {echo 'selected';} ?>>AM</option>
+                <option  value="A1" <?php if ($_SESSION['kat_search'] == 'A1 ') {echo 'selected';} ?>>A1</option>
+                <option  value="A2" <?php if ($_SESSION['kat_search'] == 'A1 ') {echo 'selected';} ?>>A2</option>
+                <option  value="A" <?php if ($_SESSION['kat_search'] == 'A ') {echo 'selected';} ?>>A</option>
+                <option  value="B1" <?php if ($_SESSION['kat_search'] == 'B1 ') {echo 'selected';} ?>>B1</option>
+                <option  value="B" <?php if ($_SESSION['kat_search'] == 'B ') {echo 'selected';} ?>>B</option>
+                <option  value="C1" <?php if ($_SESSION['kat_search'] == 'C1 ') {echo 'selected';} ?>>C1</option>
+                <option  value="C" <?php if ($_SESSION['kat_search'] == 'C ') {echo 'selected';} ?>>C</option>
+                <option  value="D1" <?php if ($_SESSION['kat_search'] == 'D1 ') {echo 'selected';} ?>>D1</option>
+                <option  value="D" <?php if ($_SESSION['kat_search'] == 'D ') {echo 'selected';} ?>>D</option>
+                <option  value="BE" <?php if ($_SESSION['kat_search'] == 'BE ') {echo 'selected';} ?>>BE</option>
+                <option  value="C1E" <?php if ($_SESSION['kat_search'] == 'C1E ') {echo 'selected';} ?>>C1E</option>
+                <option  value="CE" <?php if ($_SESSION['kat_search'] == 'CE ') {echo 'selected';} ?>>CE</option>
+                <option  value="D1E" <?php if ($_SESSION['kat_search'] == 'D1E ') {echo 'selected';} ?>>D1E</option>
+                <option  value="DE" <?php if ($_SESSION['kat_search'] == 'DE ') {echo 'selected';} ?>>DE</option>
+                <option  value="T" <?php if ($_SESSION['kat_search'] == 'T ') {echo 'selected';} ?>>T</option>
               </select>
             </div>
             <div class="col-md-3 search-tab d-flex align-items-center tab-left mx-auto " >
               <select name="sort" class="browser-default custom-select  ">
-                <option value="0" <?php if ($_POST['sort'] == '0') {echo 'selected';} ?>>sortuj</option>
-                <option value="desc" <?php if ($_POST['sort'] == 'desc') {echo 'selected';} ?>>ocena malejąco</option>
-                <option value="asc" <?php if ($_POST['sort'] == 'asc') {echo 'selected';} ?>>ocena rosnąco</option>
+                <option value="0" <?php if ($_SESSION['sort_search'] == '0') {echo 'selected';} ?>>sortuj</option>
+                <option value="desc" <?php if ($_SESSION['sort_search'] == 'desc') {echo 'selected';} ?>>ocena malejąco</option>
+                <option value="asc" <?php if ($_SESSION['sort_search'] == 'asc') {echo 'selected';} ?>>ocena rosnąco</option>
               </select>
             </div>
             <div class="col-md-3 search-tab d-flex align-items-center tab-left mx-auto" >
               <div class="round ">
-                <input type="checkbox" id="checkbox" name="pp" value="tak" <?php if (isset($_POST['pp'])) {echo "checked";} ?>>
+                <input type="checkbox" id="checkbox" name="pp" value="tak" <?php if ($_SESSION['pp_search'] > 0) {echo "checked";} ?>>
                 <label class="vertical-center-checkbox" for="checkbox"></label>
                 <span class="search-bar-text-1" style="margin-left: 12%;">prawko plus</span>
                 <div class="clearing-both"> </div>
@@ -140,9 +176,24 @@ include $pageprefix.'include/all/navbar.php';
 <?php 
 
 if ($ile > 0) {
+  if (isset($_GET['aktywna_strona'])) {
+    $akt_str = $_GET['aktywna_strona'];
+  } else {
+    $akt_str = 0;
+  }
 
+$liczba_stron = ceil($ile/8);
 
-  for ($i=0; $i < $ile; $i++) { 
+if ($akt_str == $liczba_stron-1) {
+  $numb_rec = $ile-($akt_str*8);
+} else {
+  $numb_rec = 8;
+}
+
+  for ($j=1; $j <= $akt_str*8; $j++) { 
+    $row=$rez->fetch_assoc();
+  }
+  for ($i=1; $i <= $numb_rec; $i++) { 
     $row=$rez->fetch_assoc();
     if ($row["description"] != '0') {
       if (strlen($row["description"]) > 200) {
@@ -157,8 +208,7 @@ if ($ile > 0) {
       $img = 'img/kolo.png';
     }
     
-    // $rating = round(($row['rating1']+$row['rating2']+$row['rating3']+$row['rating4']+$row['rating5'])/5);
-    $rating = $row['rating'];
+    if ($row['rating'] > 0) {$rating = $row['rating'];} else {$rating = 'brak';}
     
 
     echo '<div class="item_search">
@@ -179,7 +229,7 @@ if ($ile > 0) {
               <p><b>'.$row["category"].'</b></p>
               <p>'.$row["street"].'<br>
               '.$row["city"].'</p>
-              <a href="#"><button class="btn-primary">Szczegóły</button></a>
+              <a href="kurs.php?id='.$row['id'].'"><button class="btn-primary">Szczegóły</button></a>
             </div>
           </div>
           <div class="osk-card-media w-100 row align-items-center justify-content-between">
@@ -189,7 +239,7 @@ if ($ile > 0) {
               <p><b>'.$row["category"].'</b></p>
               <p>'.$row["street"].'<br>
               '.$row["city"].'</p>
-              <a href="#"><button class="btn-primary">Szczegóły</button></a>
+              <a href="kurs.php?id='.$row['id'].'"><button class="btn-primary">Szczegóły</button></a>
             </div>
             <div class="desc col-12 mt-4 d-flex flex-column align-items-center">
               <h4 class="w-100"><b>'.$row["name"].'</b></h4>
@@ -207,6 +257,23 @@ if ($ile > 0) {
 } else {
   echo "<h1>Brak wyników o podanych parametrach</h1>";
 }
+
+$next = $akt_str+1;
+$prev = $akt_str-1;
+echo '<p>';
+echo '<a href="wyszukiwarka.php?aktywna_strona='.$prev.'" style="color: #000;"><</a> ';
+for ($k=0; $k < $liczba_stron; $k++) { 
+  $nr_str = $k+1;
+  if ($akt_str == $k) {
+    $bold = 'font-weight: 800';
+  } else {
+    $bold = '';
+  }
+  echo '<a href="wyszukiwarka.php?aktywna_strona='.$k.'" style="color: #000; '.$bold.'">'.$nr_str.'</a> ';
+}
+
+echo '<a href="wyszukiwarka.php?aktywna_strona='.$next.'" style="color: #000;">></a> ';
+echo '</p>';
 $polaczenie->close();
 
  ?>

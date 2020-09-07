@@ -8,11 +8,7 @@
 				<?php if ($_SESSION['zalogowany']>0) { echo '<a href="'.$pageprefix.'twoj-profil.php">Moje konto</a>';
 				} else {echo '<a href="'.$pageprefix.'logowanie.php">Zaloguj się</a>';} ?>
 				<?php if ($_SESSION['zalogowany']>0) {
-					if ($pageprefix == '../') {
-						echo '<form class="wyloguj py-2 pb-3 pl-2" method="POST" action="log_out.php"><input type="hidden" value="1"><input type="submit" value="Wyloguj" class="text-primary"></form>';
-					} else {
-						echo '<form class="wyloguj py-2 pb-3 pl-2" method="POST" action="backend/log_out.php"><input type="hidden" value="1"><input type="submit" value="Wyloguj" class="text-primary"></form>';
-					}
+					echo '<a href="'.$pageprefix.'backend/log_out.php" class="wyloguj">Wyloguj się</a>';
 				} ?>
 			</div>
 		</div>

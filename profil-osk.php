@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if (!isset($_SESSION['error'])) {
+  $_SESSION['error'] = '';
+}
 if ($_SESSION['zalogowany'] == 0) {
   header('Location: '.$pageprefix.'logowanie.php');
   exit();
@@ -19,7 +21,7 @@ if ($_SESSION['zalogowany'] == 0) {
     $rez=$polaczenie->query("SELECT * FROM osk WHERE osk_id='$id_osk'");
     $ile_test = mysqli_num_rows($rez);
     if ($ile_test != 1) {
-      $rez=$polaczenie->query("INSERT INTO osk VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, '0', NULL, '$id_osk', NULL, NULL)");
+      $rez=$polaczenie->query("INSERT INTO osk VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, '0', '0', '0', '0', '0', '$id_osk', '0', '0')");
       header('Location: profil-osk-edycja.php?id_osk='.$id_osk);
       $polaczenie->close();
       exit();
@@ -29,7 +31,7 @@ if ($_SESSION['zalogowany'] == 0) {
     if (strlen($row['img']) > 10) {
       $img = $row['img'];
     } else {
-      $img = $_SESSION['domena'].'/img/kolo.png';
+      $img = $_SESSION['domena'].'/img/kolo.jpg';
     }
   }
 }
@@ -57,7 +59,7 @@ include $pageprefix.'include/all/navbar.php';
       <div class="col-12 ">
         <h1 class="grey-header " >profil OSK: <?php echo $name; ?></h1>
         <hr style="border-color:#AEAEAE;margin-top:0; width:60%; margin-left:0;">
-
+        <div class="error-box text-left text-error mt-4"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>
       </div>
 
 
@@ -201,8 +203,8 @@ include $pageprefix.'include/all/navbar.php';
           <hr style="border:#C8C8C8 1px solid; width:80%;">
 
           <div class="pt-3">
-            <p class="text-center">Zapoznaj się z regulaminem programu partnerskiego Prawko Plus dla OSK, a następnie wyślij zgłoszenie. W ciągu pięciu dni roboczych skontaktuje się z Tobą nasz ekspert celem uzgodnienia warunków współpracy.</p>
-              <form method="POST" action="backend/dolaczenie-do-programu.php?id_osk=<?php echo $id_osk; ?>?user_id=<?php echo $_SESSION['zalogowany']; ?>">
+            <p class="text-center link_text">Zapoznaj się z <a href="#">regulaminem</a> programu partnerskiego Prawko Plus dla OSK, a następnie wyślij zgłoszenie. W ciągu pięciu dni roboczych skontaktuje się z Tobą nasz ekspert celem uzgodnienia warunków współpracy.</p>
+              <form method="POST" action="backend/dolaczenie-do-programu.php?id_osk=<?php echo $id_osk; ?>&user_id=<?php echo $_SESSION['zalogowany']; ?>">
                 <?php 
                 $prawkoplus = $row['prawkoplus'];
                 if ($prawkoplus != 1) {

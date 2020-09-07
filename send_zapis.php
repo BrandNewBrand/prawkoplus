@@ -1,49 +1,50 @@
 <?php
-    $to = 'zlecenia@brandnewbrand.pl';
+    session_start();
+    $to = $_SESSION['admin_email'];
     $osk = $_POST['osk'];
     $name = $_POST['name'];
     $nazwisko = $_POST['nazwisko'];
     $email = $_POST['poczta'];
     $tel = $_POST['tel'];
-    $kategoria = $_POST['kat'];
-    
+    $osk_id = $_POST['osk_id'];
+    $user_id = $_SESSION['zalogowany'];
+    $data_zapis = date('Y-m-d');
+    $data_ocena = date( 'Y-m-d', strtotime( $data_zapis .' +14 day' ));
+
+    echo $data_zapis.'<br>'.$data_ocena;
+    echo '<br>'.$osk;
+    require_once "backend/connect.php";
+    $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+    $polaczenie->query('SET NAMES utf8');
+    $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
+
+    $rezultat = $polaczenie->query("SELECT * FROM osk WHERE osk_id='$osk_id'");
+    $row=$rezultat->fetch_assoc();
+
+    $subject = 'OSK: '.$row['name'].' - Nowy kursant '.$name.' '.$nazwisko;
 
 
+$header = "From: $email \nContent-Type:".
+          ' text/html;charset="UTF-8"'.
+          "\nContent-Transfer-Encoding: 8bit";
 
 
-$headers = array();
-$headers[] = "MIME-Version: 1.0";
-$headers[] = "Content-type: text/html; charset=utf-8";
-$headers[] = "From: {$email}";
-$headers[] = "Reply-To: {$name}  <{$email}>";
-$headers[] = "Subject: {Carbee kontakt}";
-$headers[] = "X-Mailer: PHP/".phpversion();
-    
- 
-mail($osk, 'Nowy kursant - Prawko Plus', format_mail($name, $nazwisko, $email, $tel, $kategoria, $osk), implode("\r\n", $headers));
+$message = '<!DOCTYPE html><html><body style="width: 100%;"><div style="width: 600px; margin: auto; background-color: rgb(252,248,227); padding: 20px; border-radius: 20px; text-align: center;"><h3 style="text-align:center;">Nowy kursant ze strony Prawko Plus</h3><p>Dane kursanta:<br><br> Imię: '.$name.'<br>Nazwisko:'.$nazwisko.'<br>Adres e-mail: '.$email.'<br>Numer telefonu: '.$tel.'</p></div></body></html>';
 
+if (mail($to, $subject, $message, $header)) {
 
+    if (mail($osk, $subject, $message, $header)) {
+        $rezultat2 = $polaczenie->query("INSERT INTO zapis_na_kurs VALUES (NULL, '$user_id', '$osk_id', '$data_zapis', '$data_ocena')");
+        $_SESSION['error'] = 'Udało się. Oczekuj na kontakt z OSK '.$row['name'];
+        header('Location: kurs.php?id='.$row['id']);
+    }
 
+} else {
 
-mail($to, 'Nowy kursant - Prawko Plus', format_mail($name, $nazwisko, $email, $tel, $kategoria, $osk), implode("\r\n", $headers));
-    header('Location: done.html');
-
-    function format_mail($name, $nazwisko, $email, $tel, $kategoria, $osk)
-{
-    return "
-    <!DOCTYPE html>
-    <html>
-        <body>
-            <h3>Nowy kursant ze strony Prawko Plus</h3>
-
-            <p>$name $nazwisko chcę zapisać się w Państwa ośrodku na kurs prawa jazdy w kategori $kategoria</p>
-            <p>Poniżej znajdują się dane kontaktowe kursanta:</p>
-            <p>Imię: $name</p>
-            <p>Nazwisko: $nazwisko</p>
-            <p>Adres e-mail: $email</p>
-            <p>Numer telefonu: $tel</p>
-        </body>
-    </html>";
+    $_SESSION['error'] = 'Błąd serwera. Prosimy o próbę zapisu na kurs w późniejszym terminie.';
+    header('Location: kurs.php?id='.$row['id']);
 }
+
+$polaczenie->close();
 
 ?> 

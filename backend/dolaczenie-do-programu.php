@@ -22,7 +22,9 @@
     include $pageprefix.'include/all/head.php';
     include $pageprefix.'include/all/navbar.php';
 
-
+    $osk_id = $id_osk;
+    $osk_name = $row2['name'];
+    $user_tel = $row['tel'];
     $to = $_SESSION['admin_email'];
     $name = 'Serwis Prawko Plus';
     $email = $row['email'];
@@ -44,7 +46,7 @@ $header = "From: $email \nContent-Type:".
           "\nContent-Transfer-Encoding: 8bit";
     
 
-$message = '<!DOCTYPE html><html><body style="width: 100%;"><div style="width: 600px; margin: auto; background-color: rgb(252,248,227); padding: 20px; border-radius: 20px; text-align: center;"><h3 style="text-align:center;">Użytkownik '.$user_name.' '.$user_nazwisko.', <br>Zgłosił swój Ośrodek Szkolenia Kierowców o numerze ID: '.$osk_id.' oraz nazwie: '.$osk_name.', do programu partnerskiego Prawko Plus.<br><br>Dane kontaktowe:<br><br>numer-telefonu: <a href="tel: '.$user_tel.'">'.$user_tel.'</a></h3><br><a href="'.$lokalizacja.'">Dołącz do OSK: '.$osk_name.' programu</a></div></body></html>';
+$message = '<!DOCTYPE html><html><body style="width: 100%;"><div style="width: 600px; margin: auto; background-color: rgb(252,248,227); padding: 20px; border-radius: 20px; text-align: center;"><h3 style="text-align:center;">Użytkownik '.$user_name.' '.$user_nazwisko.', <br>Zgłosił swój Ośrodek Szkolenia Kierowców o numerze ID: '.$osk_id.' oraz nazwie: '.$osk_name.', do programu partnerskiego Prawko Plus.<br><br>Dane kontaktowe:<br><br>numer-telefonu: <a href="tel: '.$user_tel.'">'.$user_tel.'</a></h3><br><a href="'.$lokalizacja.'">Dołącz OSK: '.$osk_name.' do programu</a></div></body></html>';
 
 
 

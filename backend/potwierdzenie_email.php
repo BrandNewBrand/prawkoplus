@@ -66,7 +66,7 @@ if (mail($to, $subject, $message, $header)) {
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
              <div class="animate-hr">
-                 <a href="index.php" class="mb-2 back-header">ankieta</a>
+                 <a href="../index.php" class="mb-2 back-header">Wróć na Prawko Plus</a>
                  <hr class="small-hr ml-0 mt-0">
              </div>
          </div>

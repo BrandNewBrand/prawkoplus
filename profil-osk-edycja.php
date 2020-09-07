@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['error'])) {
+  $_SESSION['error'] = '';
+}
+
 
 if ($_SESSION['zalogowany'] == 0) {
   header('Location: '.$pageprefix.'logowanie.php');
@@ -50,7 +54,7 @@ include $pageprefix.'include/all/navbar.php';
       <div class="col-12 ">
         <h3 class="grey-header " >profil OSK: <?php echo $name; ?> - Edycja</h3>
         <hr style="border-color:#AEAEAE;margin-top:0; width:60%; margin-left:0;">
-
+        <div class="error-box text-left text-error mt-4"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>
       </div>
 
 
@@ -63,6 +67,7 @@ include $pageprefix.'include/all/navbar.php';
 
           <form enctype="multipart/form-data" action="backend/edycja_osk.php?id_osk=<?php echo $id_osk; ?>" method="post">
             <div class="text-center osk-btn">
+              <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
               <label for="bb">  <div style="background-color:#6D0B44"  type="submit" class="btn btn-primary btn-submicik">dodaj zdjęcie</div>
                 <input type="file" id="bb" name="img" hidden>
               </label>
