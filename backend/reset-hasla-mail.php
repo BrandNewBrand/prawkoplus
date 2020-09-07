@@ -32,6 +32,8 @@ if (isset($nowe_haslo)) {
   require_once "connect.php";
 
   $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+  $polaczenie->query('SET NAMES utf8');
+  $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
   if ($rezultat=$polaczenie->query("UPDATE users SET haslo = '$nowe_haslo' WHERE id='$id'")) {
     $error = 0;

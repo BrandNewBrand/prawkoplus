@@ -14,22 +14,24 @@ if (isset($_POST['imie'])) {
 
 } else {
 	$_SESSION['error'] = 'Coś poszło nie tak. Spróbuj ponownie.';
-	header('Location: ../edycja-danych.php');
+	header('Location: ../edycja-danych.php?id='.$user_id);
 
 	exit();
 }
 
 require_once "connect.php";
 $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+$polaczenie->query('SET NAMES utf8');
+$polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
-$login_test=$polaczenie->query("SELECT id FROM users WHERE login='$login'");
+$login_test=$polaczenie->query("SELECT id FROM users WHERE login='$login' AND id <> '$user_id'");
 $login_test_numb = mysqli_num_rows($login_test);
 
-if ($login_test_numb <= 1) {
-	$email_test=$polaczenie->query("SELECT id FROM users WHERE email='$email'");
+if ($login_test_numb < 1) {
+	$email_test=$polaczenie->query("SELECT id FROM users WHERE email='$email' AND id <> '$user_id'");
 	$email_test_numb = mysqli_num_rows($email_test);
 	
-	if ($email_test_numb <= 1) {
+	if ($email_test_numb < 1) {
 		$edit = 1;
 	} else {
 		$_SESSION['error'] = 'Istnieje już konto o takim adresie e-mail.';

@@ -10,6 +10,8 @@ exit();
 
 require_once "backend/connect.php";
 $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+$polaczenie->query('SET NAMES utf8');
+$polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 $user_data_rez=$polaczenie->query("SELECT * FROM users WHERE id='$user_id'");
 $user_data_tbl=$user_data_rez->fetch_assoc();
 $imie=$user_data_tbl['imie'];
@@ -25,6 +27,9 @@ $rez2_numb = mysqli_num_rows($rez2);
 if ($rez2_numb == 1) {
   $row2=$rez2->fetch_assoc();
   $id_osk = $row2['osk_id'];
+  $_SESSION['osk_owner_status'] = $id_osk;
+  $osk_owner_permition = 1;
+  $osk_weryfikacja = $row2['weryfikacja'];
 }
 
 
@@ -38,7 +43,7 @@ include $pageprefix.'include/all/navbar.php';
   <div class="container-fluid">
     <div class="row pt-5 mx-0 pl-2">
       <div class=" animate-hr">
-        <a href="index.php#search" class="mb-2 back-header">wróc do prawko plus</a>
+        <a href="index.php" class="mb-2 back-header">wróc do prawko plus</a>
         <hr class="small-hr ml-0 mt-0">
       </div>
     </div>
@@ -120,7 +125,12 @@ include $pageprefix.'include/all/navbar.php';
 
             <?php
             if ($rez2_numb == 1) {
-              echo '<a href="form-weryfikacyjny-OSK.php"><button class="btn-thirdary-bnb text-center text-white">Przejdź do profilu OSK</button></a>';
+              if ($osk_weryfikacja == 1) {
+                echo '<a href="profil-osk.php?id_osk='.$id_osk.'"><button class="btn-thirdary-bnb text-center text-white">Przejdź do profilu OSK</button></a>';
+              } else {
+                echo '<p class=" " >Oczekujesz na weryfikację.</p>';
+              }
+              
             } else {
               echo '<p class=" " >Prowadzisz własny ośrodek szkolenia kierowców? Dołącz do bazy ośrodków PrawkoPlus, lub zaktualizuj swoją wizytówkę.</p>
             <a href="form-weryfikacyjny-OSK.php"><button class="btn-thirdary-bnb text-center text-white">Jestem OSK</button></a>';

@@ -1,6 +1,40 @@
 <?php
 session_start();
-$pagetitle = '';
+
+if ($_SESSION['zalogowany'] == 0) {
+  header('Location: '.$pageprefix.'logowanie.php');
+  exit();
+} else {
+
+  if ($_SESSION['osk_owner_status'] == 0) {
+    header('Location: '.$pageprefix.'twoj-profil.php');
+    exit();
+  } else {
+
+    $id_osk = $_GET['id_osk'];
+    require_once "backend/connect.php";
+    $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+    $polaczenie->query('SET NAMES utf8');
+    $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
+    $rez=$polaczenie->query("SELECT * FROM osk WHERE osk_id='$id_osk'");
+    $ile_test = mysqli_num_rows($rez);
+    if ($ile_test != 1) {
+      $rez=$polaczenie->query("INSERT INTO osk VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, '0', NULL, '$id_osk', NULL, NULL)");
+      header('Location: profil-osk-edycja.php?id_osk='.$id_osk);
+      $polaczenie->close();
+      exit();
+    }
+    $row=$rez->fetch_assoc();
+    $name = $row['name'];
+    if (strlen($row['img']) > 10) {
+      $img = $row['img'];
+    } else {
+      $img = $_SESSION['domena'].'/img/kolo.png';
+    }
+  }
+}
+
+$pagetitle = 'Profil OSK: '.$name;
 $pageprefix = '';
 include $pageprefix.'include/all/head.php';
 include $pageprefix.'include/all/navbar.php';
@@ -10,7 +44,7 @@ include $pageprefix.'include/all/navbar.php';
     <div class="row pt-5 mx-0 pl-2">
       <div class="col">
         <div class="animate-hr">
-          <a href="index.php#search" class="mb-2 back-header">wróć do strony głównej</a>
+          <a href="index.php" class="mb-2 back-header">wróć do strony głównej</a>
           <hr class="small-hr ml-0 mt-0">
         </div>
       </div>
@@ -21,7 +55,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
       <div class="col-12 ">
-        <h1 class="grey-header " >profil OSK</h1>
+        <h1 class="grey-header " >profil OSK: <?php echo $name; ?></h1>
         <hr style="border-color:#AEAEAE;margin-top:0; width:60%; margin-left:0;">
 
       </div>
@@ -30,7 +64,7 @@ include $pageprefix.'include/all/navbar.php';
         <div class="col-lg-4 order-lg-2 d-flex flex-column" >
 
           <div class="osk-photo">
-            <img src="img/kolo.png" alt="">
+            <img src="<?php echo $img; ?>" alt="logo">
           </div>
 
 
@@ -43,50 +77,50 @@ include $pageprefix.'include/all/navbar.php';
 
             <div class="row pt-3 ">
               <div class="col-lg-4  offset-1 offset-lg-2 pt-lg-3" >
-                <p class=" form-label">imie:</p>
+                <p class=" form-label">Nazwa OSK:</p>
               </div>
               <div class="col-lg-5     form-group offset-1 offset-lg-0 col-10">
-                <p class="dane">Jan</p>
+                <p class="dane"><?php echo $name; ?></p>
                 </div>
 
             </div>
 
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 offset-lg-2 pt-lg-3" >
-                <p class="form-label">nazwisko:</p>
+                <p class="form-label">Ulica:</p>
               </div>
               <div class="col-lg-5     form-group offset-1 offset-lg-0 col-10">
-                <p class="dane">Kowal</p>
+                <p class="dane"><?php echo $row['street']; ?></p>
               </div>
 
             </div>
 
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 offset-lg-2 pt-lg-3" >
-                <p class="form-label">nazwa ośrodka:</p>
+                <p class="form-label">Miasto:</p>
               </div>
               <div class="col-lg-5     form-group offset-1 offset-lg-0 col-10">
-                <p class="dane">KowaL</p>
+                <p class="dane"><?php echo $row['city']; ?></p>
               </div>
 
             </div>
 
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 offset-lg-2 pt-lg-3" >
-                <p class="form-label">miasto:</p>
+                <p class="form-label">Numer telefonu:</p>
               </div>
               <div class="col-lg-5     form-group offset-1 offset-lg-0 col-10">
-                <p class="dane">Kraków</p>
+                <p class="dane"><?php echo $row['tel']; ?></p>
               </div>
 
             </div>
 
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 offset-lg-2 pt-lg-3" >
-                <p class="form-label">ulica:</p>
+                <p class="form-label">Strona internetowa</p>
               </div>
               <div class="col-lg-5     form-group offset-1 offset-lg-0 col-10">
-                <p class="dane">Kozia 3</p>
+                <p class="dane"><?php echo $row['website']; ?></p>
               </div>
 
 
@@ -94,40 +128,23 @@ include $pageprefix.'include/all/navbar.php';
             </div>
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 offset-lg-2 pt-lg-3" >
-                <p class="form-label">kod pocztowy:</p>
+                <p class="form-label">Adres e-mail</p>
               </div>
               <div class="col-lg-5     form-group offset-1 offset-lg-0 col-10">
-                <p class="dane">33-432</p>
+                <p class="dane"><?php echo $row['email']; ?></p>
               </div>
 
 
 
             </div>
 
-            <div class="row pt-3">
-              <div class="col-lg-4  offset-1 offset-lg-2 pt-lg-3" >
-                <p class="form-label">email:</p>
-              </div>
-              <div class="col-lg-5     form-group offset-1 offset-lg-0 col-10">
-                <p class="dane">kowal@gmail.com</p>
-              </div>
 
-            </div>
-            <div class="row pt-3 ">
-              <div class="col-lg-4  offset-1 offset-lg-2 pt-lg-3" >
-                <p class="form-label">telefon:</p>
-              </div>
-              <div class="col-lg-5     form-group offset-1 offset-lg-0 col-10">
-                <p class="dane">997 997 551</p>
-              </div>
-
-            </div>
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 offset-lg-2 pt-lg-3" >
                 <p class="form-label">numer ID:</p>
               </div>
               <div class="col-lg-5     form-group offset-1 offset-lg-0 col-10">
-                <p class="dane">1432513</p>
+                <p class="dane"><?php echo $id_osk; ?></p>
               </div>
 
             </div>
@@ -145,34 +162,32 @@ include $pageprefix.'include/all/navbar.php';
                 <p class=" form-label">opis:</p>
               </div>
               <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                <!-- <input type="textarea" style="min-height:300px"  name="opis" class="form-control w-100  text-center" id="name" placeholder="" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['imie'].'"';} ?>> -->
-                <p class="dane text-left">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                   standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a typ</p>
+                <p class="dane text-left"><?php echo $row['description']; ?></p>
 
               </div>
 
             </div>
-
+            <?php 
+            $kat = $row['category'];
+            $kat_single = explode(" ", $kat);
+            $liczba_kat = count($kat_single)-1;
+             ?>
             <div class="col-lg-6 offset-lg-3 offset-1">
-              <label for="">
-                <input type="checkbox" name="" value="">
-                <span>A1</span>
-              </label>
-              <label for="">
-                <input type="checkbox" name="" value="">
-                <span>A1</span>
-              </label>
-              <label for="">
-                <input type="checkbox" name="" value="">
-                <span>A1</span>
-              </label>
+              <?php 
+              for ($i=0; $i < $liczba_kat; $i++) { 
+                echo '<label class="mr-3" for="">
+                <input type="checkbox" checked disabled>
+                <span>'.$kat_single[$i].'</span>
+              </label>';
+              }
+               ?>
             </div>
 
 
 
             <div class="text-center osk-btn mt-2">
 
-              <a href="profil-osk-edycja.php"><button type="submit" class="btn btn-primary btn-submicik">edycja</button></a>
+              <a href="profil-osk-edycja.php?id_osk=<?php echo $id_osk; ?>"><button type="submit" class="btn btn-primary btn-submicik">edycja</button></a>
 
             </div>
 
@@ -186,11 +201,23 @@ include $pageprefix.'include/all/navbar.php';
           <hr style="border:#C8C8C8 1px solid; width:80%;">
 
           <div class="pt-3">
-            <p class="text-center">Nowe możliwości komunikowania się z kursantami pozwolą na dokładniejsze dotarcie do kursanta.
-              W jednej aplikacji możesz porozmawiać i jednocześnie dodać wszystkich swoich instruktorów. </p>
-              <div class="text-center osk-btn-2 ">
-                <button type="submit" class="btn btn-primary btn-submicik">dołacz do prawka plus</button>
-              </div>
+            <p class="text-center">Zapoznaj się z regulaminem programu partnerskiego Prawko Plus dla OSK, a następnie wyślij zgłoszenie. W ciągu pięciu dni roboczych skontaktuje się z Tobą nasz ekspert celem uzgodnienia warunków współpracy.</p>
+              <form method="POST" action="backend/dolaczenie-do-programu.php?id_osk=<?php echo $id_osk; ?>?user_id=<?php echo $_SESSION['zalogowany']; ?>">
+                <?php 
+                $prawkoplus = $row['prawkoplus'];
+                if ($prawkoplus != 1) {
+                  echo '<label class="d-flex align-items-center">
+                  <input type="checkbox" name="regulamin_pp" required class="mr-3">
+                  <p class="mb-0 link_text">Akceptuje <a href="#">regulamin</a> programy partnerskiego Prawko Plus</p>
+                </label>
+                <div class="text-center osk-btn-2 ">
+                  <button type="submit" class="btn btn-primary btn-submicik">dołacz do prawka plus</button>
+                </div>';
+                }
+                ?>
+                
+              </form>
+              
 
           </div>
 
@@ -209,4 +236,7 @@ include $pageprefix.'include/all/navbar.php';
     </div>
   </div>
 </div>
-<?php include $pageprefix.'include/all/footer.php'; ?>
+<?php 
+$polaczenie->close();
+include $pageprefix.'include/all/footer.php'; 
+?>

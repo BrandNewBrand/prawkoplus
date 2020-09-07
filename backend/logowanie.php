@@ -11,6 +11,8 @@ if (isset($_POST['login'])) {
 
 		require_once "connect.php";
 		$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+		$polaczenie->query('SET NAMES utf8');
+		$polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
 		$user_test=$polaczenie->query("SELECT id FROM users WHERE login='$login' AND haslo='$haslo'");
 		$user_test_numb = mysqli_num_rows($user_test);

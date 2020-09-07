@@ -1,18 +1,19 @@
 <?php
     session_start();
-    $pagetitle = 'Potwierdzenie numeru ID OSK';
+    $pagetitle = 'Dołączenie do programu Prawko Plus';
     $pageprefix = '../';
 
-    $id = $_GET['id'];
+    $id_osk = $_GET['id_osk'];
+    $user_id = $_GET['user_id'];
 
     require_once "connect.php";
     $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
     $polaczenie->query('SET NAMES utf8');
     $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
-    $rezultat=$polaczenie->query("SELECT * FROM users WHERE id='$id'");
+    $rezultat=$polaczenie->query("SELECT * FROM users WHERE id='$user_id'");
     $row = $rezultat->fetch_assoc();
     
-    $rezultat2=$polaczenie->query("SELECT * FROM osk_wspolpraca WHERE user_id='$id'");
+    $rezultat2=$polaczenie->query("SELECT * FROM osk WHERE osk_id='$id_osk'");
     $row2 = $rezultat2->fetch_assoc();
 
     $polaczenie->close();
@@ -25,12 +26,14 @@
     $to = $_SESSION['admin_email'];
     $name = 'Serwis Prawko Plus';
     $email = $row['email'];
-    $lokalizacja = $_SESSION['domena'].'/backend/weryfikacja_osk_wiadomosc.php?id='.$id;
+    $lokalizacja = $_SESSION['domena'].'/backend/potwierdzenie-dolaczenia-do-programu.php?id_osk='.$osk_id;
     $user_name = $row['imie'];
     $user_nazwisko = $row['nazwisko'];
-    $osk_id = $row2['osk_id'];
+    $osk_id = $id_osk;
+    $osk_name = $row2['name'];
+    $user_tel = $row['tel'];
 
-    $subject = 'Weryfikacja numeru ID OSK użytkownika '.$row['login'];
+    $subject = 'Prośba o dołączenie do programu partnerskiego Prawko Plus OSK o numerze ID: '.$osk_id;
 
 
 
@@ -41,7 +44,7 @@ $header = "From: $email \nContent-Type:".
           "\nContent-Transfer-Encoding: 8bit";
     
 
-$message = '<!DOCTYPE html><html><body style="width: 100%;"><div style="width: 600px; margin: auto; background-color: rgb(252,248,227); padding: 20px; border-radius: 20px; text-align: center;"><h3 style="text-align:center;">Użytkownik '.$user_name.' '.$user_nazwisko.', <br>zarejestrował się jako administrator ośrodka szkolenia kierowców o numerze ID: '.$osk_id.'</h3><br><a href="'.$lokalizacja.'">Przyznaj uprawnienia</a></div></body></html>';
+$message = '<!DOCTYPE html><html><body style="width: 100%;"><div style="width: 600px; margin: auto; background-color: rgb(252,248,227); padding: 20px; border-radius: 20px; text-align: center;"><h3 style="text-align:center;">Użytkownik '.$user_name.' '.$user_nazwisko.', <br>Zgłosił swój Ośrodek Szkolenia Kierowców o numerze ID: '.$osk_id.' oraz nazwie: '.$osk_name.', do programu partnerskiego Prawko Plus.<br><br>Dane kontaktowe:<br><br>numer-telefonu: <a href="tel: '.$user_tel.'">'.$user_tel.'</a></h3><br><a href="'.$lokalizacja.'">Dołącz do OSK: '.$osk_name.' programu</a></div></body></html>';
 
 
 
@@ -58,7 +61,7 @@ if (mail($to, $subject, $message, $header)) {
 } else {
 
     $_SESSION['error'] = 'Błąd serwera. Prosimy o próbę rejestracji w późniejszym terminie.';
-    header('Location: ../form-weryfikacyjny-OSK.php');
+    header('Location: ../form-weryfikacyjny-OSK.php.php');
     exit();
 }
 
@@ -72,7 +75,7 @@ if (mail($to, $subject, $message, $header)) {
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
              <div class="animate-hr">
-                 <a href="index.php" class="mb-2 back-header">ankieta</a>
+                 <a href="index.php" class="mb-2 back-header">profil-osk.php</a>
                  <hr class="small-hr ml-0 mt-0">
              </div>
          </div>
@@ -95,7 +98,7 @@ if (mail($to, $subject, $message, $header)) {
                    <div class="row my-3">
 
                      <div class="  offset-1 col-10 col-lg-8 offset-lg-2 text-center">
-                       <p class="mb-0 small-black-text ">Twoje zgłoszenie zostało wysłane do administratora. Po pozytywnej weryfikacji zostanie Ci przyznany dostęp do zarządzania wizytówką OSK o numerze ID: <?php echo $osk_id; ?></p>
+                       <p class="mb-0 small-black-text ">Twoje zgłoszenie zostało wysłane do administratora. Po pozytywnej weryfikacji zostaniesz dołączony do programu Prawko Plus</p>
                      </div>
                    </div>
 

@@ -10,7 +10,7 @@ if (!isset($_SESSION['osk_owner_status'])) {
 
 $log = $_SESSION['zalogowany'];
 
-$_SESSION['domena'] = 'localhost/git/prawkoplus';
+$_SESSION['domena'] = 'http://bnb-project.pl/pp_new';
 $_SESSION['admin_email'] = 'biuro@brandnewbrand.pl';
 
 

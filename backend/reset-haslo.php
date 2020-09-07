@@ -25,6 +25,8 @@ if (isset($_POST['email'])) {
 
 require_once "connect.php";
 $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+$polaczenie->query('SET NAMES utf8');
+$polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
 $email_test=$polaczenie->query("SELECT id FROM users WHERE email='$email'");
 		$email_test_numb = mysqli_num_rows($email_test);

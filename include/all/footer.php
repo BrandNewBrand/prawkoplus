@@ -21,8 +21,7 @@
 		</div>
 	</footer>
 
-	<script src="<?php echo $pageprefix; ?>js/index.js"></script>
-	<script src="<?php echo $pageprefix; ?>js/kurs.js"></script>
+
 
 </body>
 

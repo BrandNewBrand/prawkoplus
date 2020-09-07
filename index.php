@@ -23,6 +23,9 @@ if (isset($_POST['city'])) {
 
 require_once "backend/connect.php";
 $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+$polaczenie->query('SET NAMES utf8');
+$polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
+
 $rez_city=$polaczenie->query("SELECT DISTINCT city FROM osk GROUP BY city");
 $ile_city = mysqli_num_rows($rez_city);
 $polaczenie->close();

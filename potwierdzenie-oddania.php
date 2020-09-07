@@ -16,7 +16,7 @@ include $pageprefix.'include/all/navbar.php';
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
              <div class="animate-hr">
-                 <a href="index.php#search" class="mb-2 back-header">wróc do prawko plus</a>
+                 <a href="index.php" class="mb-2 back-header">wróc do prawko plus</a>
                  <hr class="small-hr ml-0 mt-0">
              </div>
          </div>

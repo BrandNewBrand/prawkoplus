@@ -37,12 +37,22 @@ if ($haslo != $haslo2) {
 
 require_once "connect.php";
 $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+$polaczenie->query('SET NAMES utf8');
+$polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
 $login_test=$polaczenie->query("SELECT id FROM users WHERE login='$login'");
 $login_test_numb = mysqli_num_rows($login_test);
 
 if ($login_test_numb > 0) {
 	$_SESSION['error'] = 'Istnieje już użytkownik o podanym loginie';
+	$_SESSION['dane_log'] = 1;
+	$_SESSION['imie'] = $imie;
+	$_SESSION['nazwisko'] = $nazwisko;
+	$_SESSION['email'] = $email;
+	$_SESSION['tel'] = $tel;
+	$_SESSION['login'] = $login;
+	$_SESSION['haslo'] = $haslo;
+	$_SESSION['haslo2'] = $haslo2;
 	header('Location: ../rejestracja.php');
 	$polaczenie -> close();
 	exit();
@@ -55,6 +65,14 @@ $email_test_numb = mysqli_num_rows($email_test);
 
 if ($email_test_numb > 0) {
 	$_SESSION['error'] = 'Istnieje już użytkownik o podanym adresie e-mail';
+	$_SESSION['dane_log'] = 1;
+	$_SESSION['imie'] = $imie;
+	$_SESSION['nazwisko'] = $nazwisko;
+	$_SESSION['email'] = $email;
+	$_SESSION['tel'] = $tel;
+	$_SESSION['login'] = $login;
+	$_SESSION['haslo'] = $haslo;
+	$_SESSION['haslo2'] = $haslo2;
 	header('Location: ../rejestracja.php');
 	$polaczenie -> close();
 	exit();

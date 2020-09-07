@@ -1,13 +1,14 @@
 <?php 
     session_start();
-    $pagetitle = 'Przyznanie OSK';
+    $pagetitle = 'Przydzielenie do Programu Prawko Plus';
     $pageprefix = '../';
 
 
+    include $pageprefix.'include/all/head.php';
+    include $pageprefix.'include/all/navbar.php';
 
 
-
-$id=$_GET['id'];
+$id_osk=$_GET['id_osk'];
 // echo $id;
 
 require_once "connect.php";
@@ -16,20 +17,21 @@ $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
 $polaczenie->query('SET NAMES utf8');
 $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
-if ($rezultat=$polaczenie->query("UPDATE osk_wspolpraca SET weryfikacja = '1' WHERE user_id='$id'")) {
+if ($rezultat=$polaczenie->query("UPDATE osk SET prawkoplus = '1' WHERE osk_id='$id_osk'")) {
 	$error = 0;
 }
 
-$rezultat2 = $polaczenie->query("SELECT * FROM osk_wspolpraca WHERE user_id='$id'");
+$rezultat2 = $polaczenie->query("SELECT * FROM osk WHERE osk_id='$id_osk'");
 $row = $rezultat2->fetch_assoc();
 $osk_id = $row['osk_id'];
+$osk_name = $row['name'];
 
-include $pageprefix.'include/all/head.php';
-include $pageprefix.'include/all/navbar.php';
+
 ?>
 
 <div id="wrapper">
 
+   <?php include $pageprefix.'include/all/navbar.php'; ?>
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
              <div class="animate-hr">
@@ -58,7 +60,7 @@ include $pageprefix.'include/all/navbar.php';
                      <div class="  offset-1 col-10 col-lg-8 offset-lg-2 text-center">
 
                        <p class="mb-0 small-black-text "><?php if ($error == 0) {
-                       	echo 'OSK o numerze ID: '.$osk_id.' zostało przydzielone do użytkownika o numerze id: '. $id;
+                       	echo 'OSK o numerze ID: '.$osk_id.' ('.$osk_name.') zostało dodane do programu Prawko Plus';
                        } else {
                        	echo 'Coś poszło nie tak...';
                        } ?></p>

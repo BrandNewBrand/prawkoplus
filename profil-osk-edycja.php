@@ -1,5 +1,32 @@
 <?php
 session_start();
+
+if ($_SESSION['zalogowany'] == 0) {
+  header('Location: '.$pageprefix.'logowanie.php');
+  exit();
+} else {
+
+  if ($_SESSION['osk_owner_status'] == 0) {
+    header('Location: '.$pageprefix.'twoj-profil.php');
+    exit();
+  } else {
+
+    $id_osk = $_GET['id_osk'];
+    require_once "backend/connect.php";
+    $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+    $polaczenie->query('SET NAMES utf8');
+    $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
+    $rez=$polaczenie->query("SELECT * FROM osk WHERE osk_id='$id_osk'");
+    $row=$rez->fetch_assoc();
+    $name = $row['name'];
+    if (strlen($row['img']) > 10) {
+      $img = $row['img'];
+    } else {
+      $img = $_SESSION['domena'].'/img/kolo.png';
+    }
+  }
+}
+
 $pagetitle = '';
 $pageprefix = '';
 include $pageprefix.'include/all/head.php';
@@ -10,7 +37,7 @@ include $pageprefix.'include/all/navbar.php';
     <div class="row pt-5 mx-0 pl-2">
       <div class="col">
         <div class="animate-hr">
-          <a href="index.php#search" class="mb-2 back-header">wróć do strony głównej</a>
+          <a href="index.php" class="mb-2 back-header">wróć do strony głównej</a>
           <hr class="small-hr ml-0 mt-0">
         </div>
       </div>
@@ -21,7 +48,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
       <div class="col-12 ">
-        <h1 class="grey-header " >profil OSK</h1>
+        <h3 class="grey-header " >profil OSK: <?php echo $name; ?> - Edycja</h3>
         <hr style="border-color:#AEAEAE;margin-top:0; width:60%; margin-left:0;">
 
       </div>
@@ -30,14 +57,14 @@ include $pageprefix.'include/all/navbar.php';
         <div class="col-lg-4 order-lg-2 d-flex flex-column" >
 
           <div class="osk-photo">
-            <img src="img/kolo.png" alt="">
+            <img src="<?php echo $img; ?>" alt="">
           </div>
 
 
-          <form class="" action="index.html" method="post">
+          <form enctype="multipart/form-data" action="backend/edycja_osk.php?id_osk=<?php echo $id_osk; ?>" method="post">
             <div class="text-center osk-btn">
               <label for="bb">  <div style="background-color:#6D0B44"  type="submit" class="btn btn-primary btn-submicik">dodaj zdjęcie</div>
-                <input type="file" id="bb" name="" value="" style="visibility:hidden">
+                <input type="file" id="bb" name="img" hidden>
               </label>
             </div>
 
@@ -49,61 +76,62 @@ include $pageprefix.'include/all/navbar.php';
 
             <div class="row pt-3 ">
               <div class="col-lg-4  offset-1 pt-lg-3 " >
-                <p class=" form-label">imie:</p>
+                <p class=" form-label">Nazwa OSK:</p>
               </div>
               <div class="col-lg-7     form-group offset-1 offset-lg-0 col-10">
-                <input type="text"  name="imie" class="form-control w-100  text-center" id="name" placeholder="" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['imie'].'"';} ?>>
+                <input type="text"  name="name" class="form-control w-100  text-center" id="name" placeholder="" required value="<?php echo $name; ?>">
               </div>
 
             </div>
 
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 pt-lg-3" >
-                <p class="form-label">nazwisko:</p>
+                <p class="form-label">Ulica:</p>
               </div>
               <div class="col-lg-7     form-group offset-1 offset-lg-0 col-10">
-                <input type="text"  name="nazwisko" class="form-control w-100  text-center" id="forname" placeholder="" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['nazwisko'].'"';} ?>>
+                <input type="text"  name="street" class="form-control w-100  text-center" id="forname" placeholder="" required value="<?php echo $row['street']; ?>">
               </div>
 
             </div>
 
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 pt-lg-3 " >
-                <p class="form-label">nazwa ośrodka:</p>
+                <p class="form-label">Miasto:</p>
               </div>
               <div class="col-lg-7    form-group offset-1 offset-lg-0 col-10">
-                <input type="text"  name="osk" class="form-control w-100  text-center" id="name-osk" placeholder="" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['email'].'"';} ?>>
+                <input type="text"  name="city" class="form-control w-100  text-center" id="name-osk" placeholder="" required value="<?php echo $row['city']; ?>">
               </div>
 
             </div>
 
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 pt-lg-3 " >
-                <p class="form-label">miasto:</p>
+                <p class="form-label">Numer telefonu:</p>
               </div>
               <div class="col-lg-7    form-group offset-1 offset-lg-0 col-10">
-                <input type="text"  name="miasto" class="form-control w-100  text-center  " id="miasto" placeholder="" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['tel'].'"';} ?>>
+                <input type="number"  name="tel" class="form-control w-100  text-center  " id="miasto" placeholder="" required value="<?php echo $row['tel']; ?>">
               </div>
 
             </div>
 
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 pt-lg-3" >
-                <p class="form-label">ulica:</p>
+                <p class="form-label">Strona internetowa:</p>
               </div>
               <div class="col-lg-7   form-group offset-1 offset-lg-0 col-10">
-                <input type="text"  name="adres" class="form-control w-100  text-center" placeholder="" id="add" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['login'].'"';} ?>>
+                <input type="text"  name="website" class="form-control w-100  text-center" placeholder="" id="add" required value="<?php echo $row['website']; ?>">
               </div>
 
 
 
             </div>
+
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 pt-lg-3" >
-                <p class="form-label">kod pocztowy:</p>
+                <p class="form-label">Adres e-mail:</p>
               </div>
               <div class="col-lg-7   form-group offset-1 offset-lg-0 col-10">
-                <input type="number"  name="poczta" class="form-control w-100  text-center" placeholder="" id="add" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['login'].'"';} ?>>
+                <input type="email"  name="email" class="form-control w-100  text-center" placeholder="" id="add" required value="<?php echo $row['email']; ?>">
               </div>
 
 
@@ -112,24 +140,19 @@ include $pageprefix.'include/all/navbar.php';
 
             <div class="row pt-3">
               <div class="col-lg-4  offset-1 pt-lg-3" >
-                <p class="form-label">email:</p>
+                <p class="form-label">Numer ID:</p>
               </div>
-              <div class="col-lg-7    form-group offset-1 offset-lg-0 col-10">
-                <input type="email" name="haslo" class="form-control w-100  text-center" id="email" value="" placeholder="" required>
+              <div class="col-lg-7   form-group offset-1 offset-lg-0 col-10">
+                <input type="number"  name="osk_id" class="form-control w-100  text-center" placeholder="" id="add" required value="<?php echo $row['osk_id']; ?>" disabled>
               </div>
+
+
 
             </div>
 
+            
 
-            <div class="row pt-3">
-              <div class="col-lg-4  offset-1 pt-lg-3" >
-                <p class="form-label">telefon:</p>
-              </div>
-              <div class="col-lg-7    form-group offset-1 offset-lg-0 col-10">
-                <input type="number" name="nr" class="form-control w-100  text-center" id="nr" value="" placeholder="" required>
-              </div>
 
-            </div>
 
 
 
@@ -157,25 +180,35 @@ include $pageprefix.'include/all/navbar.php';
                 <p class=" form-label">opis:</p>
               </div>
               <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                <!-- <input type="textarea" style="min-height:300px"  name="opis" class="form-control w-100  text-center" id="name" placeholder="" required <?php if (isset($_SESSION['dane_log'])) { echo 'value="'.$_SESSION['imie'].'"';} ?>> -->
-                <textarea class="form-control w-100" name="name" rows="8" cols="80"></textarea>
+                <textarea class="form-control w-100" name="description" rows="8" cols="80"><?php echo $row['description']; ?></textarea>
               </div>
 
             </div>
 
+
+            <?php 
+
+            $kat = $row['category'];
+            $kat_single = explode(" ", $kat);
+            $liczba_kat = count($kat_single)-1;
+
+            $kategorie_tbl = $_SESSION['category_tbl'];
+            $liczba_kat_tbl = count($kategorie_tbl);
+             ?>
             <div class="col-lg-6 offset-lg-3 offset-1">
-              <label for="">
-                <input type="checkbox" name="" value="">
-                <span>A1</span>
-              </label>
-              <label for="">
-                <input type="checkbox" name="" value="">
-                <span>A1</span>
-              </label>
-              <label for="">
-                <input type="checkbox" name="" value="">
-                <span>A1</span>
-              </label>
+              <?php 
+              for ($i=0; $i < $liczba_kat_tbl; $i++) {
+                if (in_array($kategorie_tbl[$i], $kat_single)) {
+                  $check = 'checked';
+                 } else {
+                  $check = '';
+                 }
+                echo '<label class="mr-3 mt-2 w-const_cat">
+                <input type="checkbox" '.$check.' name="k'.$i.'" value="'.$kategorie_tbl[$i].' ">
+                <p>'.$kategorie_tbl[$i].'</p>
+              </label>';
+              }
+               ?>
             </div>
 
 

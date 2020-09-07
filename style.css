@@ -19,8 +19,27 @@
   z-index: -9999999;
 }
 
+.w-const_cat {
+  width: 60px;
+}
+
+.w-const_cat > input {
+  margin-top: 14px;
+  float: left;
+  margin-right: 8px;
+}
+
+
 #first-icon {
   z-index: 9999999;
+}
+
+p.link_text > a {
+  color: #3a4dd4 !important;
+}
+
+p.link_text > a:hover {
+  color: #273598 !important;
 }
 
 .osk_search_panel > div.item_search {
@@ -283,7 +302,6 @@ hr { border: 2px solid white }
 p { font-size: 24px; line-height: 40px; }
 
 .grey-header{
-  font-size:48px;
   color: #707070;
 }
 

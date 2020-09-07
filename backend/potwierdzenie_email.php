@@ -7,6 +7,8 @@
 
     require_once "connect.php";
     $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+    $polaczenie->query('SET NAMES utf8');
+    $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
     $rezultat=$polaczenie->query("SELECT * FROM users WHERE id='$id'");
     $row = $rezultat->fetch_assoc();
 
@@ -64,7 +66,7 @@ if (mail($to, $subject, $message, $header)) {
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
              <div class="animate-hr">
-                 <a href="index.php#search" class="mb-2 back-header">ankieta</a>
+                 <a href="index.php" class="mb-2 back-header">ankieta</a>
                  <hr class="small-hr ml-0 mt-0">
              </div>
          </div>

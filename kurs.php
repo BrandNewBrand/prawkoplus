@@ -19,7 +19,7 @@ include $pageprefix.'include/all/navbar.php';
                     if (isset($_SESSION['active'])) {
                         echo '<input type="button" value="Wróć do wyboru kursów" onClick="history.back();" style="background: none; border: none; color: #fff; padding: 0;"/>';
                     } else {
-                        echo '<a href="index.php#search" class="mb-2">wróc do wyboru kursów</a>';
+                        echo '<a href="index.php" class="mb-2">wróc do wyboru kursów</a>';
                     }
                     ?>
 

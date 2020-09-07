@@ -6,6 +6,8 @@ $pageprefix = '';
 
 require_once "backend/connect.php";
 $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+$polaczenie->query('SET NAMES utf8');
+$polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
 
 
@@ -38,8 +40,9 @@ if (isset($_POST['sort'])) {
   $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus = '$pp' ORDER BY RAND()");
 }
 
-$ile = mysqli_num_rows($rez);
 
+
+$ile = mysqli_num_rows($rez);
 
 
 $rez_city=$polaczenie->query("SELECT DISTINCT city FROM osk GROUP BY city");
@@ -62,7 +65,7 @@ include $pageprefix.'include/all/navbar.php';
     <div class="row pt-5 mx-0 pl-2">
       <div class="col-md-7">
         <div class="animate-hr">
-          <a href="index.php#search" class="mb-2 back-header">Wróć do strony głównej</a>
+          <a href="index.php" class="mb-2 back-header">Wróć do strony głównej</a>
           <hr class="small-hr ml-0 mt-0">
         </div>
         <p style="color:white">Oszczędź swój czas i wybierz sprawdzoną przez naszych kursantów szkołę nauki jazdy.</p>
@@ -86,22 +89,22 @@ include $pageprefix.'include/all/navbar.php';
             <div class="col-md-3 search-tab d-flex align-items-center tab-left mx-auto" >
               <select name="cat" class="browser-default custom-select search-bar-text-1" placeholder="Kategoria">
                 <option  value="%" <?php if ($kat == '%') {echo 'selected';} ?>>kategoria</option>
-                <option  value="AM" <?php if ($kat == 'AM') {echo 'selected';} ?>>AM</option>
-                <option  value="A1" <?php if ($kat == 'A1') {echo 'selected';} ?>>A1</option>
-                <option  value="A2" <?php if ($kat == 'A1') {echo 'selected';} ?>>A2</option>
-                <option  value="A" <?php if ($kat == 'A') {echo 'selected';} ?>>A</option>
-                <option  value="B1" <?php if ($kat == 'B1') {echo 'selected';} ?>>B1</option>
-                <option  value="B" <?php if ($kat == 'B') {echo 'selected';} ?>>B</option>
-                <option  value="C1" <?php if ($kat == 'C1') {echo 'selected';} ?>>C1</option>
-                <option  value="C" <?php if ($kat == 'C') {echo 'selected';} ?>>C</option>
-                <option  value="D1" <?php if ($kat == 'D1') {echo 'selected';} ?>>D1</option>
-                <option  value="D" <?php if ($kat == 'D') {echo 'selected';} ?>>D</option>
-                <option  value="BE" <?php if ($kat == 'BE') {echo 'selected';} ?>>BE</option>
-                <option  value="C1E" <?php if ($kat == 'C1E') {echo 'selected';} ?>>C1E</option>
-                <option  value="CE" <?php if ($kat == 'CE') {echo 'selected';} ?>>CE</option>
-                <option  value="D1E" <?php if ($kat == 'D1E') {echo 'selected';} ?>>D1E</option>
-                <option  value="DE" <?php if ($kat == 'DE') {echo 'selected';} ?>>DE</option>
-                <option  value="T" <?php if ($kat == 'T') {echo 'selected';} ?>>T</option>
+                <option  value="AM" <?php if ($kat == 'AM ') {echo 'selected';} ?>>AM</option>
+                <option  value="A1" <?php if ($kat == 'A1 ') {echo 'selected';} ?>>A1</option>
+                <option  value="A2" <?php if ($kat == 'A1 ') {echo 'selected';} ?>>A2</option>
+                <option  value="A" <?php if ($kat == 'A ') {echo 'selected';} ?>>A</option>
+                <option  value="B1" <?php if ($kat == 'B1 ') {echo 'selected';} ?>>B1</option>
+                <option  value="B" <?php if ($kat == 'B ') {echo 'selected';} ?>>B</option>
+                <option  value="C1" <?php if ($kat == 'C1 ') {echo 'selected';} ?>>C1</option>
+                <option  value="C" <?php if ($kat == 'C ') {echo 'selected';} ?>>C</option>
+                <option  value="D1" <?php if ($kat == 'D1 ') {echo 'selected';} ?>>D1</option>
+                <option  value="D" <?php if ($kat == 'D ') {echo 'selected';} ?>>D</option>
+                <option  value="BE" <?php if ($kat == 'BE ') {echo 'selected';} ?>>BE</option>
+                <option  value="C1E" <?php if ($kat == 'C1E ') {echo 'selected';} ?>>C1E</option>
+                <option  value="CE" <?php if ($kat == 'CE ') {echo 'selected';} ?>>CE</option>
+                <option  value="D1E" <?php if ($kat == 'D1E ') {echo 'selected';} ?>>D1E</option>
+                <option  value="DE" <?php if ($kat == 'DE ') {echo 'selected';} ?>>DE</option>
+                <option  value="T" <?php if ($kat == 'T ') {echo 'selected';} ?>>T</option>
               </select>
             </div>
             <div class="col-md-3 search-tab d-flex align-items-center tab-left mx-auto " >
@@ -148,13 +151,19 @@ if ($ile > 0) {
     } else {
       $row["description"] = 'Ośrodek nie zgłosił się do programu Prawko Plus.';
     }
+    if ($row["img"] != '0') {
+      $img = $row["img"];
+    } else {
+      $img = 'img/kolo.png';
+    }
+    
     // $rating = round(($row['rating1']+$row['rating2']+$row['rating3']+$row['rating4']+$row['rating5'])/5);
     $rating = $row['rating'];
     
 
     echo '<div class="item_search">
           <div class="osk-card w-100 row align-items-center justify-content-between">
-            <div class="img col-sm-2 h-100 p-0" style="background-image: url(img/kolo.png); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 240px; margin-top: 5px; margin-bottom: 5px;">
+            <div class="img col-sm-2 h-100 p-0" style="background-image: url('.$img.'); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 240px; margin-top: 5px; margin-bottom: 5px;">
             </div>
             <div class="desc col-sm-7">
               <h4><b>'.$row["name"].'</b></h4>
@@ -174,7 +183,7 @@ if ($ile > 0) {
             </div>
           </div>
           <div class="osk-card-media w-100 row align-items-center justify-content-between">
-            <div class="img col-5 h-100 p-0 ml-2" style="background-image: url(img/kolo.png); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 200px; margin-top: 5px; margin-bottom: 5px;">
+            <div class="img col-5 h-100 p-0 ml-2" style="background-image: url('.$img.'); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 200px; margin-top: 5px; margin-bottom: 5px;">
             </div>
             <div class="szczegoly col-6">
               <p><b>'.$row["category"].'</b></p>

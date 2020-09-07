@@ -5,4 +5,5 @@
 	$db_password = "zaq1@WSXza";
 	$db_name = "bnblt2_ppnew";
 
+
 ?>
