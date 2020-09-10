@@ -16,7 +16,8 @@ if (isset($_POST['name'])) {
 	$email = $_POST['email'];
 	$city = $_POST['city'];
 	$website = $_POST['website'];
-	$desc_prim = addslashes($_POST['description']);
+	$desc = htmlentities($_POST['description']);
+	$desc_prim = addslashes($desc);
 	$description = nl2br(stripslashes($desc_prim));
 
 	$category = '';

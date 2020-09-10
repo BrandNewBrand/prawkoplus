@@ -68,7 +68,7 @@ include $pageprefix.'include/all/navbar.php';
           <div class="osk-photo">
             <img src="<?php echo $img; ?>" alt="logo">
           </div>
-          <div class="d-flex flex-column align-items-center mt-4">
+          <div class="d-flex flex-column align-items-center my-4 px-4">
             <img src="img/logo-pp.png" height="70px;" class="mb-4">
             <p class="mb-4" >W celu bliższego zapoznania się z naszą kampanią edukacji motorowej w polsce. odwiedź naszą stronę Prawko Plus Expert.</p>
             <a href="http://bnb-project.pl/expert" target="_blank"><button class="btn-secondary-bnb_expert text-center text-white">Prawko Plus Expert</button></a>
@@ -168,7 +168,7 @@ include $pageprefix.'include/all/navbar.php';
                 <p class=" form-label">opis:</p>
               </div>
               <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                <p class="dane text-left"><?php echo $row['description']; ?></p>
+                <p class="dane text-left" style="word-break: break-all;"><?php echo $row['description']; ?></p>
 
               </div>
 

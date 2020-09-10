@@ -1,10 +1,10 @@
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
        -webkit-appearance: none;
        -moz-appearance: none;
        appearance: none;
-       margin: 0; 
+       margin: 0;
 }
 
 .rating {
@@ -568,7 +568,7 @@ p { font-size: 18px; line-height: 48px; text-align: justify;}
 .f24 { font-size: 24px; }
 .f20 { font-size: 20px; }
 .f26 { font-size: 26px; }
-.f36{ font-size: 36px;}
+.f36{ font-size: 36px; line-height: 36px;}
 
 
 .back-header{
@@ -1270,7 +1270,6 @@ footer.container-fluid > .row {
     .about { margin-top: 40px !important; }
     .join { margin-top: 450px !important; }
     .contact { margin-top: 550px !important; }
-    p { font-size: 18px !important; }
 }
 
 @media (max-width: 3500px) {
@@ -1417,7 +1416,7 @@ footer.container-fluid > .row {
     .bg-custom-purple {
       display: none !important;
     }
-    .f36{font-size: 28px}
+    .f36{font-size: 28px; line-height: 32px;}
       h1 { font-size: 30px;}
 
       .back-header{font-size: 36px;}

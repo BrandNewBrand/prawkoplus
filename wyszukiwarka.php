@@ -193,9 +193,10 @@ if ($akt_str == $liczba_stron-1) {
   for ($i=1; $i <= $numb_rec; $i++) { 
     $row=$rez->fetch_assoc();
     if ($row["description"] != '0') {
-      $kr_opis_tbl = explode("\n", $row["description"]);
+      $kr_opis_tbl = explode("<br />", $row["description"]);
 
-      $kr_opis = $kr_opis_tbl[0];
+      $kr_opis = $kr_opis_tbl[0].'<br>'.$kr_opis_tbl[1];
+
       if (strlen($kr_opis) > 200) {
         $kr_opis = substr($kr_opis, 0, 200).'...';
       }

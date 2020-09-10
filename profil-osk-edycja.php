@@ -23,6 +23,7 @@ if ($_SESSION['zalogowany'] == 0) {
     $rez=$polaczenie->query("SELECT * FROM osk WHERE osk_id='$id_osk'");
     $row=$rez->fetch_assoc();
     $name = $row['name'];
+    $description = strip_tags($row['description']);
     if (strlen($row['img']) > 10) {
       $img = $row['img'];
     } else {
@@ -185,7 +186,7 @@ include $pageprefix.'include/all/navbar.php';
                 <p class=" form-label">opis:</p>
               </div>
               <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                <textarea class="form-control w-100" required name="description" rows="8" cols="80"><?php echo $row['description']; ?></textarea>
+                <textarea class="form-control w-100" required name="description" rows="8" cols="80"><?php echo $description; ?></textarea>
               </div>
 
             </div>
