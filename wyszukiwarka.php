@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pagetitle = 'wyszukiwarka';
+$pagetitle = 'Wyszukiwarka';
 $pageprefix = '';
 
 
@@ -10,72 +10,69 @@ $polaczenie->query('SET NAMES utf8');
 $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
 
-if (!isset($_POST['sort'])) {
-  if (isset($_SESSION['sort_search'])) {
-    $_POST['sort'] = $_SESSION['sort_search'];
-  } else {
-    $_POST['sort'] = '0';
-  }
-}
 
 
 
-if (isset($_POST['city'])) {
-  $city = $_POST['city'];
-  $kat = $_POST['cat'].' ';
-  if (!isset($_POST['pp'])) {
+if (isset($_GET['city'])) {
+  $city = $_GET['city'];
+  $kat = $_GET['cat'].' ';
+  if (!isset($_GET['pp'])) {
     $pp = '%';
+    $_SESSION['pp_search'] = $pp;
   } else {
     $pp = '1';
+    $_SESSION['pp_search'] = $pp;
   }
 } else {
   $city = '%';
   $kat = '%';
-  $pp = '%';
-
+  if (isset($_SESSION['pp_search'])) {
+    $pp = $_SESSION['pp_search'];
+  } else {
+    $pp = '%';
+  }
+  
 }
 
-if (isset($_POST['city'])) {
+
+if (isset($_GET['city'])) {
   $_SESSION['city_search'] = $city;
 } else {
   $city = $_SESSION['city_search'];
 }
 
-if (isset($_POST['cat'])) {
+if (isset($_GET['cat'])) {
   $_SESSION['kat_search'] = $kat;
 } else {
   $kat = $_SESSION['kat_search'];
 }
 
-
-  $_SESSION['pp_search'] = $pp;
-
-
-
-if (isset($_POST['sort'])) {
-  $_SESSION['sort_search'] = $_POST['sort'];
+if (!isset($_GET['sort'])) {
+  if (isset($_SESSION['sort_search'])) {
+    $_GET['sort'] = $_SESSION['sort_search'];
+  } else {
+    $_GET['sort'] = '0';
+  }
 } else {
-  $_POST['sort'] = $_SESSION['sort_search'];
+  $_SESSION['sort_search'] = $_GET['sort'];
 }
 
 
 
-
-if (isset($_POST['sort'])) {
-  if ($_POST['sort'] == '0') {
+if (isset($_GET['sort'])) {
+  if ($_GET['sort'] == '0') {
     $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus LIKE '$pp' ORDER BY RAND()");
   } else {
-    if ($_POST['sort'] == 'desc') {
+    if ($_GET['sort'] == 'desc') {
       $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus LIKE '$pp' ORDER BY rating DESC");
-    } else if ($_POST['sort'] == 'asc') {
+    } else if ($_GET['sort'] == 'asc') {
       $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus LIKE '$pp' ORDER BY rating ASC");
     }
   }
 } else {
-  $_POST['sort'] = '0';
+  $_GET['sort'] = '0';
   $rez=$polaczenie->query("SELECT * FROM osk WHERE city LIKE '$city' AND category LIKE '%$kat%' AND prawkoplus LIKE '$pp' ORDER BY RAND()");
 }
-
 
 
 $ile = mysqli_num_rows($rez);
@@ -107,7 +104,7 @@ include $pageprefix.'include/all/navbar.php';
         <p style="color:white">Oszczędź swój czas i wybierz sprawdzoną przez naszych kursantów szkołę nauki jazdy.</p>
       </div>
     </div>
-    <form class="mx-auto"  style="width:95%" action="wyszukiwarka.php" method="POST">
+    <form class="mx-auto"  style="width:95%" action="wyszukiwarka.php" method="GET">
       <div class="row bg-search-purple ofe-row-margin  d-flex align-items-center text-center "  style="border-radius:27px; ">
         <div class="col-lg-10  search-box  my-auto  " >
           <div class="row content-row" >
@@ -127,7 +124,7 @@ include $pageprefix.'include/all/navbar.php';
                 <option  value="%" <?php if ($_SESSION['kat_search'] == '%') {echo 'selected';} ?>>kategoria</option>
                 <option  value="AM" <?php if ($_SESSION['kat_search'] == 'AM ') {echo 'selected';} ?>>AM</option>
                 <option  value="A1" <?php if ($_SESSION['kat_search'] == 'A1 ') {echo 'selected';} ?>>A1</option>
-                <option  value="A2" <?php if ($_SESSION['kat_search'] == 'A1 ') {echo 'selected';} ?>>A2</option>
+                <option  value="A2" <?php if ($_SESSION['kat_search'] == 'A2 ') {echo 'selected';} ?>>A2</option>
                 <option  value="A" <?php if ($_SESSION['kat_search'] == 'A ') {echo 'selected';} ?>>A</option>
                 <option  value="B1" <?php if ($_SESSION['kat_search'] == 'B1 ') {echo 'selected';} ?>>B1</option>
                 <option  value="B" <?php if ($_SESSION['kat_search'] == 'B ') {echo 'selected';} ?>>B</option>
@@ -152,7 +149,7 @@ include $pageprefix.'include/all/navbar.php';
             </div>
             <div class="col-md-3 search-tab d-flex align-items-center tab-left mx-auto" >
               <div class="round ">
-                <input type="checkbox" id="checkbox" name="pp" value="tak" <?php if ($_SESSION['pp_search'] > 0) {echo "checked";} ?>>
+                <input type="checkbox" id="checkbox" name="pp" value="1" <?php if ($_SESSION['pp_search'] == '1') {echo "checked";} ?>>
                 <label class="vertical-center-checkbox" for="checkbox"></label>
                 <span class="search-bar-text-1" style="margin-left: 12%;">prawko plus</span>
                 <div class="clearing-both"> </div>
@@ -196,11 +193,14 @@ if ($akt_str == $liczba_stron-1) {
   for ($i=1; $i <= $numb_rec; $i++) { 
     $row=$rez->fetch_assoc();
     if ($row["description"] != '0') {
-      if (strlen($row["description"]) > 200) {
-        $row["description"] = substr($row["description"], 0, 200).'...';
+      $kr_opis_tbl = explode("\n", $row["description"]);
+
+      $kr_opis = $kr_opis_tbl[0];
+      if (strlen($kr_opis) > 200) {
+        $kr_opis = substr($kr_opis, 0, 200).'...';
       }
     } else {
-      $row["description"] = 'Ośrodek nie zgłosił się do programu Prawko Plus.';
+      $kr_opis = 'Ośrodek nie zgłosił się do programu Prawko Plus.';
     }
     if ($row["img"] != '0') {
       $img = $row["img"];
@@ -213,19 +213,19 @@ if ($akt_str == $liczba_stron-1) {
 
     echo '<div class="item_search">
           <div class="osk-card w-100 row align-items-center justify-content-between">
-            <div class="img col-sm-2 h-100 p-0" style="background-image: url('.$img.'); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 240px; margin-top: 5px; margin-bottom: 5px;">
+            <div class="img col-sm-2 h-100 p-0 ml-2" style="background-image: url('.$img.'); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 240px; margin-top: 5px; margin-bottom: 5px; border-radius: 10px;">
             </div>
-            <div class="desc col-sm-7">
+            <div class="desc col-md-6">
               <h4><b>'.$row["name"].'</b></h4>
               <hr class="bg-black mt-0">
               <p class="opis-kr">
-                '.$row["description"].'
+                '.$kr_opis.'
               </p>
               <div class="d-flex">
                 <div class="ocena"><p>Ocena: <b>'.$rating.'</b></p></div>
               </div>
             </div>
-            <div class="szczegoly col-sm-3">
+            <div class="szczegoly col-xl-2 col-md-3">
               <p><b>'.$row["category"].'</b></p>
               <p>'.$row["street"].'<br>
               '.$row["city"].'</p>
@@ -233,7 +233,7 @@ if ($akt_str == $liczba_stron-1) {
             </div>
           </div>
           <div class="osk-card-media w-100 row align-items-center justify-content-between">
-            <div class="img col-5 h-100 p-0 ml-2" style="background-image: url('.$img.'); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 200px; margin-top: 5px; margin-bottom: 5px;">
+            <div class="img col-5 h-100 p-0 ml-2" style="background-image: url('.$img.'); background-size: contain;  border-radius: 10px; background-position: center; background-repeat: no-repeat; min-height: 200px; margin-top: 5px; margin-bottom: 5px;">
             </div>
             <div class="szczegoly col-6">
               <p><b>'.$row["category"].'</b></p>
@@ -245,7 +245,7 @@ if ($akt_str == $liczba_stron-1) {
               <h4 class="w-100"><b>'.$row["name"].'</b></h4>
               <hr class="bg-black">
               <p class="opis-kr">
-                ksdjhfsdkljghsdkfjhsdlkfjghsdkjlhsd jkfsdhlkjfh sdf klsdjh flksdjh flkjsd hf lkjsdhflk jflhs kjsdhf lkjsdhf kljshdlk jfhsdlkj hfh lksdjh flksdjh flkjsdh flkjsdhflk hjsdlkfj..
+                '.$kr_opis.'
               </p>
               <div class="d-flex w-100">
                 <div class="ocena"><p>Ocena: <b>'.$rating.'</b></p></div>

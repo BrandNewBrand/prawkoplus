@@ -7,12 +7,6 @@ if (!isset($_SESSION['error'])) {
 
 $id_zapis = $_GET['id'];
 
-if ($_SESSION['zalogowany'] == 0) {
-    $_SESSION['expres_location'] = 'ocena.php?id='.$id_zapis;
-    header('Location: backend/logowanie.php');
-    exit();
-}
-
 
 
 require_once "backend/connect.php";
@@ -21,31 +15,42 @@ $polaczenie->query('SET NAMES utf8');
 $polaczenie->query('SET CHARACTER_SET utf8_unicode_ci');
 
 
-$rezultat = $polaczenie->query("SELECT * FROM osk_ratings WHERE id_zapis='$id_zapis'");
-$test_ocen = mysqli_num_rows($rezultat);
 
 
 
-    $rezultat = $polaczenie->query("SELECT * FROM zapis_na_kurs WHERE id='$id_zapis'");
-    $row=$rezultat->fetch_assoc();
-    $id_osk = $row['osk_id'];
-    $user_id = $row['user_id'];
 
+$rezultat = $polaczenie->query("SELECT * FROM zapis_na_kurs WHERE id='$id_zapis'");
+$row=$rezultat->fetch_assoc();
+$id_osk = $row['osk_id'];
+$user_id = $row['user_id'];
 
+$rezultat = $polaczenie->query("SELECT * FROM osk WHERE osk_id='$id_osk'");
+$row=$rezultat->fetch_assoc();
+$osk_name = $row['name'];
+$osk_city = $row['city'];
+$_SESSION['ocena_done'] = 'Twoja ocena została dodana do statystyk OSK: '.$osk_name;
+
+$pagetitle = 'Ocena OSK '.$osk_name;
+include $pageprefix.'include/all/head.php';
+
+if ($user_id != 0) {
     if ($_SESSION['zalogowany'] != $user_id) {
         $_SESSION['expres_location'] = 'ocena.php?id='.$id_zapis;
         header('Location: backend/log_out.php');
         exit();
     }
+}
+    
 
-    $rezultat = $polaczenie->query("SELECT * FROM osk WHERE osk_id='$id_osk'");
-    $row=$rezultat->fetch_assoc();
-    $osk_name = $row['name'];
-    $osk_city = $row['city'];
-    $_SESSION['ocena_done'] = 'Twoja ocena została dodana do statystyk OSK: '.$osk_name;
+$rezultat = $polaczenie->query("SELECT * FROM osk WHERE osk_id='$id_osk'");
+$row=$rezultat->fetch_assoc();
+$osk_name = $row['name'];
+$osk_city = $row['city'];
+$_SESSION['ocena_done'] = 'Twoja ocena została dodana do statystyk OSK: '.$osk_name;
 
-    $rezultat = $polaczenie->query("SELECT * FROM osk_ratings WHERE id_zapis='$id_zapis'");
-    $test_ocen = mysqli_num_rows($rezultat);
+$rezultat = $polaczenie->query("SELECT * FROM osk_ratings WHERE id_zapis='$id_zapis'");
+$test_ocen = mysqli_num_rows($rezultat);
+
 
 if ($test_ocen < 1) {
 

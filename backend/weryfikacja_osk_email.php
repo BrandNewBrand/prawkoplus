@@ -45,12 +45,6 @@ $message = '<!DOCTYPE html><html><body style="width: 100%;"><div style="width: 6
 
 
 
-    // echo $to.'<br>';
-    // echo $subject.'<br><br>';
-    // echo $message.'<br><br>';
-    // echo $header.'<br><br>';
-    // echo $_SESSION['email'];
-
 if (mail($to, $subject, $message, $header)) {
 
     
@@ -72,7 +66,7 @@ if (mail($to, $subject, $message, $header)) {
      <div class="container-fluid">
          <div class="row pt-5 mx-0 pl-2">
              <div class="animate-hr">
-                 <a href="index.php" class="mb-2 back-header">ankieta</a>
+                 <a href="index.php" class="mb-2 back-header">Wróć na Prawko Plus</a>
                  <hr class="small-hr ml-0 mt-0">
              </div>
          </div>

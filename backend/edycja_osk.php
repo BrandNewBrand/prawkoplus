@@ -16,7 +16,9 @@ if (isset($_POST['name'])) {
 	$email = $_POST['email'];
 	$city = $_POST['city'];
 	$website = $_POST['website'];
-	$description = $_POST['description'];
+	$desc_prim = addslashes($_POST['description']);
+	$description = nl2br(stripslashes($desc_prim));
+
 	$category = '';
 	for ($i=0; $i < $liczba_kat_tbl; $i++) { 
 		if (isset($_POST['k'.$i])) {
@@ -34,7 +36,7 @@ if (isset($_POST['name'])) {
 }
 
 
-if ($_FILES['img']['size'] > 512000) {
+if ($_FILES['img']['size'] > 512000000) {
 	$_SESSION['error'] = 'Rozmiar pliku jest zbyt duży. Nie może przekraczać 5,12 MB.';
 	header('Location: ../'.$back);
 	exit();
@@ -44,8 +46,8 @@ if ($_FILES['img']['size'] > 1) {
 
 
 
-if ($_FILES['img']['type'] != 'image/jpeg') {
-	$_SESSION['error'] = 'Błędny format pliku. Wgraj logo w formacie JPEG.';
+if ($_FILES['img']['type'] != 'image/png' && $_FILES['img']['type'] != 'image/jpg' && $_FILES['img']['type'] != 'image/jpeg') {
+	$_SESSION['error'] = 'Błędny format pliku. Wgraj logo w formacie JPEG, PNG lub JPG.';
 	header('Location: ../'.$back);
 	exit();
 }

@@ -18,14 +18,14 @@ if (isset($_POST['id_osk'])) {
 	exit();
 }
 
-if (strlen($id_osk) <= 7) {
+if (strlen($id_osk) < 8) {
 	$_SESSION['error'] = 'Twój identyfikator OSK ma zbyt mało znaków. Wprowadź ponownie ID OSK.';
 
 	header('Location: ../'.$back);
 	exit();
 }
 
-if (strlen($id_osk) >= 9) {
+if (strlen($id_osk) > 8) {
 	$_SESSION['error'] = 'Twój identyfikator OSK ma zbyt dużo znaków. Wprowadź ponownie ID OSK.';
 
 	header('Location: ../'.$back);

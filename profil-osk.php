@@ -31,7 +31,7 @@ if ($_SESSION['zalogowany'] == 0) {
     if (strlen($row['img']) > 10) {
       $img = $row['img'];
     } else {
-      $img = $_SESSION['domena'].'/img/kolo.jpg';
+      $img = $_SESSION['domena'].'/img/kolo.png';
     }
   }
 }
@@ -68,7 +68,11 @@ include $pageprefix.'include/all/navbar.php';
           <div class="osk-photo">
             <img src="<?php echo $img; ?>" alt="logo">
           </div>
-
+          <div class="d-flex flex-column align-items-center mt-4">
+            <img src="img/logo-pp.png" height="70px;" class="mb-4">
+            <p class="mb-4" >W celu bliższego zapoznania się z naszą kampanią edukacji motorowej w polsce. odwiedź naszą stronę Prawko Plus Expert.</p>
+            <a href="http://bnb-project.pl/expert" target="_blank"><button class="btn-secondary-bnb_expert text-center text-white">Prawko Plus Expert</button></a>
+          </div>
 
 
 

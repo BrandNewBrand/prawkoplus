@@ -98,7 +98,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
 <!-- ###############################################3 -->
-    <form class="mx-auto home_page_form_search"  style="width:100%" action="wyszukiwarka.php" method="POST">
+    <form class="mx-auto home_page_form_search"  style="width:100%" action="wyszukiwarka.php" method="GET">
       <div class="row bg-search-purple ofe-row-margin  d-flex align-items-center text-center "  style="border-radius:27px; ">
         <div class="col-lg-10  search-box  my-auto  " >
           <div class="row content-row" >
@@ -118,7 +118,7 @@ include $pageprefix.'include/all/navbar.php';
                 <option  value="%" <?php if ($kat == '%') {echo 'selected';} ?>>kategoria</option>
                 <option  value="AM" <?php if ($kat == 'AM') {echo 'selected';} ?>>AM</option>
                 <option  value="A1" <?php if ($kat == 'A1') {echo 'selected';} ?>>A1</option>
-                <option  value="A2" <?php if ($kat == 'A1') {echo 'selected';} ?>>A2</option>
+                <option  value="A2" <?php if ($kat == 'A2') {echo 'selected';} ?>>A2</option>
                 <option  value="A" <?php if ($kat == 'A') {echo 'selected';} ?>>A</option>
                 <option  value="B1" <?php if ($kat == 'B1') {echo 'selected';} ?>>B1</option>
                 <option  value="B" <?php if ($kat == 'B') {echo 'selected';} ?>>B</option>
@@ -143,7 +143,7 @@ include $pageprefix.'include/all/navbar.php';
             </div>
             <div class="col-md-3 search-tab d-flex align-items-center tab-left mx-auto" >
               <div class="round ">
-                <input type="checkbox" id="checkbox" name="pp" value="tak" <?php if (isset($_POST['pp'])) {echo "checked";} ?>>
+                <input type="checkbox" id="checkbox" name="pp" value="1" <?php if (isset($_POST['pp'])) {echo "checked";} ?>>
                 <label class="vertical-center-checkbox" for="checkbox"></label>
                 <span class="search-bar-text-1" style="margin-left: 12%;">prawko plus</span>
                 <div class="clearing-both"> </div>
@@ -168,79 +168,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-
-
-
-<!-- ##################################################### -->
-
-
-
-
 		<div class="row">
-
-		<!-- sekcja wyboru
-			<div class="col-xl-8 offset-xl-1 offset-md-0 p-0">
-					<div class="search-box bg-white">
-						<div class="content row mx-0">
-							<div class="search-tab d-flex align-items-center tab-left col-9 col-xl-9 bg-custom-purple">
-								<div class="col-md-4">
-									<select id="city" onchange="changeSort(true)" class="browser-default custom-select select1">
-										<option value='1' selected>miasto</option>
-									</select>
-								</div>
-								<div class="col-md-5">
-									<select id="category" onchange="changeSort(true)" class="browser-default custom-select select2">
-										<option value='1' selected>kategoria kursu</option>
-									</select>
-								</div>
-								<div class="col-md-5">
-									<select id="category" onchange="changeSort(true)" class="browser-default custom-select select2">
-										<option value='1' selected>Prawko Plus</option>
-									</select>
-								</div>
-								<div class="col-md-5">
-									<select id="category" onchange="changeSort(true)" class="browser-default custom-select select2">
-										<option value='1' selected>sortuj</option>
-									</select>
-								</div>
-							</div>
-							<div class="search-tab col-3 col-xl-3 d-flex align-items-center tab-right">
-								<select id="starPrice" onchange="starPrice(this.value, true)" class="browser-default custom-select sort">
-									<option value="s" selected>szukaj</option>
-									<option value="0">ocena malejąco</option>
-									<option value="2">ocena rosnąco</option>
-									<option value="1">cena rosnąco</option>
-									<option value="3">cena malejąco</option>
-
-								</select>
-							</div>
-							<div id="search-list" class="search-list m-0 position-relative">
-
-
-							</div>
-							<div id="search-list-mobile" class="search-list m-0 position-relative">
-
-
-							</div>
-							<div class="cyferki d-flex c-back justify-content-center pb-5">
-								<button onclick="activeC(-1)" class="search-arrows arrowLeft"></button>
-								<div id="numerki" class="numerki d-flex align-items-center"></div>
-								<button onclick="activeC(1)" class="search-arrows arrowRight"></button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div> -->
-
-
-
-
-
-
-
-
-
 
 
 
@@ -439,7 +367,7 @@ include $pageprefix.'include/all/navbar.php';
 
 			</div>
 
-				<div class="row ">
+				<div class="row" style="margin-top: 150px;">
 					<div class=col-md-10>
 						<div class="heading mb-4 h3-do-reg">
 								<h3>Odwiedź regulamin idealnego Ośrodka Szkolenia Kierowców - dowiedz się,
@@ -473,7 +401,7 @@ include $pageprefix.'include/all/navbar.php';
 		</div>
 
 
-		<div class="row" style="margin-top:80px">
+		<div class="row" style="margin-top: 180px">
 
 
 
@@ -509,7 +437,7 @@ include $pageprefix.'include/all/navbar.php';
 									<div class="col-sm-5 offset-2 offset-sm-0 col-3">
 
 
-										<p class="purple-text f36">pobierz aplikację</p>
+										<p class="purple-text f36"><a href="twoj-profil.php" class="purple-text">pobierz aplikację</a></p>
 
 										<hr class="hr-small-left" style="border-color: #B8578F !important;">
 									</div>
@@ -522,8 +450,7 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-		<!-- ####################3
-		zdjęcia aplikacji -->
+
 
 		<div>
 
@@ -535,85 +462,11 @@ include $pageprefix.'include/all/navbar.php';
 
 		</div>
 
-		<!-- <div class="row">
 
-			<div class="col-12 smartphone-icon-position">
-
-			<img style="width:90%;" src="img/img2/arrowsDown/Group 209.svg" alt="">
-
-			</div>
-
-
-		</div> -->
-
-
-
-
-			<!-- <div class="row">
-				<div class="col-9 col-xl-3 ml-auto ml-xl-0 px-0">
-					<div class="search-left">
-						<div class="heading">
-							<h3>Znajdź kurs</h3>
-						</div>
-						<hr class="hr-margin-left hr-search hr-100">
-						<div class="heading-p">
-							<p>
-								Oszczędź swój czas i wybierz sprawdzoną przez naszych kursantów szkołę nauki jazdy.
-							</p>
-							<p>
-								Odwiedź regulamin <a href="regulamin.html" target="_blank" class="hover_text">idealnego Ośrkodka Szkolenia Kierowców</a> - dowiedz się czy wybrany ośrodek spełnia ważne dla Ciebie kryteria.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-8 offset-xl-1 offset-md-0 p-0">
-					<div class="search-box bg-white">
-						<div class="content row mx-0">
-							<div class="search-tab d-flex align-items-center tab-left col-9 col-xl-9 bg-custom-purple">
-								<div class="col-md-4">
-									<select id="city" onchange="changeSort(true)" class="browser-default custom-select select1">
-										<option value='1' selected>miasto</option>
-									</select>
-								</div>
-								<div class="col-md-5">
-									<select id="category" onchange="changeSort(true)" class="browser-default custom-select select2">
-										<option value='1' selected>kategoria kursu</option>
-									</select>
-								</div>
-							</div>
-							<div class="search-tab col-3 col-xl-3 d-flex align-items-center tab-right">
-								<select id="starPrice" onchange="starPrice(this.value, true)" class="browser-default custom-select sort">
-									<option value="s" selected>sortuj</option>
-									<option value="0">ocena malejąco</option>
-									<option value="2">ocena rosnąco</option>
-									<option value="1">cena rosnąco</option>
-									<option value="3">cena malejąco</option>
-
-								</select>
-							</div>
-							<div id="search-list" class="search-list m-0 position-relative">
-
-
-							</div>
-							<div id="search-list-mobile" class="search-list m-0 position-relative">
-
-
-							</div>
-							<div class="cyferki d-flex c-back justify-content-center pb-5">
-								<button onclick="activeC(-1)" class="search-arrows arrowLeft"></button>
-								<div id="numerki" class="numerki d-flex align-items-center"></div>
-								<button onclick="activeC(1)" class="search-arrows arrowRight"></button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
 		</section>
 
 
-		<!-- <div class="leftImg  d-none d-md-block icon-left-position" >
-				<img class="img-fluid" src="img/left1280.svg">
-			</div> -->
+
 
 
 		<section id="about" class="about container-fluid position-relative p-0 p-md-1 " style="margin-bottom:50px;">
@@ -624,30 +477,6 @@ include $pageprefix.'include/all/navbar.php';
 
 
 
-			<!-- <div class="leftImg position-absolute d-none d-xl-block">
-				<img class="img-fluid" src="img/left1280.svg">
-			</div> -->
-
-
-			<!-- <div class="row">
-				<div class="col-9 col-xl-8 offset-3 offset-xl-4 px-0">
-					<div class="about-content">
-						<div class="heading pb-3">
-							<h3>Kim jesteśmy?</h3>
-						</div>
-						<hr class="hr-margin-right hr-100">
-						<div class="pt-3">
-							<p>
-								Jesteśmy portalem, który umożliwi Ci znalezienie idealnego ośrodka. Stworzyliśmy regulamin <a href="regulamin.html" target="_blank" class="hover_text">idealnego Ośrodka Szkolenia Kierowców</a> – szkołę nauki jazdy, która spełnia wszystkie standardy.
-							</p>
-							<p>
-								Opracowaliśmy wzór idealnego ośrodka szkoleniowego. Na podstawie wytycznych, kursanci
-								oceniają czy wybrana przez nich szkoła jazdy wpasowała się w kryteria.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div> -->
 
 
 
@@ -666,7 +495,7 @@ include $pageprefix.'include/all/navbar.php';
 						<div class="heading pb-3">
 							<h3>Chcesz dołączyć?</h3>
 						</div>
-						<!-- <hr class="hr-margin-left hr-join hr-100"> -->
+
 						<hr class="hr-small-left">
 						<div class="join-left">
 							<p>
@@ -719,7 +548,7 @@ include $pageprefix.'include/all/navbar.php';
 
 			</div>
 		</section>
-		<section id="contact" class="contact container-fluid px-0" style="margin-top:100px;">
+		<section id="contact" class="contact container-fluid px-0" style="margin-top:100px !important;">
 			<div class="row">
 				<div class="col-10 col-sm-8 offset-sm-2 offset-md-1 col-md-4 offset-1 pl-0 px-xl-0">
 					<div class="heading pb-3">
@@ -744,10 +573,10 @@ include $pageprefix.'include/all/navbar.php';
 						<p class="f24 mb-1">Email</p>
 						<p class="f24">janusz.kowalski@onet.pl </p>
 					</div>
-					<div class=" col-xl-5 d-flex px-0 justify-content-between mt-4 pt-4">
-						<a class="icon" href="#"><i class="fab fa-facebook-square text-white"></i></a>
-						<a class="icon" href="#"><i class="fab fa-instagram text-white"></i></a>
-						<a class="icon" href="#"><i class="fab fa-youtube text-white"></i></a>
+					<div class=" col-xl-5 d-flex px-0 justify-content-start mt-4 pt-4">
+						<a class="icon mr-4" href="#"><i class="fab fa-facebook-square text-white fa-2x"></i></a>
+						<a class="icon mr-4" href="#"><i class="fab fa-instagram text-white fa-2x"></i></a>
+						<a class="icon mr-4" href="#"><i class="fab fa-youtube text-white fa-2x"></i></a>
 					</div>
 				</div>
 				<div class="contact-form px-0 px-xl-1 offset-md-1 col-md-6 col-lg-5 offset-0 offset-lg-2 c-back bg-white d-flex flex-column align-items-center">

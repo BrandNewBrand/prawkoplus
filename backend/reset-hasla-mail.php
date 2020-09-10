@@ -20,7 +20,11 @@ $id=$_GET['id'];
 if (isset($_POST['nowe_haslo'])) {
 
   if ($_POST['nowe_haslo'] == $_POST['nowe_haslo2']) {
-      $nowe_haslo=$_POST['nowe_haslo'];
+      if (strlen($_POST['nowe_haslo']) > 7) {
+        $nowe_haslo = $_POST['nowe_haslo'];
+      } else {
+        $_SESSION['error'] = 'Hasło jest zbyt krótkie. Użyj przynajmniej 8 znaków.';
+      }
   } else {
     $_SESSION['error'] = 'Wpisz dwukrotnie to samo hasło';
   }
@@ -77,8 +81,8 @@ if (isset($nowe_haslo)) {
 
                      <div class="  offset-1 col-10 col-lg-8 offset-lg-2 text-center">
                        <form action="reset-hasla-mail.php?id=<?php echo $id; ?>" method="POST">
-                         <input type="password" class="form-control mw-50-input" name="nowe_haslo" placeholder="nowe hasło"><br>
-                         <input type="password" class="form-control mw-50-input"  name="nowe_haslo2" placeholder="powtórz nowe hasło"><br>
+                         <input type="password" class="form-control mw-50-input text-center" name="nowe_haslo" placeholder="nowe hasło"><br>
+                         <input type="password" class="form-control mw-50-input text-center"  name="nowe_haslo2" placeholder="powtórz nowe hasło"><br>
                          <input type="submit" value="Zmień hasło" class="mw-50-input btn btn-primary btn-submicik">
                        </form>
                        <div class="error-box text-center text-error mt-4"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>

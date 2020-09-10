@@ -34,7 +34,7 @@ $message = '<!DOCTYPE html><html><body style="width: 100%;"><div style="width: 6
 if (mail($to, $subject, $message, $header)) {
 
     if (mail($osk, $subject, $message, $header)) {
-        $rezultat2 = $polaczenie->query("INSERT INTO zapis_na_kurs VALUES (NULL, '$user_id', '$osk_id', '$data_zapis', '$data_ocena')");
+        $rezultat2 = $polaczenie->query("INSERT INTO zapis_na_kurs VALUES (NULL, '$user_id', '$osk_id', '$data_zapis', '$data_ocena', '$email')");
         $_SESSION['error'] = 'Udało się. Oczekuj na kontakt z OSK '.$row['name'];
         header('Location: kurs.php?id='.$row['id']);
     }

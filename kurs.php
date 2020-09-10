@@ -174,7 +174,7 @@ include $pageprefix.'include/all/navbar.php';
                         <h4 class="font-weight-bold text-center">Zapisz się na kurs już teraz!</h4>
                         <p id="form-text" class="text-center pt-4">Wyślij zgłoszenie na kurs prawa jazdy do OSK: <?php echo $row['name']; ?></p>
                         <div class="error-box text-center text-error mt-4"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>
-                        <form class="pt-4 d-flex flex-column align-items-end" action="send_zapis.php" method="POST">
+                        <form class="pt-4 d-flex flex-column align-items-center" action="send_zapis.php" method="POST">
                             <div id="mail_osk">
                                 <input type="text" name="osk" hidden value="<?php echo $row['email']; ?>">
                                 <input type="text" name="osk_id" hidden value="<?php echo $row['osk_id']; ?>">

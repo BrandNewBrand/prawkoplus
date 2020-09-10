@@ -6,7 +6,8 @@ include $pageprefix.'include/all/head.php';
     $name = $_POST['name'];
     $nazwisko = $_POST['nazwisko'];
     $email = $_POST['email'];
-    $wiad = $_POST['wiad'];
+    $wiad_prim = addslashes($_POST['wiad']);
+    $wiad = nl2br(stripslashes($wiad_prim));
 
 
 

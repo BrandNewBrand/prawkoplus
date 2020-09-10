@@ -33,7 +33,21 @@ if ($haslo != $haslo2) {
 
 	header('Location: ../rejestracja.php');
 	exit();
-} 
+} else if (strlen($haslo) < 7) {
+	$_SESSION['error'] = 'Hasło jest zbyt krótkie. Użuj przynajmniej 8 znaków';
+
+	$_SESSION['dane_log'] = 1;
+	$_SESSION['imie'] = $imie;
+	$_SESSION['nazwisko'] = $nazwisko;
+	$_SESSION['email'] = $email;
+	$_SESSION['tel'] = $tel;
+	$_SESSION['login'] = $login;
+	$_SESSION['haslo'] = $haslo;
+	$_SESSION['haslo2'] = $haslo2;
+
+	header('Location: ../rejestracja.php');
+	exit();
+}
 
 require_once "connect.php";
 $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);

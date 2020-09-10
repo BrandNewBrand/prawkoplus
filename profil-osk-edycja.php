@@ -67,7 +67,7 @@ include $pageprefix.'include/all/navbar.php';
 
           <form enctype="multipart/form-data" action="backend/edycja_osk.php?id_osk=<?php echo $id_osk; ?>" method="post">
             <div class="text-center osk-btn">
-              <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
+              <input type="hidden" name="MAX_FILE_SIZE" value="512000000" />
               <label for="bb">  <div style="background-color:#6D0B44"  type="submit" class="btn btn-primary btn-submicik">dodaj zdjęcie</div>
                 <input type="file" id="bb" name="img" hidden>
               </label>
@@ -185,7 +185,7 @@ include $pageprefix.'include/all/navbar.php';
                 <p class=" form-label">opis:</p>
               </div>
               <div class="col-lg-6   form-group offset-1 offset-lg-0 col-10">
-                <textarea class="form-control w-100" name="description" rows="8" cols="80"><?php echo $row['description']; ?></textarea>
+                <textarea class="form-control w-100" required name="description" rows="8" cols="80"><?php echo $row['description']; ?></textarea>
               </div>
 
             </div>

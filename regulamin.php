@@ -18,7 +18,7 @@ include $pageprefix.'include/all/navbar.php';
           <div class="container-fluid " >
                   <div class="text-white animate-hr">
                     <div class="row pt-5 px-4" style="display:block">
-                      <a href="index.php" class="mb-2">wróć do wyboru kursów</a>
+                      <a href="index.php" class="mb-2 back-header">wróć na Prawko Plus</a>
 
                       <hr class="small-hr ml-0 mt-0">
                   </div>

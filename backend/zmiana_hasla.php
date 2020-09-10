@@ -35,14 +35,14 @@ if (isset($_POST['stare_haslo'])) {
   if ($haslo_user == $stare_haslo) {
 
     if (isset($_POST['nowe_haslo'])) {
-      if (strlen($_POST['nowe_haslo']) > 3) {
+      if (strlen($_POST['nowe_haslo']) > 7) {
         if ($_POST['nowe_haslo'] == $_POST['nowe_haslo2']) {
             $nowe_haslo=$_POST['nowe_haslo'];
         } else {
           $_SESSION['error'] = 'Wpisz dwukrotnie to samo hasło';
         }
       } else {
-        $_SESSION['error'] = 'Podaj hasło o minimalnej długości 3 znaków';
+        $_SESSION['error'] = 'Podaj hasło o minimalnej długości 8 znaków';
       }
     }
 

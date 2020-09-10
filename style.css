@@ -1,6 +1,18 @@
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       appearance: none;
+       margin: 0; 
+}
+
 .rating {
     float:left;
+}
+
+.btn-primary {
+  outline: none !important;
 }
 
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
@@ -24,11 +36,18 @@
 }
 
 .w-const_cat > input {
-  margin-top: 14px;
+  margin-top: 10px;
   float: left;
   margin-right: 8px;
 }
 
+#os-description {
+  word-break: break-all;
+}
+.opis-kr {
+  word-break: break-all;
+  width: 100%;
+}
 
 #first-icon {
   z-index: 9999999;
@@ -61,7 +80,7 @@ p.link_text > a:hover {
 
 
 .szczegoly > p {
-  margin-bottom: 30px !important;
+  margin-bottom: 30px;
   line-height: 25px;
 }
 
@@ -827,6 +846,7 @@ option {
 
 .szczegoly {
     border-left: 2px solid #000;
+    padding-top: 20px;
 }
 
 .kurs-card-header{
@@ -901,10 +921,13 @@ option {
 
 .osk-card-media {
     display: none;
-    border: 2px solid #000;
     border-radius: 20px;
     margin-bottom: 20px;
     min-height: 450px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    animation: fadeIn 2s forwards;
 }
 
 
@@ -954,9 +977,12 @@ hr.bg-black {
 }
 
 .osk-card {
-    border: 2px solid #000;
     border-radius: 20px;
     margin-bottom: 35px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    animation: fadeIn 2s forwards;
 }
 
 .osk-card > div {
@@ -1326,7 +1352,7 @@ footer.container-fluid > .row {
     h1 { font-size: 46px; }
     h3 { font-size: 36px; }
     h4 { font-size: 22px; }
-    p { font-size: 18px; line-height: 35px; }
+    p { font-size: 18px; line-height: 22px; }
     .f24 { font-size: 18px; }
     .f20 { font-size: 16px; }
     .search { margin-top: 50px; }
@@ -1368,6 +1394,7 @@ footer.container-fluid > .row {
         padding-right: 5%;
     }
     .contact { margin-top: 140px; }
+    .szczegoly > p {margin-bottom: 15px;}
 
 }
 
@@ -1585,9 +1612,25 @@ a.wyloguj {
   min-width: 200px;
 }
 
+.btn-secondary-bnb_expert {
+  height: 45px;
+  width: 80%;
+  max-width: 300px;
+  border: none;
+  border-radius: 22.5px;
+  background-color: #1177cc;
+  transition: 1s all;
+  min-width: 200px;
+}
+
 .btn-secondary-bnb:hover {
   background-color: #474958;
 }
+
+.btn-secondary-bnb_expert:hover {
+  background-color: #075290;
+}
+
 
 .btn-thirdary-bnb {
   height: 45px;

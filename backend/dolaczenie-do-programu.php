@@ -50,11 +50,6 @@ $message = '<!DOCTYPE html><html><body style="width: 100%;"><div style="width: 6
 
 
 
-    // echo $to.'<br>';
-    // echo $subject.'<br><br>';
-    // echo $message.'<br><br>';
-    // echo $header.'<br><br>';
-    // echo $_SESSION['email'];
 
 if (mail($to, $subject, $message, $header)) {
 
